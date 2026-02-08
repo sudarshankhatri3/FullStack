@@ -5,6 +5,7 @@ from django.db import models
 class category(models.Model):
     category_title=models.CharField(max_length=450,unique=True)
     slug=models.SlugField(default=category_title,null=False,max_length=50,unique=True)
+    unit_price=models.BigIntegerField()
     image=models.ImageField(upload_to='category/')
     description=models.CharField(max_length=2000)
     created_at=models.DateTimeField(auto_now_add=True)
