@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # third party app
     'rest_framework',
+    'phonenumber_field',
    
 
 
@@ -110,6 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+PHONENUMBER_DEFAULT_REGION = 'Nep'
 
 TIME_ZONE = 'UTC'
 
