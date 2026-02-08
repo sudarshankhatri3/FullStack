@@ -15,6 +15,14 @@ stateChoice=[
     ("Sudurpashchim", "Sudurpashchim Province"),
 ]
 
+PAYMENT_STATUS_CHOICES = [
+    ("PENDING", "Pending"),
+    ("SUCCESS", "Success"),
+    ("FAILED", "Failed"),
+    ("CANCELLED", "Cancelled"),
+    ("REFUNDED", "Refunded"),
+]
+
 
 # model for userProfile
 class userProfile(models.Model):
@@ -42,7 +50,15 @@ class userProfile(models.Model):
 class productOrder(models.Model):
     product=models.ForeignKey(products,on_delete=models.CASCADE)
     quantity=models.PositiveIntegerField(default=1,validators=[MinValueValidator(1),MaxValueValidator(100)])
-    unit_price=models.ForeignKey('products.unit_price',on_delete=models.CASCADE)
+    total_price=models.PositiveIntegerField()
+    shipping_address=models.CharField(max_length=300)
+    payment_status=models.CharField(max_length=50,choices=PAYMENT_STATUS_CHOICES)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return f'order of {self.product}'
 
     
     

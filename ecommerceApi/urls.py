@@ -29,5 +29,5 @@ router.registry.extend(product.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('productsAPi/',include(router.urls))
+    path('products/',include(router.urls))
 ]
