@@ -20,11 +20,13 @@ from django.urls import path,include
 
 from rest_framework import routers
 from product.routers.router import product
+from customer.routers.router import customer
 
 
 
 router=routers.DefaultRouter()
 router.registry.extend(product.registry)
+router.registry.extend(customer.registry)
 
 
 urlpatterns = [

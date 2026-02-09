@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
 
     'product',
+    'customer',
 ]
 
 MIDDLEWARE = [
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-PHONENUMBER_DEFAULT_REGION = 'Nep'
+PHONENUMBER_DEFAULT_REGION = 'NL'
 
 TIME_ZONE = 'UTC'
 
