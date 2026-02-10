@@ -26,6 +26,7 @@ PAYMENT_STATUS_CHOICES = [
 
 # model for userProfile
 class userProfile(models.Model):
+    slug = models.SlugField(max_length=255, null=True, blank=True)
     first_name=models.CharField(max_length=299,null=False)
     last_name=models.CharField(max_length=299)
     email=models.EmailField(max_length=300,unique=True)
@@ -49,6 +50,7 @@ class userProfile(models.Model):
 # model  for order products 
 class productOrder(models.Model):
     product=models.ForeignKey(products,on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=255, null=True, blank=True)
     quantity=models.PositiveIntegerField(default=1,validators=[MinValueValidator(1),MaxValueValidator(100)])
     total_price=models.PositiveIntegerField()
     shipping_address=models.CharField(max_length=300)
@@ -64,6 +66,7 @@ class productOrder(models.Model):
 
 # product review models
 class productReview(models.Model):
+    slug = models.SlugField(max_length=255, null=True, blank=True)
     product=models.ForeignKey(products,on_delete=models.CASCADE)
     rating=models.PositiveIntegerField(choices=[(i,str(i)) for i in range(1,6)])
     comment=models.TextField(blank=True,null=True)

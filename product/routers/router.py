@@ -3,5 +3,5 @@ from ..viewsets.viewset import productViewset,categoryViewset
 
 
 product=DefaultRouter()
-product.register('productlistApi',productViewset,basename='productlistapi')
-product.register('categorylistApi',categoryViewset,basename='categorylistapi')
+product.register('product',productViewset,basename='productlistapi')
+product.register('category',categoryViewset,basename='categorylistapi')
