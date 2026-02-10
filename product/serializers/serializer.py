@@ -22,13 +22,13 @@ class productPostSerializer(serializers.ModelSerializer):
 class categoryListSerializer(serializers.ModelSerializer):
     class Meta:
         model=category
-        fields=['id','category_title','image','description','created_at']
+        fields=['id','category_title','slug','image','description','created_at']
 
 # serializer for post the category
 class categoryPostSerializer(serializers.ModelSerializer):
     class Meta:
         model=category
-        fields=['category_title','image','description']
+        fields=['category_title','slug','image','description']
 
 
 
