@@ -5,7 +5,6 @@ from django.db import models
 class category(models.Model):
     category_title=models.CharField(max_length=450,unique=True)
     slug = models.SlugField(max_length=255, null=True, blank=True)
-    # unit_price=models.BigIntegerField()
     image=models.ImageField(upload_to='category/')
     description=models.CharField(max_length=2000)
     created_at=models.DateTimeField(auto_now_add=True)
@@ -23,7 +22,8 @@ class category(models.Model):
 class products(models.Model):
     title=models.CharField(max_length=100)
     slug = models.SlugField(max_length=255, null=True, blank=True)
-    price=models.PositiveIntegerField()
+    stock=models.BigIntegerField(null=False)
+    price=models.PositiveIntegerField(default=0)
     category=models.ForeignKey(category,on_delete=models.CASCADE)
     image=models.ImageField(upload_to='products/')
     description=models.CharField(max_length=1000)
