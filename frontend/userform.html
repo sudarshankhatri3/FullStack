@@ -56,8 +56,6 @@
               </tr>
             </thead>
             <tbody id="texture">
-                <button type="submit">Edit</button>
-              
             </tbody>
           </table>
         </div>
@@ -121,9 +119,8 @@
                 <td class="px-6 py-4">${userData.name.firstname} ${userData.name.lastname}</td>
                 <td class="px-6 py-4">${userData.address.city} ${userData.address.street}</td>
                 <td class="px-6 py-4">${userData.phone}</td>
-                <td class="px-6 py-4">
-                    <button type="submit"  style="width:70px;  padding:8px 10px; border:3px solid rgb(2, 34, 34); border-radius:4px; cursor:pointer;" onclick=dataDelete(${userData.id})>Delete</button></td>
-                
+                <td class="px-6 py-4" id="remover">
+                  <button type="submit"  style="width:70px;  padding:8px 10px; border:3px solid rgb(2, 34, 34); border-radius:4px; cursor:pointer;" onclick=dataDelete(${userData.id})>Delete</button></td>
               </tr>`
       }
 
@@ -156,7 +153,7 @@
           if(!response.ok){
             alert("Response error")
           }
-          document.getElementById(`${id}`).remove
+          document.getElementById("remover").remove()
         } catch (error) {
           alert(error)
         }

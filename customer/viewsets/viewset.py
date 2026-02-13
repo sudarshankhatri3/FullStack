@@ -21,7 +21,7 @@ class userProfileViewset(viewsets.ModelViewSet):
             return userProfileListSerializer
         elif self.action in ['create','update','partial_update']:
             return userProfilePostSerializer
-        return super().get_serializer_class()
+        return userProfileListSerializer
     
 
 
@@ -37,7 +37,7 @@ class productOrderViewset(viewsets.ModelViewSet):
             return productOrderListSerializer
         elif self.action in ['create','update','partial_update']:
             return productOrderPostSerializer
-        return super().get_serializer_class()
+        return productOrderListSerializer
     
 
 #viewset for product review 
@@ -52,4 +52,4 @@ class productReviewViewSet(viewsets.ModelViewSet):
             return productReviewListSerializer
         elif self.action in ['create','update','partial_update']:
             return productReviewPostSerializer
-        return super().get_serializer_class()
+        return productReviewListSerializer

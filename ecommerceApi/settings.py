@@ -41,10 +41,21 @@ INSTALLED_APPS = [
     # third party app
     'rest_framework',
     'phonenumber_field',
+    'rest_framework_simplejwt',
+
+
+    #custom app
     'product',
     'customer',
     
 ]
+
+
+REST_FRAMEWORK={
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
