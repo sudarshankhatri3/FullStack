@@ -66,5 +66,20 @@
       <section></section>
       <section></section>
     </main>
+    <script>
+        async function fetchApi() {
+            try {
+                const response=await fetch(`http://127.0.0.1:8000/ecommerceApi/todo/`)
+                const data=await response.json()
+                console.log(data)
+            } catch (error) {
+                console.log(error)
+                
+            }
+            
+        }
+        fetchApi()
+
+    </script>
   </body>
 </html>
