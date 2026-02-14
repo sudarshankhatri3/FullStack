@@ -56,7 +56,7 @@
             <textarea id="todo-description" class="form-textarea"></textarea>
           </div>
 
-          <button type="submit" id="todo-submit-btn" class="btn-primary">
+          <button type="submit" id="todo-submit-btn" class="btn-primary" onclick="postDataFromUser()">
             Add Todo
           </button>
         </div>
@@ -67,6 +67,69 @@
       <section></section>
     </main>
     <script>
+
+
+        let title=document.getElementById("todo-title")
+        let priority=document.getElementById("todo-priority")
+        let final_date=document.getElementById("todo-final-date")
+        let isImportandYes=document.getElementById("important-yes")
+        let isImportandNo=document.getElementById("important-no")
+
+
+        function postDataFromUser(){
+            const titleData=title.value 
+            const priorityData=priority.value 
+            const finalDate=final_date.value 
+            const isImportData=isImportandYes.value 
+            const isImportantData=isImportandNo.value
+
+            let value
+            if(titleData===""){
+                alert("Title field required")
+            }
+            if(priorityData===""){
+                alert("priorityData is required")
+            }
+            if(finalDate===""){
+                alert("final Date is required")
+            }
+            if(isImportData!==""){
+                value=isImportData
+            }
+            if(isImportandNo!==""){
+                value=isImportandNo
+            }
+
+            const todoData={titleData,priorityData,finalDate,value}
+            postDataUser(todoData)
+        
+        }
+        // post the data
+        async function postDataUser(userData) {
+            try {
+                const response=await fetch(`http://127.0.0.1:8000/ecommerceApi/todo/`,{
+                    method:"POST",
+                    headers:{
+                        "content-type":"application/json"
+                    },
+                    body:JSON.stringify(userData)
+                })
+                if(repsonse.ok){
+                    alert("Submitted sucessfully")
+                }else{
+                    console.log("Invalid response")
+                }
+            } catch (error) {
+                console.log(error)
+                
+            }
+            
+        }
+
+
+
+
+
         async function fetchApi() {
             try {
                 const response=await fetch(`http://127.0.0.1:8000/ecommerceApi/todo/`)

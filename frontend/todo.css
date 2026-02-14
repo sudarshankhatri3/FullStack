@@ -1,11 +1,11 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 .todo-container{
     background-color: aqua;
     color: rgb(8, 29, 22);
-    /* width: 100vw; */
     padding: 100px;
 }
 .todo-form{
