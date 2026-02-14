@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.todo-container{
+    background-color: aqua;
+    color: rgb(8, 29, 22);
+    /* width: 100vw; */
+    padding: 100px;
+}
+.todo-form{
+    width:50%;
+    height: 300px;
+    box-shadow: rgba(53, 9, 9, 0.637) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-group{
+    
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="todo.css" />
+  </head>
+  <body>
+    <main>
+      <section id="todo-section" class="todo-container">
+        <div id="todo-form" class="todo-form">
+          <div class="form-group">
+            <label for="todo-title">Title:</label>
+            <input type="text" id="todo-title" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label for="todo-priority">Priority:</label>
+            <select id="todo-priority" class="form-select">
+              <option disabled selected>Select option</option>
+              <option value="HIGH">High</option>
+              <option value="MEDIUM">Medium</option>
+              <option value="LOW">Low</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="todo-final-date">Final Date:</label>
+            <input type="date" id="todo-final-date" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label>Is Important:</label>
+            <div class="radio-group">
+              <input
+                type="radio"
+                name="todo-important"
+                id="important-yes"
+                value="yes"
+              />
+              <label for="important-yes">Yes</label>
+
+              <input
+                type="radio"
+                name="todo-important"
+                id="important-no"
+                value="no"
+              />
+              <label for="important-no">No</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="todo-description">Description:</label>
+            <textarea id="todo-description" class="form-textarea"></textarea>
+          </div>
+
+          <button type="submit" id="todo-submit-btn" class="btn-primary">
+            Add Todo
+          </button>
+        </div>
+      </section>
+
+      <section></section>
+      <section></section>
+      <section></section>
+    </main>
+  </body>
+</html>
