@@ -69,38 +69,38 @@
     <script>
 
 
-        let title=document.getElementById("todo-title")
-        let priority=document.getElementById("todo-priority")
-        let final_date=document.getElementById("todo-final-date")
+        let titleData=document.getElementById("todo-title")
+        let priorityData=document.getElementById("todo-priority")
+        let final_data=document.getElementById("todo-final-date")
         let isImportandYes=document.getElementById("important-yes")
         let isImportandNo=document.getElementById("important-no")
 
 
         function postDataFromUser(){
-            const titleData=title.value 
-            const priorityData=priority.value 
-            const finalDate=final_date.value 
+            const title=titleData.value 
+            const priority=priorityData.value 
+            const final_date=final_data.value 
             const isImportData=isImportandYes.value 
             const isImportantData=isImportandNo.value
 
-            let value
-            if(titleData===""){
+            let is_important
+            if(title===""){
                 alert("Title field required")
             }
-            if(priorityData===""){
+            if(priority===""){
                 alert("priorityData is required")
             }
-            if(finalDate===""){
+            if(final_date===""){
                 alert("final Date is required")
             }
             if(isImportData!==""){
-                value=isImportData
+                is_important=true
             }
             if(isImportandNo!==""){
-                value=isImportandNo
+               is_important=true
             }
 
-            const todoData={titleData,priorityData,finalDate,value}
+            const todoData={title,priority,final_date,is_important}
             postDataUser(todoData)
         
         }
