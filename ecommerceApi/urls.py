@@ -22,12 +22,14 @@ from rest_framework_simplejwt import views as jwt_views
 from rest_framework import routers
 from product.routers.router import product
 from customer.routers.router import customer
+from todoApp.routers.router import toDo
 
 
 
 router=routers.DefaultRouter()
 router.registry.extend(product.registry)
 router.registry.extend(customer.registry)
+router.registry.extend(toDo.registry)
 
 
 urlpatterns = [

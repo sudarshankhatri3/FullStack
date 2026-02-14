@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     #custom app
     'product',
     'customer',
+    'todoApp',
     
 ]
 
