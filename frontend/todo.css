@@ -18,5 +18,25 @@
     align-items: center;
 }
 .form-group{
-    
+    height: 20px;
+    width: 50%;
+    margin-top: 10px;
+    padding: 3px; 
+}
+.form-input{
+    width: 60%;
+    height: 15px;
+    padding: 3px;
+}
+
+.form-select{
+    width: 60%;
+    height: 25px;
+    padding: 3px;
+}
+.form-group{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    gap: 20px;
 }
