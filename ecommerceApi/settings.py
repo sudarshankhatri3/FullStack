@@ -17,7 +17,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+# https://github.com/ashishps1/awesome-system-design-resources?tab=readme-ov-file
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y8o$=_f^wk9w$@ol10b*jybpc0r3=tj782%@22za%w6lyi=)4a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('RENDER', None) is None
 
 ALLOWED_HOSTS = []
 
@@ -106,10 +106,12 @@ WSGI_APPLICATION = 'ecommerceApi.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 if 'RENDER' in os.environ:
     DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
-        conn_max_age=600
-    )}
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL'),  # use Render's DATABASE_URL
+            conn_max_age=600,
+            ssl_require=True  # optional but recommended for production
+        )
+    }
 else:
     DATABASES = {
     'default': {
