@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="todo.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
 
   </head>
   <body>
@@ -138,40 +137,46 @@
 
         // render the template 
         function renderTemplate(data){
-          return ` <tr class="bg-neutral-primary-soft border-b  border-default">
-                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap"><th>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4 text-right"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
+          return ` <tr  id="row_class" class="bg-neutral-primary-soft border-b  border-default">
+                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">${data.id}<th>
+                <td class="px-6 py-4">${data.title}</td>
+                <td class="px-6 py-4">${data.priority.toLowerCase()}</td>
+                <td class="px-6 py-4">${data.completed}</td>
+                <td class="px-6 py-4 text-right">${data.final_date}</td>
+                <td class="px-6 py-4">${data.due_date}</td>
+                <td class="px-6 py-4">${data.is_important}</td>
+                <td class="px-6 py-4">${data.description}</td>
+                <td class="px-6 py-4">${data.created_at}</td>
+                <td class="px-6 py-4">${data.updated_at}</td>
+                <td class="px-6 py-4">
+<button onclick="deleteData(${data.id})">
+            Delete
+          </button>
+                  </td>
             </tr>`
         }
 
         async function fetchApiUser() {
           try {
-            const response=await(`http://127.0.0.1:8000/ecommerceApi/todo/`,{method:"GET"})
-            const data=await response.json
+            const response=await fetch(`http://127.0.0.1:8000/ecommerceApi/todo/`,{method:"GET"})
+            const toDOdata=await response.json()
 
             if(response.ok){
               console.log("fetched data sucessfully !!!!")
             }
-            const userMapper=data.map((value)=>{
-              return renderingTemplate(value)
+            const userMapper=toDOdata.map((value)=>{
+              return renderTemplate(value)
             })
 
             renderingTemplateData.innerHTML=userMapper.join("")
 
           } catch (error) {
-            
+             console.log(error)
           }
           
         }
+      console.log("after fetching")
+      fetchApiUser()
 
 
 
@@ -185,7 +190,7 @@
                     },
                     body:JSON.stringify(userData)
                 })
-                if(repsonse.ok){
+                if(response.ok){
                     alert("Submitted sucessfully")
                 }else{
                     console.log("Invalid response")
@@ -195,7 +200,31 @@
                 
             }
             
+         }
+
+        //  # delete option 
+        async function deleteData(id){
+          try {
+            const response=await fetch(`http://127.0.0.1:8000/ecommerceApi/todo/${id}/`,{
+              method:"DELETE"
+            })
+            if(response.ok){
+              alert("Data removed sucessfully")
+              fetchApiUser()   //re fetch api for updated list 
+
+            }else{
+              console.log("Data not removed")
+            }
+            document.getElementById("row_class").remove()
+            
+          } catch (error) {
+            console.log(error)
+            
+          }
+
         }
+
+        postDataFromUser()
     </script>
   </body>
 </html>
