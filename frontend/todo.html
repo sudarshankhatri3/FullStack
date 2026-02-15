@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="todo.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
   </head>
   <body>
     <main>
@@ -62,7 +64,34 @@
         </div>
       </section>
 
-      <section></section>
+      <section>
+         
+
+<div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+    <table class="w-full text-sm text-left rtl:text-right text-body">
+        <thead class="text-sm text-body bg-neutral-secondary-medium border-b border-default-medium">
+            <tr>
+                <th scope="col" class="px-6 py-3 font-medium">ID</th>
+                <th scope="col" class="px-6 py-3 font-medium">Title</th>
+                <th scope="col" class="px-6 py-3 font-medium">priority</th>
+                <th scope="col" class="px-6 py-3 font-medium">completed</th>
+                <th scope="col" class="px-6 py-3 font-medium">final_date</th>
+                <th scope="col" class="px-6 py-3 font-medium">Due_date</th>
+                <th scope="col" class="px-6 py-3 font-medium">Is_important</th>
+                <th scope="col" class="px-6 py-3 font-medium">Description</th>
+                <th scope="col" class="px-6 py-3 font-medium">Created_at</th>
+                <th scope="col" class="px-6 py-3 font-medium">Updated_at</th>
+                <th scope="col" class="px-6 py-3 font-medium">Action</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+           
+        </tbody>
+    </table>
+</div>
+
+
+      </section>
       <section></section>
       <section></section>
     </main>
@@ -74,6 +103,8 @@
         let final_data=document.getElementById("todo-final-date")
         let isImportandYes=document.getElementById("important-yes")
         let isImportandNo=document.getElementById("important-no")
+
+        let renderingTemplateData=document.getElementById("tableBody")
 
 
         function postDataFromUser(){
@@ -104,6 +135,46 @@
             postDataUser(todoData)
         
         }
+
+        // render the template 
+        function renderTemplate(data){
+          return ` <tr class="bg-neutral-primary-soft border-b  border-default">
+                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap"><th>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4 text-right"></td>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4"></td>
+                <td class="px-6 py-4"></td>
+            </tr>`
+        }
+
+        async function fetchApiUser() {
+          try {
+            const response=await(`http://127.0.0.1:8000/ecommerceApi/todo/`,{method:"GET"})
+            const data=await response.json
+
+            if(response.ok){
+              console.log("fetched data sucessfully !!!!")
+            }
+            const userMapper=data.map((value)=>{
+              return renderingTemplate(value)
+            })
+
+            renderingTemplateData.innerHTML=userMapper.join("")
+
+          } catch (error) {
+            
+          }
+          
+        }
+
+
+
         // post the data
         async function postDataUser(userData) {
             try {
@@ -125,24 +196,6 @@
             }
             
         }
-
-
-
-
-
-        async function fetchApi() {
-            try {
-                const response=await fetch(`http://127.0.0.1:8000/ecommerceApi/todo/`)
-                const data=await response.json()
-                console.log(data)
-            } catch (error) {
-                console.log(error)
-                
-            }
-            
-        }
-        fetchApi()
-
     </script>
   </body>
 </html>
