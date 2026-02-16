@@ -27,7 +27,11 @@ SECRET_KEY = 'django-insecure-y8o$=_f^wk9w$@ol10b*jybpc0r3=tj782%@22za%w6lyi=)4a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('RENDER', None) is None
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+     "expected-raye-kistcollege-74884d41.koyeb.app",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
