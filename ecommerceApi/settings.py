@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y8o$=_f^wk9w$@ol10b*jybpc0r3=tj782%@22za%w6lyi=)4a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('RENDER', None) is None
+# DEBUG = os.environ.get('RENDER', None) is None
+DEBUG=False
 
 ALLOWED_HOSTS = [
      "expected-raye-kistcollege-74884d41.koyeb.app",
