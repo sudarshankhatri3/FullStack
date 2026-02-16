@@ -29,7 +29,7 @@ DEBUG = os.environ.get('RENDER', None) is None
 # DEBUG=False
 
 ALLOWED_HOSTS = [
-     "adverse-sabrina-kistcollege-3058934a.koyeb.app/",
+    "adverse-sabrina-kistcollege-3058934a.koyeb.app",
     "localhost",
     "127.0.0.1",
 ]
