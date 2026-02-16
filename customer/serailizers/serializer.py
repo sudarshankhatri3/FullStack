@@ -6,13 +6,13 @@ from ..models import userProfile,productOrder,productReview
 class userProfileListSerializer(serializers.ModelSerializer):
     class Meta:
         model=userProfile
-        fields=['id','first_name','last_name','email','phone_number','profile_image',' address', 'city','state','country','created_at']
+        fields=['id','first_name','last_name','email','phone_number','profile_image','address', 'city','state','country','created_at']
 
 # serailzer for post userProfile
 class userProfilePostSerializer(serializers.ModelSerializer):
     class Meta:
         model=userProfile
-        fields=['first_name','last_name','email','phone_number','profile_image',' address', 'city','state','country']
+        fields=['first_name','last_name','email','phone_number','profile_image','address', 'city','state','country']
 
 
 # serializer for list of productOrder
