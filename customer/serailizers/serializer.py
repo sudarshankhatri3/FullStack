@@ -19,14 +19,14 @@ class userProfilePostSerializer(serializers.ModelSerializer):
 class productOrderListSerializer(serializers.ModelSerializer):
     class Meta:
         model=productOrder
-        fields=['id','product quantity','total_price','shipping_address','payment_status', 'created_at']
+        fields=['id','product','quantity','total_price','shipping_address','payment_status', 'created_at']
 
 
 #serailizer for post productOrder
 class productOrderPostSerializer(serializers.ModelSerializer):
     class Meta:
         model=productOrder
-        fields=['product quantity','total_price','shipping_address','payment_status','created_at']
+        fields=[' product','quantity','total_price','shipping_address','payment_status','created_at']
 
 #serialzier for list of productReview
 class productReviewListSerializer(serializers.ModelSerializer):
