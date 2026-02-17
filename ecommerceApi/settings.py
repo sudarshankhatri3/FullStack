@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url 
+# import dj_database_url 
 import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,11 +28,7 @@ SECRET_KEY = 'django-insecure-y8o$=_f^wk9w$@ol10b*jybpc0r3=tj782%@22za%w6lyi=)4a
 DEBUG = os.environ.get('RENDER', None) is None
 # DEBUG=False
 
-ALLOWED_HOSTS = [
-    "adverse-sabrina-kistcollege-3058934a.koyeb.app",
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -55,8 +51,7 @@ INSTALLED_APPS = [
     #custom app
     'product',
     'customer',
-    'todoApp',
-    
+    'accounts',
 ]
 
 
@@ -69,7 +64,7 @@ REST_FRAMEWORK={
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', 
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,10 +74,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:5500",
-    "http://localhost:5500",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://127.0.0.1:5500",
+#     "http://localhost:5500",
+# ]
 
 
 # STATIC_URL = '/static/'
@@ -111,16 +106,16 @@ WSGI_APPLICATION = 'ecommerceApi.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-if 'RENDER' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),  # use Render's DATABASE_URL
-            conn_max_age=600,
-            ssl_require=True  # optional but recommended for production
-        )
-    }
-else:
-    DATABASES = {
+# if 'RENDER' in os.environ:
+#     DATABASES = {
+#         'default': dj_database_url.config(
+#             default=os.environ.get('DATABASE_URL'),  # use Render's DATABASE_URL
+#             conn_max_age=600,
+#             ssl_require=True  # optional but recommended for production
+#         )
+#     }
+# else:
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
@@ -174,10 +169,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # This production code might break development mode, so we check whether we're in DEBUG mode
-if not DEBUG:
-    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# if not DEBUG:
+#     # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-    # and renames the files with unique names for each version to support long-term caching
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#     # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+#     # and renames the files with unique names for each version to support long-term caching
+#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
