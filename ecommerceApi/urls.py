@@ -22,6 +22,7 @@ from rest_framework_simplejwt import views as jwt_views
 from rest_framework import routers
 from product.routers.router import product
 from customer.routers.router import customer
+from accounts.viewsets.viewset import registerViewset,loginViewset,resetPasswordViewset,passwordResetConfirmViewset,logOutViewset
 
 
 
@@ -35,6 +36,11 @@ router.registry.extend(customer.registry)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ecommerceApi/',include(router.urls)),
+    path('api/register/',registerViewset.as_view(),name='register'),
+    path('api/login',loginViewset.as_view(),name="login"),
+    path('api/resetpassword/',resetPasswordViewset.as_view(),name='resetPassword'),
+    path('api/resetPasswordConfirm/<uid64>/<token>',passwordResetConfirmViewset.as_view(),name="resetPasswordConfirm"),
+    path('api/logout/',logOutViewset.as_view(),name='logOut'),
     path('api/token',jwt_views.TokenObtainPairView.as_view(),name='token_obtain_pair'),
     path('api/token/refresh',jwt_views.TokenRefreshView.as_view(),name='token_refresh'),
 ]

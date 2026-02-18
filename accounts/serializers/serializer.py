@@ -5,11 +5,9 @@ from ..models import signUpModel
 
 # serializer for signup
 class registerSerializer(serializers.ModelSerializer):
-    password1=serializers.CharField(max_length=30)
-    password2=serializers.CharField(max_length=30)
     class Meta:
         model=signUpModel
-        fields=['first_name','last_name','email','password1','password2','role','is_active','date_joined']
+        fields=['first_name','last_name','email','password1','password2','role','date_joined']
 
 
     def validate(self, attrs):
@@ -33,8 +31,9 @@ class registerSerializer(serializers.ModelSerializer):
         user=signUpModel.objects.create_user(
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
-            email=validated_data['email'],
+            username=validated_data['email'],
             password=password,
+            is_active=True,
             role=validated_data['role'],
             date_joined=validated_data['date_joined']
         )

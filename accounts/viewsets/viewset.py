@@ -69,5 +69,80 @@ class resetPasswordViewset(generics.CreateAPIView):
         serializer.is_valid(raise_exception=True)
 
         #check the email
+        email=serializer.validated_data['email']
+        user=signUpModel.objects.get(email=email)
+
+
+        #generate token 
+        token_generator=PasswordResetTokenGenerator()
+        token=token_generator.make_token(user)
+        uid=urlsafe_base64_encode(force_bytes(user.pk))
+
+
+
+        # make the url 
+        reset_url= request.build_absolute_uri(reverse('password-reset-confirm', kwargs={'uidb64': uid, 'token': token}))
         
-        return super().post(request, *args, **kwargs)
+        #send email 
+        send_mail(
+            subject="Reset password",
+            message=f'Your password reset link is {reset_url}',
+            from_email='khatrisudarshan360@gmail.com',
+            recipient_list=[user.email],
+            fail_silently=False
+        )
+        
+        return Response({'message':'Password reset link sent to your email'},status=200)
+    
+
+# passwordreser confirm viewser
+class passwordResetConfirmViewset(generics.CreateAPIView):
+    serializer_class=resetPasswordConfirmSerializer
+    permission_classes=[AllowAny]
+
+    def post(self, request,uid64,token, *args, **kwargs):
+        #decode the uid from uid64
+        try:
+            uid=urlsafe_base64_decode(uid64).decode()
+            user=signUpModel.objects.get(pk=uid)
+        except:
+            return Response({'error': 'Invalid link'}, status=400)
+        
+        token_generator=PasswordResetTokenGenerator()
+        if not token_generator.check_token(user,token):
+            return Response({'error': 'Token is invalid or has expired'}, status=400)
+        
+
+        new_password=request.data.get('password1')
+        confirm_password=request.data.get('password2')
+
+        if not new_password or new_password!=confirm_password:
+            return Response({'message':'Password not match'},status=400)
+        
+        user.set_password(new_password)
+        user.save()
+
+
+        return Response({'message':'Password has been reset sucessfully'},status=200)
+    
+
+
+
+#viewset for the logout function 
+class logOutViewset(APIView):
+    permission_classes=[IsAuthenticated]
+
+
+    def post(self,request):
+        serializer=logoutSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            refresh_token=serializer.validate_data['refresh']
+            token=RefreshToken(refresh_token)
+            token.blacklist()
+            return Response({"message": "Successfully logged out"}, status=200)
+        except Exception:
+            return Response({"error": "Invalid or expired token"}, status=400)
+        
+
