@@ -5,6 +5,8 @@ from ..models import signUpModel
 
 # serializer for signup
 class registerSerializer(serializers.ModelSerializer):
+    password1 = serializers.CharField(write_only=True)
+    password2 = serializers.CharField(write_only=True)
     class Meta:
         model=signUpModel
         fields=['first_name','last_name','email','password1','password2','role','date_joined']
@@ -32,6 +34,7 @@ class registerSerializer(serializers.ModelSerializer):
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
             username=validated_data['email'],
+            email=validated_data['email'],
             password=password,
             is_active=True,
             role=validated_data['role'],

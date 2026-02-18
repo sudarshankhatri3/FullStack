@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 # import dj_database_url 
+from datetime import timedelta
 import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -61,6 +62,14 @@ REST_FRAMEWORK={
     ),
 }
 
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -102,6 +111,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ecommerceApi.wsgi.application'
+
+
+
+#for send email 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'khatrisudarshan360@gmail.com'
+EMAIL_HOST_PASSWORD = 'your_app_specific_password' 
+EMAIL_USE_TLS = True
 
 
 # Database
