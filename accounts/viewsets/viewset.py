@@ -18,6 +18,7 @@ from rest_framework.response import Response
 from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated,AllowAny 
 from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken,OutstandingToken
+from rest_framework.throttling import AnonRateThrottle,UserRateThrottle
 
 
 
@@ -26,11 +27,13 @@ class registerViewset(generics.CreateAPIView):
     queryset=signUpModel.objects.all()
     permission_classes=[AllowAny]
     serializer_class=registerSerializer
+    throttle_classes=[AnonRateThrottle]
 
 #viewset for login
 class loginViewset(generics.CreateAPIView):
     serializer_class=loginSerializer
     permission_classes=[AllowAny]
+    throttle_classes=[AnonRateThrottle]
 
 
     #validate the data
@@ -62,6 +65,7 @@ class loginViewset(generics.CreateAPIView):
 class resetPasswordViewset(generics.CreateAPIView):
     serializer_class=resetPasswordSerializer
     permission_classes=[AllowAny]
+    throttle_classes=[AnonRateThrottle]
 
 
     def post(self, request, *args, **kwargs):
@@ -99,6 +103,7 @@ class resetPasswordViewset(generics.CreateAPIView):
 class passwordResetConfirmViewset(generics.CreateAPIView):
     serializer_class=resetPasswordConfirmSerializer
     permission_classes=[AllowAny]
+    throttle_classes=[AnonRateThrottle]
 
     def post(self, request,uid64,token, *args, **kwargs):
         #decode the uid from uid64
@@ -131,6 +136,7 @@ class passwordResetConfirmViewset(generics.CreateAPIView):
 #viewset for the logout function 
 class logOutViewset(APIView):
     permission_classes=[IsAuthenticated]
+    throttle_classes=[AnonRateThrottle]
 
 
     def post(self,request):
