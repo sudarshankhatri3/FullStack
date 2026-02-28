@@ -1,25 +1,33 @@
+import "../styles/componentCss/headerTemplate.css";
+
 export default function HeaderTemplate() {
   return (
     <>
-      <div>
-        <h2>Convertible Cribs</h2>
-        <p>Otto 3-in-1 Full-Size</p>
-      </div>
-      <div>
-        <div>
-          <h3>10%</h3>
-          <p>
-            SALE <br />
-            OFF
-          </p>
+      <div className="promo-container">
+        <div className="promo-header">
+          <h2 className="promo-header__title">Convertible Cribs</h2>
+          <p className="promo-header__subtitle">Otto 3-in-1 Full-Size</p>
         </div>
-        <div>
-          <p>Enter promotion code</p>
-          <h3>SWAT10OFF</h3>
-        </div>
-        <div>
-            <img src="frontend/public/topNav.png" alt="image" />
-        </div>
+
+        <div className="promo-banner">
+          <div className="promo-banner__discount">
+            <h3 className="promo-banner__discount-rate">10%</h3>
+            <p className="promo-banner__discount-text">
+              SALE <br />
+              OFF
+            </p>
+          </div>
+
+          <div className="promo-banner__code">
+            <p className="promo-banner__code-label">Enter promotion code</p>
+            <h3 className="promo-banner__code-value">SWAT10OFF</h3>
+          </div>
+         </div>
+
+          <div className="promo-banner__image">
+            <img src="/topNav.png" alt="Promotion" />
+          </div>
+       
       </div>
     </>
   );

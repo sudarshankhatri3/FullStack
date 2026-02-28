@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.promo-container{
+    width: 100%;
+    min-height: 92px;
+    padding: 10px 20px;
+    position:sticky;
+    margin-top:0;
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items: center;
+    background-color:#F1DC67;
+}
+.promo-header{
+    height: auto;
+    width: 50vw;
+   
+    
+}
+.promo-header__title{
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+.promo-header__subtitle{
+    color: #333333;
+    font-size: 13px;
+}
