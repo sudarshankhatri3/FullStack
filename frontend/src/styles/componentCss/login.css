@@ -1,0 +1,25 @@
+.login-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-btn {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background-color: #01A49E;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+.login-btn:active {
+    transform: scale(0.97);
+}

@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.signup-page {
+    min-height: 100vh;
+    background-color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.signup-card {
+    background-color: #16213e;
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.signup-title {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* First & Last name side by side */
+.signup-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+/* Input wrapper for password fields */
+.signup-input-wrapper {
+    position: relative;
+    margin-bottom: 14px;
+}
+
+/* Base input */
+.signup-input {
+    width: 100%;
+    background-color: transparent;
+    border: 1.5px solid #c0392b;
+    border-radius: 25px;
+    padding: 12px 18px;
+    color: #ccc;
+    font-size: 0.9rem;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.signup-input--full {
+    width: 100%;
+}
+
+/* Extra right padding for Show/Hide button */
+.signup-input--padded {
+    padding-right: 60px;
+}
+
+.signup-input::placeholder {
+    color: #888;
+}
+
+.signup-input:focus {
+    border-color: #e74c3c;
+}
+
+/* Show / Hide button inside password field */
+.signup-show-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.signup-show-btn:hover {
+    color: #e74c3c;
+}
+
+/* Checkbox row */
+.signup-check-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    margin-top: 4px;
+}
+
+.signup-checkbox {
+    accent-color: #e74c3c;
+    cursor: pointer;
+}
+
+.signup-check-label {
+    color: #aaa;
+    font-size: 0.82rem;
+}
+
+.signup-link {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+/* Submit button */
+.signup-submit-btn {
+    width: 100%;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease;
+}
+
+.signup-submit-btn:hover {
+    background-color: #c0392b;
+}

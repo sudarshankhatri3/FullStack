@@ -9,7 +9,7 @@ class registerSerializer(serializers.ModelSerializer):
     password2 = serializers.CharField(write_only=True)
     class Meta:
         model=signUpModel
-        fields=['first_name','last_name','email','password1','password2','role','date_joined']
+        fields=['first_name','last_name','email','password1','password2','role']
 
 
     def validate(self, attrs):

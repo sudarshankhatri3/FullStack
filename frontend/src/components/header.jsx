@@ -1,4 +1,6 @@
 import "../styles/componentCss/headerTemplate.css";
+import Login from "./loginButton";
+import { SignUp } from "./loginButton";
 
 export default function HeaderTemplate() {
   return (
@@ -26,6 +28,10 @@ export default function HeaderTemplate() {
 
           <div className="promo-banner__image">
             <img src="/topNav.png" alt="Promotion" />
+          </div>
+          <div className="promo-auth">
+            <Login/>
+            <SignUp/>
           </div>
        
       </div>
