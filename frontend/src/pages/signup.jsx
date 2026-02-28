@@ -10,15 +10,15 @@ export default function SignPage() {
     password2: "",
     role: "",
   });
-  const [showPassword1,setShowPassword1]=useState(false)
-  const [showPassword2,setShowPassword2]=useState(false)
-  const [agreed,setAgreed]=useState(false)
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+  const [agreed, setAgreed] = useState(false);
 
   console.log(formData);
 
   function changeHandler() {}
 
-  async function signUp() {
+  async function signUp(data) {
     try {
       const response = await fetch("http://127.0.0.1:8000/api/register/", {
         method: "POST",
@@ -36,11 +36,9 @@ export default function SignPage() {
     }
   }
 
-  // useEffect(()=>{
-  //     signUp()
-  // },[])
-
-  const styles = {};
+  useEffect(() => {
+    signUp(formData);
+  }, []);
 
   return (
     <div className="signup-page">
