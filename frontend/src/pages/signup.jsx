@@ -1,4 +1,4 @@
-import "../styles/componentCss/signUp.css";
+import "../styles/componentCss/signup.css";
 import { useState, useEffect } from "react";
 
 export default function SignPage() {
@@ -10,6 +10,9 @@ export default function SignPage() {
     password2: "",
     role: "",
   });
+  const [showPassword1,setShowPassword1]=useState(false)
+  const [showPassword2,setShowPassword2]=useState(false)
+  const [agreed,setAgreed]=useState(false)
 
   console.log(formData);
 
