@@ -17,10 +17,10 @@ class registerSerializer(serializers.ModelSerializer):
         password2=attrs.get('password2')
 
         if not password1 or not password2:
-            return serializers.ValidationError("Both password are required")
+            raise serializers.ValidationError("Both password are required")
         
         if password1!=password2:
-            return serializers.ValidationError("Both password not match")
+            raise serializers.ValidationError("Both password not match")
         
 
     
@@ -38,7 +38,7 @@ class registerSerializer(serializers.ModelSerializer):
             password=password,
             is_active=True,
             role=validated_data['role'],
-            date_joined=validated_data['date_joined']
+            # date_joined=validated_data['date_joined']
         )
         return user   
 

@@ -8,7 +8,7 @@ export default function SignPage() {
     email: "",
     password1: "",
     password2: "",
-    role: "",
+    role:""
   });
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
@@ -16,9 +16,13 @@ export default function SignPage() {
 
   console.log(formData);
 
-  function changeHandler() {}
 
-  async function signUp(data) {
+  async function signUp(e) {
+    e.preventDefault(); 
+    if(!agreed){
+      alert("Please agree to privacy and policy")
+      return
+    }
     try {
       const response = await fetch("http://127.0.0.1:8000/api/register/", {
         method: "POST",
@@ -28,7 +32,7 @@ export default function SignPage() {
         body: JSON.stringify(formData),
       });
       if (!response.ok) {
-        alert("Response not found");
+        alert("Bad request");
       }
       alert("Signup sucessfully");
     } catch (error) {
@@ -36,9 +40,9 @@ export default function SignPage() {
     }
   }
 
-  useEffect(() => {
-    signUp(formData);
-  }, []);
+  // useEffect(() => {
+  //   signUp();
+  // }, []);
 
   return (
     <div className="signup-page">
@@ -51,7 +55,7 @@ export default function SignPage() {
               className="signup-input"
               type="text"
               placeholder="First Name"
-              value={formData.first_name}
+              value={formData.first_name.trim()}
               onChange={(e) =>
                 setFormData({ ...formData, first_name: e.target.value })
               }
@@ -60,7 +64,7 @@ export default function SignPage() {
               className="signup-input"
               type="text"
               placeholder="Last Name"
-              value={formData.last_name}
+              value={formData.last_name.trim()}
               onChange={(e) =>
                 setFormData({ ...formData, last_name: e.target.value })
               }
@@ -73,7 +77,7 @@ export default function SignPage() {
               className="signup-input signup-input--full"
               type="email"
               placeholder="Email"
-              value={formData.email}
+              value={formData.email.trim()}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
@@ -86,7 +90,7 @@ export default function SignPage() {
               className="signup-input signup-input--full signup-input--padded"
               type={showPassword1 ? "text" : "password"}
               placeholder="Password"
-              value={formData.password1}
+              value={formData.password1.trim()}
               onChange={(e) =>
                 setFormData({ ...formData, password1: e.target.value })
               }
@@ -106,7 +110,7 @@ export default function SignPage() {
               className="signup-input signup-input--full signup-input--padded"
               type={showPassword2 ? "text" : "password"}
               placeholder="Confirm Password"
-              value={formData.password2}
+              value={formData.password2.trim()}
               onChange={(e) =>
                 setFormData({ ...formData, password2: e.target.value })
               }
@@ -120,6 +124,16 @@ export default function SignPage() {
             </button>
           </div>
 
+          <div className="signup-input-wrapper">
+            <select name="" id=""
+            value={formData.role.trim()} onChange={(e)=>setFormData({...formData,role:e.target.value})}>
+              <option  disabled={true}>Select option</option>
+              <option value="vendor">Vendor</option>
+              <option value="Customer">Customer</option>
+            </select>
+
+          </div>
+
           {/* Agree Checkbox */}
           <div className="signup-check-row">
             <input
@@ -128,6 +142,7 @@ export default function SignPage() {
               checked={agreed}
               onChange={(e) => setAgreed(e.target.checked)}
             />
+        
             <span className="signup-check-label">
               I Agree with{" "}
               <a href="#" className="signup-link">

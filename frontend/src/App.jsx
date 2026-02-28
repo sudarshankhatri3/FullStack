@@ -5,8 +5,8 @@ import SignPage from "./pages/signup";
 export default function DataHandler(){
     return(
         <>
-          <HeaderTemplate/>
-          <Header/>
+          {/* <HeaderTemplate/>
+          <Header/> */}
           <SignPage/>
         </>
     )
