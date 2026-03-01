@@ -19,12 +19,18 @@ export default function ListCategory() {
 
         {/* side bar effect */}
         <div className={`sidebar ${active?"sidebar--open":""}`}>
+            <h3>SALE 40% OFF</h3>
             <ul className="sideBar--list">
-                <li>Home</li>
-                <li>About</li>
-                <li>State</li>
-                <li>Hello</li>
-                <li>bar</li>
+                <li><a href="#">Pregnant & Postpartum</a></li>
+                <li><a href="#">Milks & Foods</a></li>
+                <li><a href="#">Diapers & Wipes</a></li>
+                <li><a href="#">Infant</a></li>
+                <li><a href="#">Eat & Drink Supplies</a></li>
+                <li><a href="#">Baby Fashion</a></li>
+                <li><a href="#">Baby Out</a></li>
+                <li><a href="#">Toys & Study</a></li>
+                <li><a href="#">Stroller, Crib, Chair</a></li>
+                <li><a href="#">Washes & Bath</a></li>
             </ul>
         </div>
         <div>

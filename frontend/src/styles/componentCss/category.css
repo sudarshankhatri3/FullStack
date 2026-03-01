@@ -27,19 +27,19 @@
 }
 .sidebar {
     position: fixed;
-    top: 350px;
+    top: 0px;
     left: -250px;
     width: 250px;
     height: 100vh;
     background: #111;
     color: white;
-    padding: 80px 20px;
+    padding: 280px 20px;
     transition: left 0.3s ease;
     z-index: 1000;
 }
 
 .sidebar--open {
-    left: 0;
+    left: 250px;
 }
 
 .sidebar__list {
@@ -52,7 +52,7 @@
     cursor: pointer;
 }
 
-/* Overlay */
+Overlay
 .overlay {
     position: fixed;
     inset: 0;
