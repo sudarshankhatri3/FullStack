@@ -1,4 +1,4 @@
-import "../styles/componentCss/signup.css";
+import "../styles/pagesCss/signup.css"
 import { useState, useEffect } from "react";
 
 export default function SignPage() {

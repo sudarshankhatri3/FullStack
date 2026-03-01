@@ -1,4 +1,5 @@
 import "../styles/componentCss/navigation.css";
+import ListCategory from "./listCategory";
 
 export default function Header() {
   return (
@@ -27,6 +28,9 @@ export default function Header() {
           <div>
             <h3>Welcome To swat BabyMall</h3>
           </div>
+        </div>
+        <div>
+           <ListCategory/>
         </div>
       </div>
     </>
