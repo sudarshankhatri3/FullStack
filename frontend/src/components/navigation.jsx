@@ -24,6 +24,9 @@ export default function Header() {
               </button>
             </div>
           </form>
+          <div>
+            <h3>Welcome To swat BabyMall</h3>
+          </div>
         </div>
       </div>
     </>

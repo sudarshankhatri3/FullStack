@@ -6,10 +6,10 @@ import LoginPage from "./pages/login";
 export default function DataHandler(){
     return(
         <>
-          {/* <HeaderTemplate/>
-          <Header/> */}
-          {/* <SignPage/> */}
-          <LoginPage/>
+          <HeaderTemplate/>
+          <Header/>
+          {/* <SignPage/>
+          <LoginPage/> */}
 
         </>
     )
