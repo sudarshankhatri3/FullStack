@@ -25,22 +25,26 @@ export default function LoginPage() {
 
   return (
     <>
-      <div>
-        <div>
-          <h3>Login</h3>
+      <div className="login">
+        <div className="login__header">
+          <h3 className="login__title">Login</h3>
         </div>
-        <form action="" onSubmit={loginUser}>
-          <div>
-            <input type="email" placeholder="Email" />
+
+        <form className="login__form" onSubmit={loginUser}>
+          <div className="login__field">
+            <input className="login__input" type="email" placeholder="Email" />
           </div>
-          <div>
+
+          <div className="login__field login__password-field">
             <input
-              type={showPassword ? "hide" : "show"}
-              placeholder="password....."
+              className="login__input"
+              type={showPassword ? "text" : "password"}
+              placeholder="Password..."
             />
+
             <button
-              type={showPassword? "hide":"show"}
-              className="signup-show-btn"
+              type="button"
+              className="login__toggle-btn"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? "Hide" : "Show"}
