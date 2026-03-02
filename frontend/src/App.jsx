@@ -9,7 +9,9 @@ export default function DataHandler(){
         <>
           <HeaderTemplate/>
           <Header/>
-          
+          <SignPage/>
+          <LoginPage/>
+          <listCategory/>
           {/* <SignPage/>
           <LoginPage/> */}
 

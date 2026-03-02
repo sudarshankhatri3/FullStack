@@ -52,11 +52,25 @@
     cursor: pointer;
 }
 
-Overlay
+
 .overlay {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.4);
     z-index: 900;
+}
+
+
+/* css for home about pages and product */
+.navbar{
+
+}
+
+.navbar__list{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
