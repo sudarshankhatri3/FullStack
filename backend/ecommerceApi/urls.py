@@ -37,7 +37,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ecommerceApi/',include(router.urls)),
     path('api/register/',registerViewset.as_view(),name='register'),
-    path('api/login',loginViewset.as_view(),name="login"),
+    path('api/login/',loginViewset.as_view(),name="login"),
     path('api/resetpassword/',resetPasswordViewset.as_view(),name='resetPassword'),
     path('api/resetPasswordConfirm/<uid64>/<token>',passwordResetConfirmViewset.as_view(),name="resetPasswordConfirm"),
     path('api/logout/',logOutViewset.as_view(),name='logOut'),
