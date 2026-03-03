@@ -19,8 +19,17 @@ export default function ListCategory() {
           <h2 class="category-header__title">List Category</h2>
         </div>
 
-        {/* side bar effect */}
-        <div className={`sidebar ${active ? "sidebar--open" : ""}`}>
+        <div className="navbar">
+          <ul className="navbar__list">
+            <li className="navbar__item">Home</li>
+            <li className="navbar__item">Pages</li>
+            <li className="navbar__item">Product</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+      {/* side bar effect */}
+      <div className={`sidebar ${active ? "sidebar--open" : ""}`}>
           <h3 className="sidebar__title">SALE 40% OFF</h3>
 
           <ul className="sidebar__list">
@@ -74,14 +83,6 @@ export default function ListCategory() {
                 Washes & Bath
               </a>
             </li>
-          </ul>
-        </div>
-
-        <div className="navbar">
-          <ul className="navbar__list">
-            <li className="navbar__item">Home</li>
-            <li className="navbar__item">Pages</li>
-            <li className="navbar__item">Product</li>
           </ul>
         </div>
       </div>
