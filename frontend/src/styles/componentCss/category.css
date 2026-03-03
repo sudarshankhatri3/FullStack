@@ -15,10 +15,7 @@
     align-items: center;
     gap: 30px;
 }
-.header__navbar{
-   
 
-}
 .header__nav-list{
     display: flex;
     flex-direction:row;
