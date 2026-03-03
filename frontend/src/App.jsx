@@ -11,6 +11,7 @@ import Login from "./components/loginButton";
 
 
 
+
 const router=createBrowserRouter([
   {
     path:"/",
@@ -21,6 +22,10 @@ const router=createBrowserRouter([
     element:<LoginPage/>
   },
   {
+    path:"navigation",
+    element:<ListCategory/>
+  },
+  {
     path:"*",
     element:<>Page not found</>
   }
@@ -28,7 +33,6 @@ const router=createBrowserRouter([
 
 function App(){
   return <>
-      <p>Hello sudarshan khatri</p>
       <RouterProvider  router={router}/>
   </>
   
