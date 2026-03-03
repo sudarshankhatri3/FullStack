@@ -32,10 +32,6 @@ export default function Header() {
               <h3 className="navbar__welcome-text">Welcome To Swat BabyMall</h3>
             </div>
           </div>
-
-          <div>
-            <ListCategory />
-          </div>
         </div>
       </div>
     </>

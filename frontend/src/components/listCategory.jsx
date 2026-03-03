@@ -19,17 +19,17 @@ export default function ListCategory() {
           <h2 class="category-header__title">List Category</h2>
         </div>
 
-        <div className="navbar">
-          <ul className="navbar__list">
-            <li className="navbar__item">Home</li>
-            <li className="navbar__item">Pages</li>
-            <li className="navbar__item">Product</li>
+        <div className="header__navbar">
+          <ul className="header__nav-list">
+            <li className="header__nav-item">Home</li>
+            <li className="header__nav-item">Pages</li>
+            <li className="header__nav-item">Product</li>
           </ul>
         </div>
       </div>
       <div>
-      {/* side bar effect */}
-      <div className={`sidebar ${active ? "sidebar--open" : ""}`}>
+        {/* side bar effect */}
+        <div className={`sidebar ${active ? "sidebar--open" : ""}`}>
           <h3 className="sidebar__title">SALE 40% OFF</h3>
 
           <ul className="sidebar__list">
