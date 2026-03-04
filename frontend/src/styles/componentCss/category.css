@@ -10,7 +10,7 @@
     padding: 15px 40px;
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-dijrection: row;
     justify-content: flex-start;
     align-items: center;
     gap: 30px;
