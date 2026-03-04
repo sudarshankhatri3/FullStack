@@ -83,6 +83,35 @@
     margin-bottom: 20px;
     color: #db6b6b;
 }
+.heading{
+    color: #EB4227;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
 .sidebar__list{
-    
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+.sidebar__item{
+  
+
+}
+.sidebar__link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 16px;
+    text-decoration: none;
+    color: #333333;
+    font-size: 14px;
+    transition: background 0.2s ease;
+} 
+.sidebar__link:hover {
+    background-color: #f9f9f9;
+    color: #01A49E;
 }

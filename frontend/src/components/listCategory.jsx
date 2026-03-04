@@ -30,7 +30,7 @@ export default function ListCategory() {
       <div>
         {/* side bar effect */}
         <div className={`sidebar ${active ? "sidebar--open" : ""}`}>
-          <h3 className="">SALE 40% OFF</h3>
+          <h3 className="heading">SALE 40% OFF</h3>
 
           <ul className="sidebar__list">
             <li className="sidebar__item">
