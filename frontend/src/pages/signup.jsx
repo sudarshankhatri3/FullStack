@@ -1,4 +1,5 @@
-import "../styles/pagesCss/signup.css"
+// import "../styles/pagesCss/signup.css"
+import "../app.css";
 import { useState, useEffect } from "react";
 
 export default function SignPage() {
@@ -45,7 +46,7 @@ export default function SignPage() {
   // }, []);
 
   return (
-    <div className="signup-page">
+    <div className="px-2 margin mx-1 bg[#000000] ">
       <div className="signup-card">
         <h2 className="signup-title">Sign Up</h2>
         <form className="signup-form" onSubmit={signUp}>

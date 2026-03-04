@@ -18,6 +18,10 @@ const router=createBrowserRouter([
     element:<HeaderTemplate/>
   },
   {
+    path:"/signUp",
+    element:<SignPage/>
+  },
+  {
     path:"/login",
     element:<LoginPage/>
   },
