@@ -48,8 +48,8 @@ export default function SignPage() {
   }
 
   return (
-    <section className="bg-gray-50  flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center px-4 py-8 mx-auto min-h-screen  rounded-xl-x  shadow-lg shadow-blue-500/50">
+    <section className="bg-gray-50">
+      <div className="flex flex-col items-center  justify-center px-4 py-8 mx-auto min-h-screen  rounded-xl-x  shadow-lg shadow-blue-500/50">
         <a
           href="#"
           className="flex items-center mb-6 text-2xl font-semibold text-blue-700"
