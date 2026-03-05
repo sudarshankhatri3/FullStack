@@ -48,7 +48,7 @@ export default function SignPage() {
   }
 
   return (
-    <section className="bg-gray-50">
+    <section className="bg-gray-50 min-h-full flex justify-center items-center px-4">
       <div className="flex flex-col items-center  justify-center px-4 py-8 mx-auto min-h-screen  rounded-xl-x  shadow-lg shadow-blue-500/50">
         <a
           href="#"
@@ -64,7 +64,7 @@ export default function SignPage() {
               Create an account
             </h1>
 
-            <form onSubmit={signUp} className="space-y-4 flex flex-col gap-4">
+            <form onSubmit={signUp} className="space-y-4 flex flex-col gap-8">
               {/* First & Last Name */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="w-full sm:w-1/2">
@@ -142,7 +142,7 @@ export default function SignPage() {
 
               {/* Confirm Password */}
               <div>
-                <label className="block mb-1.5 text-sm font-medium text-gray-700">
+                <label className="block mb-1.5 text-sm  font-medium text-gray-700">
                   Confirm password
                 </label>
                 <div className="relative">
