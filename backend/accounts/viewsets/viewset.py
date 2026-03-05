@@ -29,6 +29,7 @@ class registerViewset(generics.CreateAPIView):
     serializer_class=registerSerializer
     throttle_classes=[AnonRateThrottle]
 
+
 #viewset for login
 class loginViewset(generics.CreateAPIView):
     serializer_class=loginSerializer

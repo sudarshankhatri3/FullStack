@@ -39,8 +39,9 @@ class registerSerializer(serializers.ModelSerializer):
             is_active=True,
             role=validated_data['role'],
             # date_joined=validated_data['date_joined']
-            privacy_policy=validated_data['privacy_policy']
+            privacy_policy=validated_data['privacy_policy']    
         )
+        
         return user   
 
 
