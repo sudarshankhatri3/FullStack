@@ -48,11 +48,11 @@ export default function SignPage() {
   }
 
   return (
-    <section className="bg-gray-50 min-h-screen">
+    <section className="bg-gray-50  flex items-center justify-center">
       <div className="flex flex-col items-center justify-center px-4 py-8 mx-auto min-h-screen  rounded-xl-x  shadow-lg shadow-blue-500/50">
         <a
           href="#"
-          className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
+          className="flex items-center mb-6 text-2xl font-semibold text-blue-700"
         >
           SwallBaby
         </a>
@@ -60,7 +60,7 @@ export default function SignPage() {
         {/* Card */}
         <div className="w-full bg-white  sm:max-w-lg">
           <div className="p-6 sm:p-8 space-y-5">
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-2xl font-bold  text-blue-400">
               Create an account
             </h1>
 
@@ -78,7 +78,7 @@ export default function SignPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, first_name: e.target.value })
                     }
-                    className="bg-gray-50 border h-15 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full px-7 py-90 outline-none transition"
+                    className="bg-gray-50  pl-5 border h-15 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full px-7 py-90 outline-none transition"
                   />
                 </div>
                 <div className="w-full sm:w-1/2">
@@ -92,7 +92,7 @@ export default function SignPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, last_name: e.target.value })
                     }
-                    className="bg-gray-50 border  h-15 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+                    className="bg-gray-50 border pl-3  h-15 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
                   />
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function SignPage() {
 
               {/* Password */}
               <div>
-                <label className="block mb-1.5 text-sm font-medium text-gray-700">
+                <label className="block mt-2 mb-1.5 text-sm font-medium text-gray-700">
                   Password
                 </label>
                 <div className="relative">
@@ -153,7 +153,7 @@ export default function SignPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, password2: e.target.value })
                     }
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-16 outline-none transition"
+                    className="bg-gray-50 border h-15 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-16 outline-none transition"
                     required
                   />
                   <button
@@ -176,7 +176,7 @@ export default function SignPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, role: e.target.value })
                   }
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+                  className="bg-gray-50  h-15 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
                 >
                   <option value="" disabled>
                     Select role
@@ -223,14 +223,14 @@ export default function SignPage() {
               {/* Submit */}
               <button
                 type="submit"
-                className="w-full text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none font-semibold rounded-lg text-sm px-5 py-3 text-center transition-colors duration-200"
+                className="w-full h-15 text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none font-semibold rounded-lg text-sm px-5 py-3 text-center transition-colors duration-200"
               >
                 Create an account
               </button>
 
               {/* Login link */}
               <p className="text-sm text-center text-gray-500">
-                Already have an account? {<Link to="/login">Login</Link>}
+                Already have an account? {<Link to="/login" className="text-blue-600">Login</Link>}
               </p>
             </form>
           </div>
