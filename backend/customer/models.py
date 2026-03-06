@@ -93,6 +93,10 @@ class DeliveryInformation(models.Model):
     area=models.CharField(max_length=255,null=False)
     address=models.CharField(max_length=255,null=False)
     label=models.CharField(max_length=20,choices=label_data,default="Home")
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+
+    
 
 
 
