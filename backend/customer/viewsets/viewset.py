@@ -1,55 +1,55 @@
 from rest_framework import viewsets
 from ..serailizers.serializer import (
-    productOrderListSerializer,
-    productOrderPostSerializer,
-    productReviewPostSerializer,
-    productReviewListSerializer,
-    userProfileListSerializer,
-    userProfilePostSerializer
+    ProductOrderListSerializer,
+    ProductOrderPostSerializer,
+    ProductReviewPostSerializer,
+    ProductReviewListSerializer,
+    UserProfileListSerializer,
+    UserProfilePostSerializer
     )
 from ..models import userProfile,productOrder,productReview
 
 
 #viewset for the userProfile
-class userProfileViewset(viewsets.ModelViewSet):
+class UserProfileViewset(viewsets.ModelViewSet):
     queryset=userProfile.objects.all().order_by('-id')
-    serializer_class=userProfileListSerializer
+    serializer_class=UserProfileListSerializer
 
 
     def get_serializer_class(self):
         if self.action =='list':
-            return userProfileListSerializer
+            return UserProfileListSerializer
         elif self.action in ['create','update','partial_update']:
-            return userProfilePostSerializer
-        return userProfileListSerializer
+            return UserProfilePostSerializer
+        return UserProfileListSerializer
     
 
 
 #viewset for the productOrder
-class productOrderViewset(viewsets.ModelViewSet):
+class ProductOrderViewset(viewsets.ModelViewSet):
     queryset=productOrder.objects.all().order_by('-id')
-    serializer_class=productReviewListSerializer
+    serializer_class=ProductReviewListSerializer
 
 
     #serailizer class  for perfom operation like get,post,update,pathc
     def get_serializer_class(self):
         if self.action=='list':
-            return productOrderListSerializer
+            return ProductOrderListSerializer
         elif self.action in ['create','update','partial_update']:
-            return productOrderPostSerializer
-        return productOrderListSerializer
+            return ProductOrderPostSerializer
+        return ProductOrderListSerializer
     
 
 #viewset for product review 
-class productReviewViewSet(viewsets.ModelViewSet):
+class ProductReviewViewSet(viewsets.ModelViewSet):
     queryset=productReview.objects.all().order_by('-id')
-    serializer_class=productReviewListSerializer
+    serializer_class=ProductReviewListSerializer
 
 
     #serializer class for perfom operation like get,post,put,patch 
     def get_serializer_class(self):
         if self.action=='list':
-            return productReviewListSerializer
+            return ProductReviewListSerializer
         elif self.action in ['create','update','partial_update']:
-            return productReviewPostSerializer
-        return productReviewListSerializer
+            return ProductReviewPostSerializer
+        return ProductReviewListSerializer

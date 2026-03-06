@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile,ProductOrder,ProductReview,DeliveryInformation,CartModel,paymentModel
+from .models import UserProfile,ProductOrder,ProductReview,DeliveryInformation,CartModel
 
 # Register your models here.
 admin.site.register(UserProfile)
