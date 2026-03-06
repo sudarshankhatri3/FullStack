@@ -24,8 +24,14 @@ PAYMENT_STATUS_CHOICES = [
 ]
 
 
+label_data=[
+    ('HOME','Home'),
+    ('OFFICE','Office')
+]
+
+
 # model for userProfile
-class userProfile(models.Model):
+class UserProfile(models.Model):
     slug = models.SlugField(max_length=255, null=True, blank=True)
     first_name=models.CharField(max_length=299,null=False)
     last_name=models.CharField(max_length=299)
@@ -48,7 +54,7 @@ class userProfile(models.Model):
 
 
 # model  for order products 
-class productOrder(models.Model):
+class ProductOrder(models.Model):
     product=models.ForeignKey(products,on_delete=models.CASCADE)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     quantity=models.PositiveIntegerField(default=1,validators=[MinValueValidator(1),MaxValueValidator(100)])
@@ -65,7 +71,7 @@ class productOrder(models.Model):
 
 
 # product review models
-class productReview(models.Model):
+class ProductReview(models.Model):
     slug = models.SlugField(max_length=255, null=True, blank=True)
     product=models.ForeignKey(products,on_delete=models.CASCADE)
     rating=models.PositiveIntegerField(choices=[(i,str(i)) for i in range(1,6)])
@@ -73,9 +79,29 @@ class productReview(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.comment
+    
+#class delivery information model 
+class DeliveryInformation(models.Model):
+    phone_number=PhoneNumberField(max_length=15,null=False,blank=False)
+    building_no=models.CharField(max_length=200,null=False)
+    colony=models.CharField(max_length=200,null=False)
+    province=models.CharField(max_length=244,choices=stateChoice)
+    district=models.CharField(max_length=255,null=True)
+    city=models.CharField(max_length=255,null=False)
+    area=models.CharField(max_length=255,null=False)
+    address=models.CharField(max_length=255,null=False)
+    label=models.CharField(max_length=20,choices=label_data,default="Home")
+
+
+
+    def __str__(self):
+        return f"Delivery Information" +self.province
+
 
 #cart model for customer
-class cartModel(models.Model):
+class CartModel(models.Model):
     pass
 
 # payment models for customer
