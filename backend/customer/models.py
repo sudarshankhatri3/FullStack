@@ -2,6 +2,7 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from product.models import products
 from django.core.validators import MinValueValidator,MaxValueValidator
+import random
 
 # Create your models here.
 
@@ -28,6 +29,11 @@ label_data=[
     ('HOME','Home'),
     ('OFFICE','Office')
 ]
+
+
+def slugId():
+    slug_value=random.randint(100000,999999)
+    return slug_value
 
 
 # model for userProfile
@@ -84,6 +90,7 @@ class ProductReview(models.Model):
     
 #class delivery information model 
 class DeliveryInformation(models.Model):
+    slug=models.SlugField(max_length=255,null=False,blank=True)
     phone_number=PhoneNumberField(max_length=15,null=False,blank=False)
     building_no=models.CharField(max_length=200,null=False)
     colony=models.CharField(max_length=200,null=False)
@@ -96,7 +103,17 @@ class DeliveryInformation(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 
-    
+
+    def save(self):
+        # return the slug field
+        if self.slug is None:
+            return f"Delivery_info-{self.colony}-{slugId()}"
+        
+        
+
+        return super().save()
+
+
 
 
 
