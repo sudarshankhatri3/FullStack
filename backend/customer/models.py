@@ -3,7 +3,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 from product.models import products
 from django.core.validators import MinValueValidator,MaxValueValidator
 import random
-from ..accounts.models import signUpModel
+
 
 # Create your models here.
 
@@ -39,7 +39,7 @@ def slugId():
 
 # model for userProfile
 class UserProfile(models.Model):
-    user=models.OneToOneField(signUpModel,on_delete=models.CASCADE)
+    user=models.OneToOneField('accounts.signUpModel',on_delete=models.CASCADE)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     first_name=models.CharField(max_length=299,null=False)
     last_name=models.CharField(max_length=299)

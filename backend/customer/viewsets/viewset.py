@@ -7,12 +7,12 @@ from ..serailizers.serializer import (
     UserProfileListSerializer,
     UserProfilePostSerializer
     )
-from ..models import userProfile,productOrder,productReview
+from ..models import UserProfile,ProductOrder,ProductReview
 
 
 #viewset for the userProfile
 class UserProfileViewset(viewsets.ModelViewSet):
-    queryset=userProfile.objects.all().order_by('-id')
+    queryset=UserProfile.objects.all().order_by('-id')
     serializer_class=UserProfileListSerializer
 
 
@@ -27,7 +27,7 @@ class UserProfileViewset(viewsets.ModelViewSet):
 
 #viewset for the productOrder
 class ProductOrderViewset(viewsets.ModelViewSet):
-    queryset=productOrder.objects.all().order_by('-id')
+    queryset=ProductOrder.objects.all().order_by('-id')
     serializer_class=ProductReviewListSerializer
 
 
@@ -42,7 +42,7 @@ class ProductOrderViewset(viewsets.ModelViewSet):
 
 #viewset for product review 
 class ProductReviewViewSet(viewsets.ModelViewSet):
-    queryset=productReview.objects.all().order_by('-id')
+    queryset=ProductReview.objects.all().order_by('-id')
     serializer_class=ProductReviewListSerializer
 
 

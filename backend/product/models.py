@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 # Create your models here.
 class category(models.Model):
     category_title=models.CharField(max_length=450,unique=True)
@@ -20,6 +21,7 @@ class category(models.Model):
 
 
 class products(models.Model):
+    product_owner=models.ForeignKey('accounts.signUpModel',on_delete=models.CASCADE)
     title=models.CharField(max_length=100)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     stock=models.BigIntegerField(null=False)
