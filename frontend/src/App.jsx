@@ -8,7 +8,7 @@ import SignPage from "./pages/signup";
 import LoginPage from "./pages/login";
 import ListCategory from "./components/listCategory";
 import Login from "./components/loginButton";
-
+import Product from "./pages/product";
 
 
 
@@ -28,6 +28,10 @@ const router=createBrowserRouter([
   {
     path:"navigation",
     element:<ListCategory/>
+  },
+  {
+    path:"product",
+    element:<Product/>
   },
   {
     path:"*",
