@@ -26,18 +26,25 @@ function Product() {
   }, []);
 
   return (
-    <>
-      {product.map((prod) => (
-        <div className="bg-gradient-to-r from-teal-200 via-cyan-200 to-blue-200 min-h-screen flex flex-row justify-center items-center px-4 sm:px-6 md:px-10 transition-all duration-500 hover:scale-[1.01]">
-          <div key={prod.id} className="">
-            <img src={prod.image} alt={prod.title} />
-            <h3>{prod.title}</h3>
-            <p>{prod.price}</p>
-            <button>Add product</button>
-          </div>
-        </div>
-      ))}
-    </>
+    <div className="bg-cyan-400 min-h-screen w-full">
+      <div className="bg-amber-300 rounded-xl flex flex-row justify-center flex-wrap items-center gap-20 p-10">
+        {product.map((prod) => (
+          <>
+            <div className="w-20 h-20 p-4 ">
+              <div key={prod.id} className="">
+                <img src={prod.image} alt={prod.title} />
+                <h3>{prod.title}</h3>
+                <p>{prod.price}</p>
+              </div>
+              <div key={prod.id}>
+                <button>Buy</button>
+                <button>Add To cart</button>
+              </div>
+            </div>
+          </>
+        ))}
+      </div>
+    </div>
   );
 }
 
