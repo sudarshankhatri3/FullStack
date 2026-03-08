@@ -26,24 +26,29 @@ function Product() {
   }, []);
 
   return (
-    <div className="bg-cyan-400 min-h-screen w-full">
-      <div className="bg-amber-300 rounded-xl flex flex-row justify-center flex-wrap items-center gap-20 p-10">
-        {product.map((prod) => (
-          <>
-            <div className="w-20 h-20 p-4 ">
-              <div key={prod.id} className="">
-                <img src={prod.image} alt={prod.title} />
-                <h3>{prod.title}</h3>
-                <p>{prod.price}</p>
-              </div>
-              <div key={prod.id}>
-                <button>Buy</button>
-                <button>Add To cart</button>
-              </div>
-            </div>
-          </>
-        ))}
-      </div>
+    <div className="grid grid-cols-4 gap-5 p-5">
+      {product.map((prod) => (
+        <div
+          key={prod.id}
+          className="bg-neutral-primary-soft min-h-full  flex flex-col p-4 border border-default rounded-base shadow-xs"
+        >
+          <img
+            src={prod.image}
+            alt={prod.title}
+            className="w-full h-48 object-cover rounded-sm"
+          />
+          <h3 className="font-bold mt-3">{prod.title}</h3>
+          <p className="text-sm text-gray-500">Price: {prod.price}</p>
+          <div className="flex gap-2 mt-auto pt-3">
+            <button className="bg-blue-400 text-white px-4 py-2 rounded">
+              Buy
+            </button>
+            <button className="bg-gray-200 px-4 py-2 rounded">
+              Add To Cart
+            </button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
