@@ -1,4 +1,4 @@
-import "../styles/pagesCss/login.css"
+import "../app.css"
 import { useState } from "react";
 
 export default function LoginPage() {
@@ -26,7 +26,7 @@ export default function LoginPage() {
 
   return (
     <>
-    <div className="login">
+    <div className="">
         <div className="login__header">
           <h3 className="login__title">Welcome to swalBaby</h3>
         </div>
