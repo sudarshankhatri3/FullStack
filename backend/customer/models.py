@@ -1,6 +1,7 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from product.models import products
+from accounts.models import signUpModel
 from django.core.validators import MinValueValidator,MaxValueValidator
 import random
 
@@ -39,7 +40,7 @@ def slugId():
 
 # model for userProfile
 class UserProfile(models.Model):
-    user=models.OneToOneField('accounts.signUpModel',on_delete=models.CASCADE)
+    user=models.OneToOneField(signUpModel,on_delete=models.CASCADE)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     first_name=models.CharField(max_length=299,null=False)
     last_name=models.CharField(max_length=299)
@@ -125,7 +126,7 @@ class DeliveryInformation(models.Model):
 
 #commont for user 
 class CommentProduct(models.Model):
-    user=models.ForeignKey('accounts.signUpModel',on_delete=models.CASCADE)
+    user=models.ForeignKey(signUpModel,on_delete=models.CASCADE)
     product=models.ForeignKey(products,on_delete=models.CASCADE)
     comment=models.CharField(max_length=1000, null=True,blank=True)
     created_at=models.DateTimeField(auto_now_add=True)
@@ -138,9 +139,9 @@ class CommentProduct(models.Model):
 
 #cart model for customer
 class CartModel(models.Model):
-    user=models.ForeignKey('accounts.signUpModel',on_delete=models.CASCADE)
+    user=models.ForeignKey(signUpModel,on_delete=models.CASCADE)
     product=models.ForeignKey(products,on_delete=models.CASCADE)
-    quantity=models.IntegerField(null=False)
+    quantity=models.IntegerField(default=1)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 

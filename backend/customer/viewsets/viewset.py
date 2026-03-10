@@ -13,6 +13,7 @@ from ..serailizers.serializer import (
     CartListSerializer,
     CartPostSerializer
     )
+from ..utilities.pagination import CustomerPagination
 from ..models import UserProfile,ProductOrder,ProductReview,DeliveryInformation,CommentProduct,CartModel
 
 
@@ -20,6 +21,8 @@ from ..models import UserProfile,ProductOrder,ProductReview,DeliveryInformation,
 class UserProfileViewset(viewsets.ModelViewSet):
     queryset=UserProfile.objects.all().order_by('-id')
     serializer_class=UserProfileListSerializer
+    pagination_class=[CustomerPagination]
+    filter_fields=['first_name','last_name','address','state']
 
 
     def get_serializer_class(self):
