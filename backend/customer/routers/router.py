@@ -3,8 +3,8 @@ from ..viewsets.viewset import UserProfileViewset,ProductOrderViewset,ProductRev
 
 #sub router for the customer app
 customer=DefaultRouter()
-customer.register('userProfile',UserProfileViewset,basename='userProfile')
-customer.register('productOrder',ProductOrderViewset,basename='productOrder')
+customer.register('userProfile',UserProfileViewset,basename='user_Profile')
+customer.register('productOrder',ProductOrderViewset,basename='product_Order')
 customer.register('productReview',ProductReviewViewSet,basename='productReview')
 customer.register('deliveryInformation',DeliveryInformationViewset,basename='delivery_information')
 customer.register('commentProduct',CommentProductViewset,basename='comment_product')
