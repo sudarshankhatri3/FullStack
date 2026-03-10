@@ -73,7 +73,7 @@ class PostCommentSerailizer(serializers.ModelSerializer):
 class CartListSerializer(serializers.ModelSerializer):
     class Meta:
         model=CartModel
-        field=['id','user','product','quantity']
+        field='__all__'
 
 
 #serailzier for post cart
