@@ -5,9 +5,13 @@ from ..serailizers.serializer import (
     ProductReviewPostSerializer,
     ProductReviewListSerializer,
     UserProfileListSerializer,
-    UserProfilePostSerializer
+    UserProfilePostSerializer,
+    ListDeliveryInformationSerializer,
+    DeliveryInformationPostSerializer,
+    ListCommentSerializer,
+    PostCommentSerailizer
     )
-from ..models import UserProfile,ProductOrder,ProductReview
+from ..models import UserProfile,ProductOrder,ProductReview,DeliveryInformation,CommentProduct
 
 
 #viewset for the userProfile
@@ -53,3 +57,32 @@ class ProductReviewViewSet(viewsets.ModelViewSet):
         elif self.action in ['create','update','partial_update']:
             return ProductReviewPostSerializer
         return ProductReviewListSerializer
+
+
+
+#viewset for delivery information
+class DeliveryInformationViewset(viewsets.ModelViewSet):
+    queryset=DeliveryInformation.objects.all().order_by('-id')
+    serializer_class=ListDeliveryInformationSerializer
+
+
+    def get_serializer_class(self):
+        if self.action =="list":
+            return ListDeliveryInformationSerializer
+        elif self.action in ['create','update','partial_update']:
+            return DeliveryInformationPostSerializer
+        return ListDeliveryInformationSerializer
+    
+
+#viewset for comment model
+class CommentProductViewset(viewsets.ModelViewSet):
+    queryset=DeliveryInformation.objects.all().order_by('-id')
+    serializer_class=ListCommentSerializer
+
+
+    def get_serializer_class(self):
+        if self.action=='list':
+            return ListCommentSerializer
+        elif self.action in ['create','update','partial_update']:
+            return PostCommentSerailizer
+        return ListCommentSerializer

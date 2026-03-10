@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import UserProfile,ProductOrder,ProductReview
+from ..models import UserProfile,ProductOrder,ProductReview,CommentProduct,DeliveryInformation
 
 
 #serailizer for list of userProfile
@@ -40,3 +40,33 @@ class ProductReviewPostSerializer(serializers.ModelSerializer):
     class Meta:
         model=ProductReview
         fields=['product','rating','comment','created_at']
+
+
+#serializer for list of delivery infomation
+class ListDeliveryInformationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=DeliveryInformation
+        fields=['id', 'slug','phone_number','building_no','colony','province','district','city','area','address','label','created_at','updated_at']
+
+#serializer for post of delivery information
+class DeliveryInformationPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=DeliveryInformation
+        fields=['phone_number','building_no','colony','province','district','city','area','address','label']
+
+
+#serializer for list comment 
+class ListCommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=CommentProduct
+        fields=['id','user','product','comment','created_at','updated_at']
+
+
+#serailizer for post comment 
+class PostCommentSerailizer(serializers.ModelSerializer):
+    class Meta:
+        model=CommentProduct
+        fields=['user','product','comment']
+
+
+

@@ -121,6 +121,19 @@ class DeliveryInformation(models.Model):
 
     def __str__(self):
         return f"Delivery Information" +self.province
+    
+
+#commont for user 
+class CommentProduct(models.Model):
+    user=models.ForeignKey('accounts.signUpModel',on_delete=models.CASCADE)
+    product=models.ForeignKey(products,on_delete=models.CASCADE)
+    comment=models.CharField(max_length=1000, null=True,blank=True)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return self.comment
 
 
 #cart model for customer
