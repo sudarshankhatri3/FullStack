@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import UserProfile,ProductOrder,ProductReview,CommentProduct,DeliveryInformation
+from ..models import UserProfile,ProductOrder,ProductReview,CommentProduct,DeliveryInformation,CartModel
 
 
 #serailizer for list of userProfile
@@ -68,5 +68,18 @@ class PostCommentSerailizer(serializers.ModelSerializer):
         model=CommentProduct
         fields=['user','product','comment']
 
+
+#seralizer for list cart
+class CartListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=CartModel
+        field=['id','user','product','quantity']
+
+
+#serailzier for post cart
+class CartPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=CartModel
+        field=['user','product','quantity']
 
 

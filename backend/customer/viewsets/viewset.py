@@ -9,9 +9,11 @@ from ..serailizers.serializer import (
     ListDeliveryInformationSerializer,
     DeliveryInformationPostSerializer,
     ListCommentSerializer,
-    PostCommentSerailizer
+    PostCommentSerailizer,
+    CartListSerializer,
+    CartPostSerializer
     )
-from ..models import UserProfile,ProductOrder,ProductReview,DeliveryInformation,CommentProduct
+from ..models import UserProfile,ProductOrder,ProductReview,DeliveryInformation,CommentProduct,CartModel
 
 
 #viewset for the userProfile
@@ -76,7 +78,7 @@ class DeliveryInformationViewset(viewsets.ModelViewSet):
 
 #viewset for comment model
 class CommentProductViewset(viewsets.ModelViewSet):
-    queryset=DeliveryInformation.objects.all().order_by('-id')
+    queryset=CommentProduct.objects.all().order_by('-id')
     serializer_class=ListCommentSerializer
 
 
@@ -86,3 +88,16 @@ class CommentProductViewset(viewsets.ModelViewSet):
         elif self.action in ['create','update','partial_update']:
             return PostCommentSerailizer
         return ListCommentSerializer
+    
+
+#viewset for cart Model
+class CartViewset(viewsets.ModelViewSet):
+    queryset=CartModel.objects.all().order_by('-id')
+    serializer_class=CartListSerializer
+
+    def get_serializer_class(self):
+        if self.action =='list':
+            return CartListSerializer
+        elif self.action in ['create','update','partial_update']:
+            return CartPostSerializer
+        return CartListSerializer

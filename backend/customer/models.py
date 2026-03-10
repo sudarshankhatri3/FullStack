@@ -138,7 +138,15 @@ class CommentProduct(models.Model):
 
 #cart model for customer
 class CartModel(models.Model):
-    pass
+    user=models.ForeignKey('accounts.signUpModel',on_delete=models.CASCADE)
+    product=models.ForeignKey(products,on_delete=models.CASCADE)
+    quantity=models.IntegerField(null=False)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'productCart {self.product}'
+
 
 # payment models for customer
 class paymentModel(models.Model):
