@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'rest_framework_simplejwt',
     'corsheaders',
+    'drf_spectacular',
 
 
     #custom app
@@ -57,6 +58,8 @@ INSTALLED_APPS = [
 
 
 REST_FRAMEWORK={
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),

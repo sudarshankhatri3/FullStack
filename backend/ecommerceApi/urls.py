@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from rest_framework_simplejwt import views as jwt_views
+from django.urls import re_path
+from rest_framework import permissions
+from drf_spectacular.views import SpectacularAPIView,SpectacularSwaggerView
+from drf_spectacular import openapi
+
 
 
 from rest_framework import routers
@@ -33,6 +38,8 @@ router.registry.extend(customer.registry)
 
 
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ecommerceApi/',include(router.urls)),
@@ -43,4 +50,6 @@ urlpatterns = [
     path('api/logout/',logOutViewset.as_view(),name='logOut'),
     path('api/token',jwt_views.TokenObtainPairView.as_view(),name='token_obtain_pair'),
     path('api/token/refresh',jwt_views.TokenRefreshView.as_view(),name='token_refresh'),
+    path('api/schema/',SpectacularAPIView.as_view(),name='schema'),
+    path('api/docs/',SpectacularSwaggerView.as_view(url_name='schema'),name="swagger-ui")
 ]
