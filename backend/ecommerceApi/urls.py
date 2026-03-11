@@ -21,6 +21,8 @@ from django.urls import re_path
 from rest_framework import permissions
 from drf_spectacular.views import SpectacularAPIView,SpectacularSwaggerView
 from drf_spectacular import openapi
+from oauth2_provider import urls as oauth2_urls
+
 
 
 
@@ -42,6 +44,7 @@ router.registry.extend(customer.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('oauth2/',include(oauth2_urls)),
     path('ecommerceApi/',include(router.urls)),
     path('api/register/',registerViewset.as_view(),name='register'),
     path('api/login/',loginViewset.as_view(),name="login"),
