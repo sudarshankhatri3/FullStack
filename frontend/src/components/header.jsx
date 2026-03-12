@@ -1,6 +1,7 @@
 import "../styles/componentCss/headerTemplate.css";
 import Login from "./loginButton";
 import { SignUp } from "./loginButton";
+// import Nutri  from "./Nutri";
 
 export default function HeaderTemplate() {
   return (
@@ -30,10 +31,13 @@ export default function HeaderTemplate() {
             <img src="/topNav.png" alt="Promotion" />
           </div>
           <div className="promo-auth">
-            <Login/>
-            <SignUp/>
+          <Login/>
+          <SignUp/>
+          <Nutri/>
+          
           </div>
-       
+          
+         
       </div>
     </>
   );

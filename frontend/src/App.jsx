@@ -9,13 +9,15 @@ import LoginPage from "./pages/login";
 import ListCategory from "./components/listCategory";
 import Login from "./components/loginButton";
 import Product from "./pages/product";
+import Nutri from "./components/Nutri";
+
 
 
 
 const router=createBrowserRouter([
   {
     path:"/",
-    element:<HeaderTemplate/>
+    element:<Nutri/>
   },
   {
     path:"/signUp",
