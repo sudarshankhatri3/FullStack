@@ -10,7 +10,9 @@ export default function BabyProduct() {
     {img:"./diper.png",title:"Dipers and Wipes"},
     {img:"./infant.png",title:"Infant"},
     {img:"./eat.png",title:"Eat & Drink supplies"},
-    {}{}{}
+    {img:"./stroller.png",title:"Stroller crib chair"},
+    {img:"./washes.png",title:"Washes & Bath"},
+    {img:"./cloth.png",title:"Baby Fashion"}
   ]
   return (
     <>
@@ -19,46 +21,15 @@ export default function BabyProduct() {
           <h2>Most popular categories <span className="text-[#000000]">for baby Product</span></h2>
         </div>
         <div className="w-full flex flex-wrap justify-center gap-8">
-          <div className="flex flex-col justify-center items-center gap-2">
-            <img src= alt="new arrival image" className="w-[110] h-[110] border-r-amber-50"/>
-            <p className="font-bold block text-xs "></p>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4">
-            <img src=alt="sales img"  className="w-[110] h-[110] border-r-amber-50" />
-            <p className="font-bold block text-xs "></p>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4">
-            <img src= alt="pregnancy image"  className="w-[110] h-[110] border-r-amber-50" />
-            <p className="font-bold block text-xs "></p>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4">
-            <img src= alt="milk image" className="w-[110] h-[110] border-r-amber-50"/>
-            <p className="font-bold block text-xs"></p>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4">
-            <img src= alt="diper" className="w-[110] h-[110] border-r-amber-50"/>
-            <p className="font-bold block text-xs"></p>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4">
-            <img src= alt="inftan" className="w-[110] h-[110] border-r-amber-50" />
-            <p className="font-bold block text-xs"></p>
-          </div >
-          <div className="flex flex-col justify-center items-center gap-4">
-            <img src= alt="eat and drink"  className="w-[110] h-[110] border-r-amber-50"/>
-            <p className="font-bold block text-xs"></p>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4">
-            <img src="./stroller.png" alt="stroller" className="w-[110] h-[110] border-r-amber-50" />
-            <p className="font-bold block text-xs">Stroller crib chair</p>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4">
-            <img src="./washes.png" alt="washes" className="w-[110] h-[110] border-r-amber-50" />
-            <p className="font-bold block text-xs">Washes & Bath</p>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4">
-            <img src="./cloth.png" alt="closthes" className="w-[110] h-[110] border-r-amber-50"/>
-            <p className="font-bold block text-xs">Baby Fashion</p>
-          </div>
+         {
+            images.map((prod)=>(
+                <div className="flex flex-col justify-center items-center gap-2">
+                    <img src={prod.img}alt={prod.title} className="w-[110] h-[110] border-r-amber-50"/>
+                    <p className="font-bold block text-xs ">{prod.title}</p>
+                </div>
+            ))
+         }
+         
         </div>
         <div className="flex justify-center items-center ">
             <div>
