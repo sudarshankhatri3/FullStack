@@ -6,18 +6,15 @@ import HeaderTemplate from "./components/header";
 import Header from "./components/navigation";
 import SignPage from "./pages/signup";
 import LoginPage from "./pages/login";
-import ListCategory from "./components/listCategory";
 import Login from "./components/loginButton";
 import Product from "./pages/product";
-import Nutri from "./components/Nutri";
-
-
+import BabyProduct from "./components/babyProduct.jsx"
 
 
 const router=createBrowserRouter([
   {
     path:"/",
-    element:<Nutri/>
+    element:<BabyProduct/>
   },
   {
     path:"/signUp",
@@ -26,10 +23,6 @@ const router=createBrowserRouter([
   {
     path:"/login",
     element:<LoginPage/>
-  },
-  {
-    path:"navigation",
-    element:<ListCategory/>
   },
   {
     path:"product",

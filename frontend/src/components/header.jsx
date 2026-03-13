@@ -1,7 +1,7 @@
 import "../styles/componentCss/headerTemplate.css";
 import Login from "./loginButton";
 import { SignUp } from "./loginButton";
-// import Nutri  from "./Nutri";
+import Nutri  from "./Nutri";
 
 export default function HeaderTemplate() {
   return (
@@ -32,12 +32,11 @@ export default function HeaderTemplate() {
           </div>
           <div className="promo-auth">
           <Login/>
-          <SignUp/>
-          <Nutri/>
-          
+          <SignUp/> 
           </div>
-          
-         
+      </div>
+      <div>
+        <Nutri/>
       </div>
     </>
   );
