@@ -16,20 +16,19 @@ export default function BabyProduct() {
   ]
   return (
     <>
-      <div className="mt-20 bg-[#FFFFFF] flex flex-col justify-center items-center gap-10">
+      <div className="mt-20 bg-[#FFFFFF] flex flex-col justify-center items-center gap-10 ">
         <div className="text-[#01A49E]">
-          <h2>Most popular categories <span className="text-[#000000]">for baby Product</span></h2>
+          <h2 className="text-4xl">Most popular categories <span className="text-[#000000]">for baby Product</span></h2>
         </div>
         <div className="w-full flex flex-wrap justify-center gap-8">
          {
-            images.map((prod)=>(
-                <div className="flex flex-col justify-center items-center gap-2">
-                    <img src={prod.img}alt={prod.title} className="w-[110] h-[110] border-r-amber-50"/>
+            images.map((prod,index)=>(
+                <div key={index} className="flex flex-col justify-center items-center gap-2 w-[80px] sm:w-[100px] md:w-[120px]flexflex-col">
+                    <img src={prod.img}alt={prod.title} className="w-[80px]  h-[80px] object-fit sm:w-[100px] sm:h-[100px] md:w-[110px] md:h-[110px]"/>
                     <p className="font-bold block text-xs ">{prod.title}</p>
                 </div>
             ))
          }
-         
         </div>
         <div className="flex justify-center items-center ">
             <div>

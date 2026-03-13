@@ -2,6 +2,7 @@ import "../styles/componentCss/headerTemplate.css";
 import Login from "./loginButton";
 import { SignUp } from "./loginButton";
 import Nutri  from "./Nutri";
+import BabyProduct from "./babyProduct";
 
 export default function HeaderTemplate() {
   return (
@@ -35,8 +36,9 @@ export default function HeaderTemplate() {
           <SignUp/> 
           </div>
       </div>
-      <div>
+      <div className="flex flex-col gap-50">
         <Nutri/>
+        <BabyProduct/>
       </div>
     </>
   );

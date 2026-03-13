@@ -14,7 +14,7 @@ import BabyProduct from "./components/babyProduct.jsx"
 const router=createBrowserRouter([
   {
     path:"/",
-    element:<BabyProduct/>
+    element:<HeaderTemplate/>
   },
   {
     path:"/signUp",
