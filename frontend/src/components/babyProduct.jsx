@@ -1,53 +1,88 @@
 import "../app.css";
 
 export default function BabyProduct() {
+
+  const images=[
+    {img:"./newArrival.png",title:"New Arrival"},
+    {img:"./sales.png" ,title:"Clearance"},
+    {img:"./pregnancy.png",title:"Pregnancy & Postpartum"},
+    {img:"./milk.png",title:"Milks and Feeds"},
+    {img:"./diper.png",title:"Dipers and Wipes"},
+    {img:"./infant.png",title:"Infant"},
+    {img:"./eat.png",title:"Eat & Drink supplies"},
+    {}{}{}
+  ]
   return (
     <>
       <div className="mt-20 bg-[#FFFFFF] flex flex-col justify-center items-center gap-10">
         <div className="text-[#01A49E]">
-          <h2>Most popular categories for baby Product</h2>
+          <h2>Most popular categories <span className="text-[#000000]">for baby Product</span></h2>
         </div>
-        <div className="min-w-full min-h-full flex justify-center items-center">
+        <div className="w-full flex flex-wrap justify-center gap-8">
+          <div className="flex flex-col justify-center items-center gap-2">
+            <img src= alt="new arrival image" className="w-[110] h-[110] border-r-amber-50"/>
+            <p className="font-bold block text-xs "></p>
+          </div>
           <div className="flex flex-col justify-center items-center gap-4">
-            <img src="./newArrival.png" alt="new arrival image" className="w-[110] h-[110] border-r-amber-50"/>
-            <p className="font-bold block">New Arrival</p>
+            <img src=alt="sales img"  className="w-[110] h-[110] border-r-amber-50" />
+            <p className="font-bold block text-xs "></p>
           </div>
-          <div>
-            <img src="./sales.png" alt="sales img" />
-            <p>Clearance</p>
+          <div className="flex flex-col justify-center items-center gap-4">
+            <img src= alt="pregnancy image"  className="w-[110] h-[110] border-r-amber-50" />
+            <p className="font-bold block text-xs "></p>
           </div>
-          <div>
-            <img src="./pregnancy.png" alt="pregnancy image" />
-            <p>Pregnancy & Postpartum</p>
+          <div className="flex flex-col justify-center items-center gap-4">
+            <img src= alt="milk image" className="w-[110] h-[110] border-r-amber-50"/>
+            <p className="font-bold block text-xs"></p>
           </div>
-          <div>
-            <img src="./milk.png" alt="milk image" />
-            <p>Milks and Feeds</p>
+          <div className="flex flex-col justify-center items-center gap-4">
+            <img src= alt="diper" className="w-[110] h-[110] border-r-amber-50"/>
+            <p className="font-bold block text-xs"></p>
           </div>
-          <div>
-            <img src="./diper.png" alt="diper" />
-            <p>Dipers and Wipes</p>
+          <div className="flex flex-col justify-center items-center gap-4">
+            <img src= alt="inftan" className="w-[110] h-[110] border-r-amber-50" />
+            <p className="font-bold block text-xs"></p>
+          </div >
+          <div className="flex flex-col justify-center items-center gap-4">
+            <img src= alt="eat and drink"  className="w-[110] h-[110] border-r-amber-50"/>
+            <p className="font-bold block text-xs"></p>
           </div>
-          <div>
-            <img src="./infant.png" alt="inftan" />
-            <p>Infant</p>
+          <div className="flex flex-col justify-center items-center gap-4">
+            <img src="./stroller.png" alt="stroller" className="w-[110] h-[110] border-r-amber-50" />
+            <p className="font-bold block text-xs">Stroller crib chair</p>
           </div>
-          <div>
-            <img src="./eat.png" alt="eat and drink" />
-            <p>Eat & Drink supplies</p>
+          <div className="flex flex-col justify-center items-center gap-4">
+            <img src="./washes.png" alt="washes" className="w-[110] h-[110] border-r-amber-50" />
+            <p className="font-bold block text-xs">Washes & Bath</p>
           </div>
-          <div>
-            <img src="./stroller.png" alt="stroller" />
-            <p>Stroller crib chair</p>
+          <div className="flex flex-col justify-center items-center gap-4">
+            <img src="./cloth.png" alt="closthes" className="w-[110] h-[110] border-r-amber-50"/>
+            <p className="font-bold block text-xs">Baby Fashion</p>
           </div>
-          <div>
-            <img src="./washes.png" alt="washes" />
-            <p>Washes & Bath</p>
-          </div>
-          <div>
-            <img src="./cloth.png" alt="closthes" />
-            <p>Baby Fashion</p>
-          </div>
+        </div>
+        <div className="flex justify-center items-center ">
+            <div>
+                <div>
+                    <p>Best Price</p>
+                    <p>$69</p>
+                    <p>3-pack Cutton Rib Bodysuits</p>
+                    <button>Shop Now</button>
+                </div>
+                <div>
+                    <img src="./banner1.png" alt="banner" />
+                </div>
+            </div>
+            <div>
+                 <div>
+                    <p>Best Price</p>
+                    <p>$69</p>
+                    <p>3-pack Cutton Rib Bodysuits</p>
+                    <button>Shop Now</button>
+                </div>
+                <div>
+                    <img src="./banner1.png" alt="banner" />
+                </div>
+            </div>
         </div>
       </div>
     </>
