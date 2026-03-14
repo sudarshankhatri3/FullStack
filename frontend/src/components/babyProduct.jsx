@@ -23,35 +23,29 @@ export default function BabyProduct() {
         <div className="w-full flex flex-wrap justify-center gap-8">
          {
             images.map((prod,index)=>(
-                <div key={index} className="flex flex-col justify-center items-center gap-2 w-[80px] sm:w-[100px] md:w-[120px]flexflex-col">
-                    <img src={prod.img}alt={prod.title} className="w-[80px]  h-[80px] object-fit sm:w-[100px] sm:h-[100px] md:w-[110px] md:h-[110px]"/>
+                <div key={index} className="flex flex-col justify-center items-center gap-2 w-20 sm:w-20 md:w-30 ">
+                    <img src={prod.img}alt={prod.title} className="w-20  h-20 object-fit sm:w-20 sm:h-25 md:w-30 md:h-30"/>
                     <p className="font-bold block text-xs ">{prod.title}</p>
                 </div>
             ))
          }
         </div>
-        <div className="flex justify-center items-center ">
-            <div>
-                <div>
+        <div className="bg-centergrid grid-cols-2 gap-40 ">
+            <div className="bg-[url('/banner1.png')] bg-cover w-full h-[400]">
                     <p>Best Price</p>
                     <p>$69</p>
                     <p>3-pack Cutton Rib Bodysuits</p>
                     <button>Shop Now</button>
-                </div>
-                <div>
-                    <img src="./banner1.png" alt="banner" />
-                </div>
             </div>
-            <div>
-                 <div>
+            <div className="bg-[url('/banner2.png')] bg-cover ">
+                
                     <p>Best Price</p>
                     <p>$69</p>
                     <p>3-pack Cutton Rib Bodysuits</p>
                     <button>Shop Now</button>
                 </div>
-                <div>
-                    <img src="./banner1.png" alt="banner" />
-                </div>
+                
+            
             </div>
         </div>
       </div>
