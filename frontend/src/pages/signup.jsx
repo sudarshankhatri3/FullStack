@@ -40,6 +40,7 @@ export default function SignPage() {
       console.log(data)
       if (!response.ok) {
         alert("Error: " + JSON.stringify(data));
+        return
       }
       alert("Signup sucessfully");
     } catch (error) {
