@@ -90,11 +90,13 @@ class BillingOrder(models.Model):
     unit_price=models.PositiveIntegerField(default=0)
     total_price=models.PositiveIntegerField(default=0)
     discount_price=models.PositiveIntegerField(default=3)
-    vat_rate=models.PositiveIntegerField(default=13)
+    vat_price=models.PositiveIntegerField(default=0)
     customer_type=models.CharField(choices=CUSTOMER_TYPE,default='nomral')
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
 
 
-    def save(self):
+    def save(self,*args,**kwargs):
         if self.order_info.product and self.order_info.quantity>0:
             self.unit_price=self.order_info.product.price
             self.total_price=self.order_info.quantity*self.unit_price
@@ -103,10 +105,11 @@ class BillingOrder(models.Model):
                 if self.discount_price:
                     self.total_price=self.total_price-self.discount_price
                     if self.total_price:
+                        self.vat_price=self.total_price*0.13
                         self.total_price+=self.total_price*0.13
 
                 
-        return super().save()
+        super().save(*args,**kwargs)
 
     def __str__(self):
         return f'BillingOrder {self.customer_type}'

@@ -11,10 +11,12 @@ from ..serailizers.serializer import (
     ListCommentSerializer,
     PostCommentSerailizer,
     CartListSerializer,
-    CartPostSerializer
+    CartPostSerializer,
+    ProductBillingListSerializer,
+    ProductBillingPostSerializer
     )
 from ..utilities.pagination import CustomerPagination
-from ..models import UserProfile,ProductOrder,ProductReview,DeliveryInformation,CommentProduct,CartModel
+from ..models import UserProfile,ProductOrder,ProductReview,DeliveryInformation,CommentProduct,CartModel,BillingOrder
 
 
 #viewset for the userProfile
@@ -47,6 +49,20 @@ class ProductOrderViewset(viewsets.ModelViewSet):
         elif self.action in ['create','update','partial_update']:
             return ProductOrderPostSerializer
         return ProductOrderListSerializer
+    
+
+#viewset for the billingOrder
+class ProductBillingViewset(viewsets.ModelViewSet):
+    queryset=BillingOrder.objects.all().order_by('-id')
+    serializer_class=ProductBillingListSerializer
+
+    #serializer class to  perfom http methods like get,post,put,patch,delete
+    def get_serializer_class(self):
+        if self.action=='list':
+            return ProductBillingListSerializer
+        elif self.action in ['create','update','partial_update']:
+            return ProductBillingPostSerializer
+        return ProductBillingListSerializer
     
 
 #viewset for product review 

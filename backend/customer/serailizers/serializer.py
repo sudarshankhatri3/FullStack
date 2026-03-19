@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import UserProfile,ProductOrder,ProductReview,CommentProduct,DeliveryInformation,CartModel
+from ..models import UserProfile,ProductOrder,ProductReview,CommentProduct,DeliveryInformation,CartModel,BillingOrder
 
 
 #serailizer for list of userProfile
@@ -33,6 +33,18 @@ class ProductReviewListSerializer(serializers.ModelSerializer):
     class Meta:
         model=ProductReview
         fields=['id','product','rating','comment','created_at']
+
+#serializer for list of billingOrder
+class ProductBillingListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=BillingOrder
+        fields=['order_info','unit_price','total_price', 'discount_price','vat_price','customer_type','created_at','updated_at']
+
+#serializer for post of billingOrder
+class ProductBillingPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=BillingOrder
+        fields=['order_info','unit_price','total_price', 'discount_price','vat_price','customer_type']
 
 
 #serializer for post product review

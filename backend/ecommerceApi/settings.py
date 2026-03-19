@@ -14,22 +14,35 @@ from pathlib import Path
 # import dj_database_url 
 from datetime import timedelta
 import os 
+import environ
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env=environ.Env(DEBUG=(bool,True))
+
+
+#load the .env file 
+environ.Env.read_env(os.path.join(BASE_DIR,'.env'))
 
 # https://github.com/ashishps1/awesome-system-design-resources?tab=readme-ov-file
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y8o$=_f^wk9w$@ol10b*jybpc0r3=tj782%@22za%w6lyi=)4a'
+# SECRET_KEY=env('SECRET_KEY')
+SECRET_KEY='django-insecure-y8o$=_f^wk9w$@ol10b*jybpc0r3=tj782%@22za%w6lyi=)4a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('RENDER', None) is None
-# DEBUG=False
+# DEBUG =env('DEBUG')
+DEBUG=True
+
 
 ALLOWED_HOSTS = []
+
+
 
 
 # Application definition
