@@ -4,19 +4,23 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LoginPage from "./login";
 
+
+const initialFormState = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  password1: "",
+  password2: "",
+  role: "",
+  privacy_policy: false,
+};
+
 export default function SignPage() {
-  const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    password1: "",
-    password2: "",
-    role: "",
-    privacy_policy: false,
-  });
+  const [formData, setFormData] = useState(initialFormState);
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
   const [agreed, setAgreed] = useState(false);
+  
 
   console.log(formData.privacy_policy);
 
@@ -27,7 +31,7 @@ export default function SignPage() {
       return;
     }
     console.log(formData);
-    console.log(JSON.stringify(formData))
+    console.log(JSON.stringify(formData));
     try {
       const response = await fetch("http://127.0.0.1:8000/api/register/", {
         method: "POST",
@@ -36,20 +40,24 @@ export default function SignPage() {
         },
         body: JSON.stringify(formData),
       });
-      const data=await response.json()
-      console.log(data)
+      const data = await response.json();
+      console.log(data);
       if (!response.ok) {
         alert("Error: " + JSON.stringify(data));
-        return
+        return;
       }
       alert("Signup sucessfully");
+      setFormData(initialFormState)
+      setAgreed(false)
+
     } catch (error) {
       console.log(error);
     }
   }
 
   return (
-    <section className="bg-gray-50 min-h-full flex justify-center items-center px-4">
+    <>
+    <section className="bg-gray-50 min-h-10 flex justify-center items-center  px-4">
       <div className="flex flex-col items-center  justify-center px-4 py-8 mx-auto min-h-screen  rounded-xl-x  shadow-lg shadow-blue-500/50">
         <a
           href="#"
@@ -222,21 +230,29 @@ export default function SignPage() {
               </div>
 
               {/* Submit */}
-              <button
-                type="submit"
-                className="w-full h-15 text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none font-semibold rounded-lg text-sm px-5 py-3 text-center transition-colors duration-200"
-              >
-                Create an account
-              </button>
+              <div className="flex justify-center items-center-safe">
+                <button
+                  type="submit"
+                  className="w-60 h-30 text-white bg-blue-600  hover:bg-blue-700 active:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none font-semibold rounded-lg text-sm px-5 py-3 text-center transition-colors duration-200"
+                >
+                  Create an account
+                </button>
+              </div>
 
               {/* Login link */}
               <p className="text-sm text-center text-gray-500">
-                Already have an account? {<Link to="/login" className="text-blue-600">Login</Link>}
+                Already have an account?{" "}
+                {
+                  <Link to="/login" className="text-blue-600">
+                    Login
+                  </Link>
+                }
               </p>
             </form>
           </div>
         </div>
       </div>
     </section>
+    </>
   );
 }

@@ -1,11 +1,15 @@
 import "../app.css";
 import { useState } from "react";
+import axios from 'axios'
+
+
+const initialData={
+  email: "",
+  password: "",
+}
 
 export default function LoginPage() {
-  const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-  });
+  const [loginData, setLoginData] = useState(initialData);
   const [showPassword, setShowPassword] = useState(false);
 
   async function loginUser(e) {
@@ -21,10 +25,12 @@ export default function LoginPage() {
     if (!response.ok) {
       console.log(JSON.stringify(response))
       alert("Error", JSON.stringify(response));
+      setLoginData(initialData)
       return;
     }
     localStorage.getItem('access')
     alert("login sucessfully");
+    setLoginData(initialData)
   }
 
   return (

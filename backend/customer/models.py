@@ -32,6 +32,12 @@ label_data=[
     ('OFFICE','Office')
 ]
 
+CUSTOMER_TYPE=[
+    ('REGULAR','regular'),
+    ('NORMAL','normal'),
+
+]
+
 
 def slugId():
     slug_value=random.randint(100000,999999)
@@ -76,6 +82,36 @@ class ProductOrder(models.Model):
 
     def __str__(self):
         return f'order of {self.product}'
+    
+
+#models for the order billing
+class BillingOrder(models.Model):
+    order_info=models.ForeignKey(ProductOrder,on_delete=models.CASCADE)
+    unit_price=models.PositiveIntegerField(default=0)
+    total_price=models.PositiveIntegerField(default=0)
+    discount_price=models.PositiveIntegerField(default=3)
+    vat_rate=models.PositiveIntegerField(default=13)
+    customer_type=models.CharField(choices=CUSTOMER_TYPE,default='nomral')
+
+
+    def save(self):
+        if self.order_info.product and self.order_info.quantity>0:
+            self.unit_price=self.order_info.product.price
+            self.total_price=self.order_info.quantity*self.unit_price
+            if self.total_price:
+                self.discount_price=self.total_price*0.03
+                if self.discount_price:
+                    self.total_price=self.total_price-self.discount_price
+                    if self.total_price:
+                        self.total_price+=self.total_price*0.13
+
+                
+        return super().save()
+
+    def __str__(self):
+        return f'BillingOrder {self.customer_type}'
+    
+
     
 
 
