@@ -85,13 +85,13 @@ class PostCommentSerailizer(serializers.ModelSerializer):
 class CartListSerializer(serializers.ModelSerializer):
     class Meta:
         model=CartModel
-        field='__all__'
+        fields='__all__'
 
 
 #serailzier for post cart
 class CartPostSerializer(serializers.ModelSerializer):
     class Meta:
         model=CartModel
-        field=['user','product','quantity']
+        fields=['user','product','quantity']
 
 

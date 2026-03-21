@@ -70,6 +70,7 @@ class UserProfile(models.Model):
 
 # model  for order products 
 class ProductOrder(models.Model):
+    user_data=models.ForeignKey(signUpModel,on_delete=models.CASCADE)
     product=models.ForeignKey(products,on_delete=models.CASCADE)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     quantity=models.PositiveIntegerField(default=1,validators=[MinValueValidator(1),MaxValueValidator(100)])
@@ -81,7 +82,7 @@ class ProductOrder(models.Model):
 
 
     def __str__(self):
-        return f'order of {self.product}'
+        return f'{self.product}'
     
 
 #models for the order billing
@@ -121,7 +122,7 @@ class BillingOrder(models.Model):
 # product review models
 class ProductReview(models.Model):
     slug = models.SlugField(max_length=255, null=True, blank=True)
-    product=models.ForeignKey(products,on_delete=models.CASCADE)
+    product=models.ForeignKey(ProductOrder,on_delete=models.CASCADE)
     rating=models.PositiveIntegerField(choices=[(i,str(i)) for i in range(1,6)])
     comment=models.TextField(blank=True,null=True)
     created_at=models.DateTimeField(auto_now_add=True)
@@ -165,7 +166,6 @@ class DeliveryInformation(models.Model):
 
 #commont for user 
 class CommentProduct(models.Model):
-    user=models.ForeignKey(signUpModel,on_delete=models.CASCADE)
     product=models.ForeignKey(products,on_delete=models.CASCADE)
     comment=models.CharField(max_length=1000, null=True,blank=True)
     created_at=models.DateTimeField(auto_now_add=True)
@@ -178,7 +178,6 @@ class CommentProduct(models.Model):
 
 #cart model for customer
 class CartModel(models.Model):
-    user=models.ForeignKey(signUpModel,on_delete=models.CASCADE)
     product=models.ForeignKey(products,on_delete=models.CASCADE)
     quantity=models.IntegerField(default=1)
     created_at=models.DateTimeField(auto_now_add=True)

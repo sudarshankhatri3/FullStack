@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party app
+    'channels',
     'rest_framework',
     'phonenumber_field',
     'rest_framework_simplejwt',
@@ -160,7 +161,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ecommerceApi.wsgi.application'
+# WSGI_APPLICATION = 'ecommerceApi.wsgi.application'
+ASGI_APPLICATION='ecommerceApi.asgi.application'
 
 
 
@@ -174,17 +176,7 @@ EMAIL_HOST_PASSWORD = 'your_app_specific_password'
 EMAIL_USE_TLS = True
 
 
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-# if 'RENDER' in os.environ:
-#     DATABASES = {
-#         'default': dj_database_url.config(
-#             default=os.environ.get('DATABASE_URL'),  # use Render's DATABASE_URL
-#             conn_max_age=600,
-#             ssl_require=True  # optional but recommended for production
-#         )
-#     }
-# else:
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
