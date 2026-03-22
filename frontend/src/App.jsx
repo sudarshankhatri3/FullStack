@@ -9,6 +9,7 @@ import LoginPage from "./pages/login";
 import Login from "./components/loginButton";
 import Product from "./pages/product";
 import BabyProduct from "./components/babyProduct.jsx"
+import DashBoard from "./pages/dashBoard.jsx";
 
 
 const router=createBrowserRouter([
@@ -27,6 +28,10 @@ const router=createBrowserRouter([
   {
     path:"product",
     element:<Product/>
+  },
+  {
+    path:"dashboard",
+    element:<DashBoard/>
   },
   {
     path:"*",
