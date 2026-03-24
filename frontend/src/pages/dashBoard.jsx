@@ -36,9 +36,9 @@ export default function DashBoard() {
           </h3>
           <p className="text-[#64748B] text-[12px]">Premium Curator</p>
         </div>
-        <div className="flex flex-col gap-3 w-full">
+        <div className="flex flex-col gap-3  p-6 w-full">
           {asideBar.map((prod,index) => (
-            <div  key={index} className="pl-20 flex items-center gap-3 w-full">
+            <div  key={index} className="flex  items-center gap-3 w-full">
               <img src={prod.photo} alt={prod.link} className="w-3 h-3 object-cover" />
               <a
                 href={prod.link}
@@ -50,6 +50,8 @@ export default function DashBoard() {
           ))}
         </div>
       </aside>
+
+      {/* main menu */}
     </div>
   );
 }
