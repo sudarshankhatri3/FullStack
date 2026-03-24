@@ -40,20 +40,20 @@ const revenuDashboard = [
   {
     title: "CONVERSION RATE",
     photo: "./conversion.png",
-    revenu: 3.4,
+    revenu: "3.4%",
     incRate: 2,
   },
   {
     title: "ACTIVE CUSTOMERS",
     photo: "./customerGroup.png",
-    revenu: 8430,
+    revenu: "8,430",
     incRate: 15,
   },
 ];
 
 export default function DashBoard() {
   return (
-    <div className="flex">
+    <div className="flex ">
       {/* side bar */}
       <aside className="h-[500px]  w-60  bg-[#EEF2FF] flex flex-col  items-center  gap-10 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
         <div className="h-25 w-50 flex flex-col justify-center items-center gap-3">
@@ -82,6 +82,11 @@ export default function DashBoard() {
       </aside>
 
       {/* main menu */}
+      <div className="flex justify-end items-center">
+        <img src="./notification.png" alt="notification" />
+        <img src="./button.png" alt="support" />
+        <button>Support </button>
+      </div>
       <div className="h-full min-h-full mt-20 pl-10 flex  flex-col gap-20">
         <div className="mt-20 ">
           <h2 className="text-4xl text-[#191C1D]">Welcome Back, Cuartor</h2>
