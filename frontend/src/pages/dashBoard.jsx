@@ -1,5 +1,7 @@
 import "../app.css";
 import React from "react";
+import { useContext } from "react";
+
 
 const asideBar = [
   {
@@ -138,12 +140,9 @@ export default function DashBoard() {
         </div>
 
         {/* section for top product */}
-        <div className="flex flex-row gap-100">
-          <div>
-
-          </div>
-          <div className="bg-[#c6c6ce]  min-h-[400px] self-center p-20 rounded-2xl flex flex-col items-center gap-20">
-            <h2v className="text-3xl text-[#191C1D] ">TOP PRODUCTS</h2v>
+        <div className="flex">
+          <div className="bg-[#c6c6ce]  min-h-[400px] self-center p-8 rounded-2xl flex flex-col justify-end items-center gap-15">
+            <h2 className="text-3xl text-[#191C1D] ">TOP PRODUCTS</h2>
             {topProduct.map((prod) => (
               <div className=" w-full p-30 flex items-center gap-10">
                 <img src={prod.image} alt={prod.title} />
@@ -153,7 +152,7 @@ export default function DashBoard() {
                 </div>
                 <div>
                   <p className="text-[#3525CD] text-xl font-bold">${prod.price}</p>
-                  <p>{prod.sales} sales</p>
+                  <p className="text-[#464555] text-[10px] ">{prod.sales} sales</p>
                 </div>
               </div>
             ))}
