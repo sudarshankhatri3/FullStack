@@ -10,7 +10,7 @@ import Login from "./components/loginButton";
 import Product from "./pages/product";
 import BabyProduct from "./components/babyProduct.jsx"
 import DashBoard from "./pages/dashBoard.jsx";
-import myApp from "./components/context.jsx";
+import Context from "./components/context.jsx";
 
 
 const router=createBrowserRouter([
@@ -35,8 +35,8 @@ const router=createBrowserRouter([
     element:<DashBoard/>
   },
   {
-    path:"myApp",
-    element:<myApp/>
+    path:"context",
+    element:<Context/>
   },
   {
     path:"*",

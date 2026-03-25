@@ -1,43 +1,30 @@
-import { useContext, createContext } from "react";
+import { useContext, createContext,useRef,useState } from "react";
 
 
-const themeContext = createContext(null);
 
-export default function myApp() {
+export default function Context(){
+     
+
+  // make the variable for useRef
+  const inputRef=useRef(0)
+  const [count,SetCount]=useState(0)
+
+  const increment=()=>{
+    inputRef.current+=1;
+    console.log(inputRef)
+   
+  }
+
   return (
-    <themeContext value="dark">
-      <Form />
-    </themeContext>
-  );
-}
+    <>
 
-function Form() {
-  return (
-    <Panel title="welcome">
-      <Button>Signup</Button>
-      <Button>Login</Button>
-    </Panel>
-  );
+    <div>{count}</div>
+    <button>{SetCount(count+1)}</button>
+    <button onClick={increment}>Click on ref</button> 
+    </>
+  )
+
 }
 
 
-function Panel({title,children}){
-    const theme=useContext(themeContext)
-    const className='panel-'+theme
-    return(
-        <section className={className}>
-            <h1>{title}</h1>
-            {children}
-        </section>
-    )
-}
 
-
-function Button({children}){
-    const theme=useContext(themeContext)
-    const className='button-'+theme
-
-    return (
-        <button className={className}>{children}</button>
-    )
-}
