@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  BarChart,
-  Bar,
+  LineChart,
+  Line,
   XAxis,
   YAxis,
   Tooltip,
@@ -19,26 +19,26 @@ const data = [
 
 function Chart() {
   return (
-    <div className="bg-white p-5 rounded-2xl shadow-md w-full">
+     <div className=" min-w-full rounded-2xl shadow-md w-full h-[400px] p-4">
       <h2 className="text-lg font-semibold mb-4">Monthly Sales</h2>
 
-      <ResponsiveContainer width={600} height={600}>
-        <BarChart data={data}>
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data}>
           {/* Grid */}
-          <CartesianGrid strokeDasharray="6 6" />
+          <CartesianGrid strokeDasharray="10 10" />
 
           {/* X Axis */}
           <XAxis dataKey="name" />
 
           {/* Y Axis */}
-          <YAxis />
+          <YAxis dataKey="sales"/>
 
           {/* Tooltip (hover effect) */}
           <Tooltip />
 
           {/* Bar */}
-          <Bar dataKey="sales" fill="#4F46E5" radius={[16,16,16, 0]} />
-        </BarChart>
+          <Line dataKey="sales" stroke="#4F46E5" strokeWidth={3} />
+        </LineChart>
       </ResponsiveContainer>
     </div>
   );

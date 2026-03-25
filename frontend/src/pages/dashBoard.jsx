@@ -140,9 +140,11 @@ export default function DashBoard() {
         </div>
 
         {/* section for top product */}
-        <div className="flex ">
+        <div className="flex gap-30 ">
           <div>
-            <Charts />
+            <h3 className="text-[#191C1D] font-bold text-2xl antialiased line-clamp-1">Sales Over Time</h3>
+            <p className="text-[#464555] h-10 w-60 font-light text-[14px] line-clamp-2">Transaction volume for the last 30 days</p>
+            <Charts  />
           </div>
           <div className="bg-[#c6c6ce]  min-h-[400px] self-center p-8 rounded-2xl flex flex-col justify-end items-center gap-15">
             <h2 className="text-3xl text-[#191C1D] ">TOP PRODUCTS</h2>
