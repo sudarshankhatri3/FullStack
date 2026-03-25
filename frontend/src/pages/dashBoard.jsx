@@ -51,11 +51,35 @@ const revenuDashboard = [
   },
 ];
 
+const topProduct = [
+  {
+    image: "./clock.png",
+    title: "Sovereign classic watch",
+    category: "Accessories",
+    price: 42300,
+    sales: 142,
+  },
+  {
+    image: "./shoe.png",
+    title: "Velocity Run-max",
+    category: "Footwear",
+    price: 29550,
+    sales: 210,
+  },
+  {
+    image: "./headphone.png",
+    title: "Aura wireless Audio",
+    category: "Electronics",
+    price: 38120,
+    sales: 142,
+  },
+];
+
 export default function DashBoard() {
   return (
     <div className="flex ">
       {/* side bar */}
-      <aside className="h-[500px]  w-60  bg-[#EEF2FF] flex flex-col  items-center  gap-10 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
+      <aside className="min-h-[500px]  w-60  bg-[#EEF2FF] flex flex-col  items-center  gap-10 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
         <div className="h-25 w-50 flex flex-col justify-center items-center gap-3">
           <h3 className=" text-[24px] font-semibold text-blue-500 block-auto">
             Sovereign Store
@@ -100,7 +124,9 @@ export default function DashBoard() {
           {revenuDashboard.map((dash) => (
             <div className="h-full border-l-3 border-[#58579B]  flex flex-col gap-5">
               <div className="border-l-amber-800 flex flex-row gap-5">
-                <h4 className="text-[#464555] text-[12px] font-bold">{dash.title}</h4>
+                <h4 className="text-[#464555] text-[12px] font-bold">
+                  {dash.title}
+                </h4>
                 <img src={dash.photo} alt="revenue photo" />
               </div>
               <div className="flex flex-row gap-5">
@@ -109,6 +135,29 @@ export default function DashBoard() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* section for top product */}
+        <div className="flex flex-row gap-100">
+          <div>
+
+          </div>
+          <div className="bg-[#c6c6ce]  min-h-[400px] self-center p-20 rounded-2xl flex flex-col items-center gap-20">
+            <h2v className="text-3xl text-[#191C1D] ">TOP PRODUCTS</h2v>
+            {topProduct.map((prod) => (
+              <div className=" w-full p-30 flex items-center gap-10">
+                <img src={prod.image} alt={prod.title} />
+                <div>
+                  <h3 className=" h-14 w-22 text-[#191C1D] text-[14px] font-bold ">{prod.title}</h3>
+                  <p className="h-4 w-20 text-[12px] text-[#464555] ">{prod.category}</p>
+                </div>
+                <div>
+                  <p className="text-[#3525CD] text-xl font-bold">${prod.price}</p>
+                  <p>{prod.sales} sales</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
