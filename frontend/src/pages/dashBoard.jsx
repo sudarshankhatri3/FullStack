@@ -1,7 +1,7 @@
 import "../app.css";
 import React from "react";
 import { useContext } from "react";
-
+import Charts from "../components/chart";
 
 const asideBar = [
   {
@@ -140,19 +140,30 @@ export default function DashBoard() {
         </div>
 
         {/* section for top product */}
-        <div className="flex">
+        <div className="flex ">
+          <div>
+            <Charts />
+          </div>
           <div className="bg-[#c6c6ce]  min-h-[400px] self-center p-8 rounded-2xl flex flex-col justify-end items-center gap-15">
             <h2 className="text-3xl text-[#191C1D] ">TOP PRODUCTS</h2>
             {topProduct.map((prod) => (
               <div className=" w-full p-30 flex items-center gap-10">
                 <img src={prod.image} alt={prod.title} />
                 <div>
-                  <h3 className=" h-14 w-22 text-[#191C1D] text-[14px] font-bold ">{prod.title}</h3>
-                  <p className="h-4 w-20 text-[12px] text-[#464555] ">{prod.category}</p>
+                  <h3 className=" h-14 w-22 text-[#191C1D] text-[14px] font-bold ">
+                    {prod.title}
+                  </h3>
+                  <p className="h-4 w-20 text-[12px] text-[#464555] ">
+                    {prod.category}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-[#3525CD] text-xl font-bold">${prod.price}</p>
-                  <p className="text-[#464555] text-[10px] ">{prod.sales} sales</p>
+                  <p className="text-[#3525CD] text-xl font-bold">
+                    ${prod.price}
+                  </p>
+                  <p className="text-[#464555] text-[10px] ">
+                    {prod.sales} sales
+                  </p>
                 </div>
               </div>
             ))}
