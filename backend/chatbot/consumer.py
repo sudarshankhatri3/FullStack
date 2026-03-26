@@ -9,7 +9,7 @@ class MySyncHandler(SyncConsumer):
     def websocket_connect(self,event):
         print(f'sudarshan khatri',event)
         self.send({
-            'type':'websocket.accpet'
+            'type':'websocket.accept'
         })
 
 
