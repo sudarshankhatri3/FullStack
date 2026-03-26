@@ -13,7 +13,8 @@ from channels.routing import ProtocolTypeRouter ,URLRouter
 from django.core.asgi import get_asgi_application
 from channels.auth import AuthMiddlewareStack
 from channels.security.websocket import AllowedHostsOriginValidator
-from chatbot.views import websocket_urlPatterns
+from chatbot.routing import websocket_urlpatterns
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerceApi.settings')
 
 
@@ -21,9 +22,7 @@ ecommerce_sync_api=get_asgi_application()
 
 application = ProtocolTypeRouter({
     'http':ecommerce_sync_api,
-    'websocket':AllowedHostsOriginValidator(
-        URLRouter(
-           websocket_urlPatterns
-        )
-    )
+    "websocket": AuthMiddlewareStack(
+            URLRouter(websocket_urlpatterns)
+    ),
 })
