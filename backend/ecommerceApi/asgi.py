@@ -13,7 +13,7 @@ from channels.routing import ProtocolTypeRouter ,URLRouter
 from django.core.asgi import get_asgi_application
 from channels.auth import AuthMiddlewareStack
 from channels.security.websocket import AllowedHostsOriginValidator
-
+from chatbot.views import websocket_urlPatterns
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerceApi.settings')
 
 
@@ -23,9 +23,7 @@ application = ProtocolTypeRouter({
     'http':ecommerce_sync_api,
     'websocket':AllowedHostsOriginValidator(
         URLRouter(
-            [
-                path('ws/message/',Livemessage.as_asgi(),name='live_Message')
-            ]
+           websocket_urlPatterns
         )
     )
 })

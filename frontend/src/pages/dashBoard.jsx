@@ -141,10 +141,15 @@ export default function DashBoard() {
 
         {/* section for top product */}
         <div className="flex gap-30 ">
-          <div>
-            <h3 className="text-[#191C1D] font-bold text-2xl antialiased line-clamp-1">Sales Over Time</h3>
+          <div className="flex flex-col gap-10">
+            <div>
+                  <h3 className="text-[#191C1D] font-bold text-2xl antialiased line-clamp-1">Sales Over Time</h3>
             <p className="text-[#464555] h-10 w-60 font-light text-[14px] line-clamp-2">Transaction volume for the last 30 days</p>
-            <Charts  />
+            </div>
+            <div className="min-h-40 w-120">
+               <Charts  />
+            </div>
+            
           </div>
           <div className="bg-[#c6c6ce]  min-h-[400px] self-center p-8 rounded-2xl flex flex-col justify-end items-center gap-15">
             <h2 className="text-3xl text-[#191C1D] ">TOP PRODUCTS</h2>
@@ -172,9 +177,9 @@ export default function DashBoard() {
           </div>
         </div>
         <div className=" mt-96 flex flex-col gap-20">
-          <div>
+          <div className="mt-3.5 p-4 flex gap-40">
             <h2 className="text-2xl  text-black font-bold ">Recent Orders</h2>
-            <p>View Audit Log</p>
+            <p className="text-[#3525CD] h-24 w-30 font-bold ">View Audit Log</p>
           </div>
           <div>
             <table>
