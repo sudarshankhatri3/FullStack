@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from ..serailizers.serializer import (
     ProductOrderListSerializer,
     ProductOrderPostSerializer,
@@ -40,6 +41,8 @@ class UserProfileViewset(viewsets.ModelViewSet):
 class ProductOrderViewset(viewsets.ModelViewSet):
     queryset=ProductOrder.objects.all().order_by('-id')
     serializer_class=ProductReviewListSerializer
+    pagination_class=CustomerPagination
+    permission_classes=[IsAuthenticated]
 
 
     #serailizer class  for perfom operation like get,post,update,pathc

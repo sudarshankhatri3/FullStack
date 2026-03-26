@@ -171,6 +171,35 @@ export default function DashBoard() {
             ))}
           </div>
         </div>
+        <div className=" mt-96 flex flex-col gap-20">
+          <div>
+            <h2 className="text-2xl  text-black font-bold ">Recent Orders</h2>
+            <p>View Audit Log</p>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <th>
+                  <td>ORDER ID</td>
+                  <td>CUSTOMER</td>
+                  <td>DATE</td>
+                  <td>AMOUNT</td>
+                  <td>STATUS</td>
+                </th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>WS102</td>
+                  <td>Elena Jekins</td>
+                  <td>May 12,2024</td>
+                  <td>$12,400</td>
+                  <td>Processing</td>
+                  <td>...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );

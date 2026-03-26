@@ -1,6 +1,7 @@
 from ..models import products,category
 from ..serializers.serializer import productListSerializer,productPostSerializer,categoryListSerializer,categoryPostSerializer
 from rest_framework import viewsets
+from ..utilities.permission import ProductPermission
 
 
 
@@ -9,6 +10,7 @@ from rest_framework import viewsets
 class productViewset(viewsets.ModelViewSet):
     queryset=products.objects.all().order_by('-id')
     serializer_class=productListSerializer
+    permission_classes=[ProductPermission]
 
 
     def get_serializer_class(self):
@@ -24,6 +26,7 @@ class productViewset(viewsets.ModelViewSet):
 class categoryViewset(viewsets.ModelViewSet):
     queryset=category.objects.all().order_by('-id')
     serializer_class=categoryListSerializer
+    permission_classes=[ProductPermission]
 
 
     def get_serializer_class(self):

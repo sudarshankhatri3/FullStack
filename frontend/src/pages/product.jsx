@@ -3,10 +3,11 @@ import "../app.css";
 
 function Product() {
   const [product, setProduct] = useState([]);
+  const [cart,setCart]=useState(0)
 
   async function products() {
     try {
-      const response = await fetch("https://fakestoreapi.com/products");
+      const response = await fetch("http://127.0.0.1:8000/ecommerceApi/product/");
       if (!response.ok) {
         const errorText = await response.text();
         console.log(errorText);
@@ -44,7 +45,7 @@ function Product() {
           <div className="m-30 flex justify-between items-center">
             <p>$<span className="text-2xl font-medium">{prod.price}</span></p>
             <button className="bg-gray-300 p-3 rounded-md text-sm hover:bg-gray-400 flex gap-3">Buy</button>
-            <button className="bg-gray-300 p-3 rounded-md text-sm hover:bg-gray-400 flex gap-3">Add To Cart</button>
+            <button className="bg-gray-300 p-3 rounded-md text-sm hover:bg-gray-400 flex gap-3" onClick={()=>setCart(cart+1)}>Add To Cart</button>
           </div>
         
         </div>
