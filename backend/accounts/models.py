@@ -9,7 +9,7 @@ userRole=[
 ]
 class signUpModel(AbstractUser):
     email=models.EmailField(max_length=255,unique=True)
-    role=models.CharField(choices=userRole,default='customer')
+    role=models.CharField(choices=userRole,default='CUSTOMER')
     # is_active=models.BooleanField(default=False)
     privacy_policy=models.BooleanField(default=False)
    

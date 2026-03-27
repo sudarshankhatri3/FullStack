@@ -1,6 +1,6 @@
 from channels.consumer import SyncConsumer,AsyncConsumer
 from channels.exceptions import StopConsumer
-
+from channels.db import database_sync_to_async
 
 #create a class to handle the websocket
 class MySyncHandler(SyncConsumer):
@@ -42,7 +42,7 @@ class MyAsyncHandler(AsyncConsumer):
     #receive the message 
     async def websocket_receive(self,event):
         print('websocket receiverd',event['text'])
-        self.send({
+        await self.send({
             'type':'websocket.send',
             'text':'message send to client'
         })

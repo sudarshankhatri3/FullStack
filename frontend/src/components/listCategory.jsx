@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/componentCss/category.css";
+
 
 export default function ListCategory() {
   const [active, setActive] = useState(false);

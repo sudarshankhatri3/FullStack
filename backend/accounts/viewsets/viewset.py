@@ -48,7 +48,7 @@ class loginViewset(generics.CreateAPIView):
             return Response({'Error':'Email and password are required'},status=400)
         
 
-        user=authenticate(request,email=email,password=password)
+        user=authenticate(request,username=email,password=password)
         if user is not None:
             refresh=RefreshToken.for_user(user)
             user_serializer=loginSerializer(user)

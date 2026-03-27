@@ -1,4 +1,3 @@
-// import "../styles/pagesCss/signup.css"
 import "../app.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -56,24 +55,24 @@ export default function SignPage() {
   }
 
   return (
-    <>
-    <section className="bg-gray-50 min-h-10 flex justify-center items-center  px-4">
-      <div className="flex flex-col items-center  justify-center px-4 py-8 mx-auto min-h-screen  rounded-xl-x  shadow-lg shadow-blue-500/50">
+    
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100">
+      <div className="flex flex-col items-center  justify-center px-4 py-2 mx-auto min-h-screen  rounded-xl-x  shadow-lg shadow-blue-500/50">
         <a
           href="#"
-          className="flex items-center mb-6 text-2xl font-semibold text-blue-700"
+          className="flex items-center  text-2xl font-semibold text-blue-700"
         >
           SwallBaby
         </a>
 
         {/* Card */}
-        <div className="w-full bg-white  sm:max-w-lg">
+        <div className="w-full bg-white  sm:max-w-lg rounded-2xl">
           <div className="p-6 sm:p-8 space-y-5">
             <h1 className="text-2xl font-bold  text-blue-400">
               Create an account
             </h1>
 
-            <form onSubmit={signUp} className="space-y-4 flex flex-col gap-8">
+            <form onSubmit={signUp} className="space-y-4 flex flex-col">
               {/* First & Last Name */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="w-full sm:w-1/2">
@@ -87,7 +86,7 @@ export default function SignPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, first_name: e.target.value })
                     }
-                    className="bg-gray-50  pl-5 border h-15 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full px-7 py-90 outline-none transition"
+                    className="bg-gray-50 border pl-3  h-10 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
                   />
                 </div>
                 <div className="w-full sm:w-1/2">
@@ -101,7 +100,7 @@ export default function SignPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, last_name: e.target.value })
                     }
-                    className="bg-gray-50 border pl-3  h-15 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+                    className="bg-gray-50 border pl-3  h-10 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
                   />
                 </div>
               </div>
@@ -118,7 +117,7 @@ export default function SignPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="bg-gray-50 border  h-15 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+                  className="bg-gray-50 border  h-10 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
                   required
                 />
               </div>
@@ -136,7 +135,7 @@ export default function SignPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, password1: e.target.value })
                     }
-                    className="bg-gray-50 border  h-15 w-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-16 outline-none transition"
+                    className="bg-gray-50 border  h-10  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-16 outline-none transition"
                     required
                   />
                   <button
@@ -162,7 +161,7 @@ export default function SignPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, password2: e.target.value })
                     }
-                    className="bg-gray-50 border h-15 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-16 outline-none transition"
+                    className="bg-gray-50 border h-10 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-16 outline-none transition"
                     required
                   />
                   <button
@@ -185,7 +184,7 @@ export default function SignPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, role: e.target.value })
                   }
-                  className="bg-gray-50  h-15 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+                  className="bg-gray-50  h-10 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
                 >
                   <option value="" disabled>
                     Select role
@@ -233,7 +232,7 @@ export default function SignPage() {
               <div className="flex justify-center items-center-safe">
                 <button
                   type="submit"
-                  className="w-60 h-30 text-white bg-blue-600  hover:bg-blue-700 active:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none font-semibold rounded-lg text-sm px-5 py-3 text-center transition-colors duration-200"
+                  className="w-full h-10 text-white bg-blue-600  hover:bg-blue-700 active:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none font-semibold rounded-lg text-sm px-5 py-3 text-center transition-colors duration-200"
                 >
                   Create an account
                 </button>
@@ -253,6 +252,6 @@ export default function SignPage() {
         </div>
       </div>
     </section>
-    </>
+   
   );
 }

@@ -1,7 +1,6 @@
-import "../styles/componentCss/headerTemplate.css";
 import Login from "./loginButton";
 import { SignUp } from "./loginButton";
-import Nutri  from "./Nutri";
+import Nutri from "./Nutri";
 import BabyProduct from "./babyProduct";
 
 export default function HeaderTemplate() {
@@ -26,19 +25,19 @@ export default function HeaderTemplate() {
             <p className="promo-banner__code-label">Enter promotion code</p>
             <h3 className="promo-banner__code-value">SWAT10OFF</h3>
           </div>
-         </div>
+        </div>
 
-          <div className="promo-banner__image">
-            <img src="/topNav.png" alt="Promotion" />
-          </div>
-          <div className="promo-auth">
-          <Login/>
-          <SignUp/> 
-          </div>
+        <div className="promo-banner__image">
+          <img src="/topNav.png" alt="Promotion" />
+        </div>
+        <div className="promo-auth">
+          <Login />
+          <SignUp />
+        </div>
       </div>
       <div className="flex flex-col gap-50">
-        <Nutri/>
-        <BabyProduct/>
+        <Nutri />
+        <BabyProduct />
       </div>
     </>
   );

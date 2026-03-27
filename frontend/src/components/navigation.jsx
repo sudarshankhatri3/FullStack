@@ -1,4 +1,3 @@
-import "../styles/componentCss/navigation.css";
 import ListCategory from "./listCategory";
 
 export default function Header() {
