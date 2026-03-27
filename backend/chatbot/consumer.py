@@ -17,11 +17,38 @@ class MySyncHandler(SyncConsumer):
     def websocket_receive(self,event):
         print(f'message receiver',event)
         print(f'Message:{event['text']}')
+        self.send({
+            'type':'websocket.send',
+            'text':'Message send to client'
+        })
     
 
     #disconnect the connection
     def websocket_disconnect(self,event):
         print(f'Server disconnect',event)
         raise StopConsumer
+    
 
+
+#create a class to handle async websocket
+class MyAsyncHandler(AsyncConsumer):
+    #connect websocket
+    async def websocket_connect(self,event):
+        print('websocket connect ....',event)
+        await self.send({
+            'type':'websocket.accept'
+        })
+    
+    #receive the message 
+    async def websocket_receive(self,event):
+        print('websocket receiverd',event['text'])
+        self.send({
+            'type':'websocket.send',
+            'text':'message send to client'
+        })
+
+    #disconnect websocket 
+    async def websocket_disconnect(self,event):
+        print(f'websocket disconnect',event)
+        raise StopConsumer
     
