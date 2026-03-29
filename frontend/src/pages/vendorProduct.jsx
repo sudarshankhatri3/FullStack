@@ -72,28 +72,41 @@ export default function VendorProduct() {
               </div>
             </div>
           </div>
-
-          <div>
-            <label htmlFor="stock">Description</label>
-            <textarea
-              type="text"
-              value={product.description}
-              onChange={(e) =>
-                setProduct({ ...product, description: e.target.value })
-              }
-            />
+          <div className="mt-12 p-8 sm:p-8 bg-[#b9bec9] h-150 w-full  flex flex-col gap-5 item border border-amber-300 rounded-2xl">
+            <div>
+                <img src="" alt="" />
+                <h3>Product Narrative</h3>
+            </div>
+            <div>
+              <label htmlFor="stock">Description</label>
+              <textarea
+                type="text"
+                value={product.description}
+                onChange={(e) =>
+                  setProduct({ ...product, description: e.target.value })
+                }
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="stock">Image</label>
-            <input
-              type="file"
-              value={product.image}
-              onChange={(e) =>
-                setProduct({ ...product, image: e.target.value })
-              }
-            />
+          <div className="mt-12 p-8 sm:p-8 bg-[#b9bec9] h-150 w-full  flex flex-col gap-5 item border border-amber-300 rounded-2xl">
+            <div>
+                <img src="" alt="" />
+                <h3>Media Assets</h3>
+            </div>
+            <div>
+              <label htmlFor="stock">Image</label>
+              <input
+                type="file"
+                value={product.image}
+                onChange={(e) =>
+                  setProduct({ ...product, image: e.target.value })
+                }
+              />
+            </div>
           </div>
         </div>
+
+        {/* finance bar */}
         <div>
           <div className="ml-20 mt-12 p-8 sm:p-8 bg-[#b9bec9]  w-80  flex flex-col gap-5  border border-amber-300 rounded-2xl ">
             <div className=" flex   justify-start items-center gap-3">
@@ -139,8 +152,14 @@ export default function VendorProduct() {
           <div>
             <div className="ml-20 mt-10 p-8 sm:p-8 bg-[#b9bec9]  w-80  flex flex-col gap-5  border border-amber-300 rounded-2xl  ">
               <div className="flex flex-col gap-4 ">
-                <h3 className="text-[#454652] font-bold text-[14px]">CURRENT STATUS</h3>
-                <input type="text" placeholder=". Drafting Mode"  className="p-4 h-11 w-full bg-[#FFFFFF]  rounded-xl   placeholder:text-gray-500 placeholder:text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none"/>
+                <h3 className="text-[#454652] font-bold text-[14px]">
+                  CURRENT STATUS
+                </h3>
+                <input
+                  type="text"
+                  placeholder=". Drafting Mode"
+                  className="p-4 h-11 w-full bg-[#FFFFFF]  rounded-xl   placeholder:text-gray-500 placeholder:text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                />
                 <p className="text-[#454652] text-[12px]">
                   Your product is currently hidden from the marketplace.
                   Complete all required fields to publish.
@@ -150,14 +169,14 @@ export default function VendorProduct() {
           </div>
           <div>
             <div className="ml-20 mt-10 p-8 sm:p-8 bg-[#b9bec9]  w-80  flex flex-col gap-5  border border-amber-300 rounded-2xl">
-                <div className=" bg-[#24389C] w-full h-16 text-[#FFFFFF] font-bold text-xl flex justify-center items-center gap-5 rounded-xl">
-                    <img src="./pubProd.png" alt="publish product" />
-                    <button>Publish Product</button>
-                </div>
-                <div className=" bg-[#E9E7F0] w-full h-16 text-[#FFFFFF] font-bold text-xl flex justify-center items-center gap-5 rounded-xl">
-                    <img src="./draft.png" alt="draft product" />
-                    <button className="text-[#24389C]">Save as Draft</button>
-                </div>
+              <div className=" bg-[#24389C] w-full h-16 text-[#FFFFFF] font-bold text-xl flex justify-center items-center gap-5 rounded-xl">
+                <img src="./pubProd.png" alt="publish product" />
+                <button>Publish Product</button>
+              </div>
+              <div className=" bg-[#E9E7F0] w-full h-16 text-[#FFFFFF] font-bold text-xl flex justify-center items-center gap-5 rounded-xl">
+                <img src="./draft.png" alt="draft product" />
+                <button className="text-[#24389C]">Save as Draft</button>
+              </div>
             </div>
           </div>
         </div>
