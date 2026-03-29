@@ -39,13 +39,17 @@ function Product() {
           <img
             src={prod.image}
             alt={prod.title}
-            className="w-30 h-30  object-cover object-top drop-shadow-[0_80px_30px_#000]"
+            className="w-30 h-30 mt-3 object-cover object-top drop-shadow-[0_80px_30px_#000]"
           />
           <h3 className="text-[10px] py-3 text-center font-medium">{prod.title}</h3>
-          <div className=" flex justify-between items-center gap-10">
+          <div className=" flex justify-between items-center gap-5">
+            <button className="bg-gray-300 p-3 w-10 h-5 items-center  font-bold text-cyan-800 ml-2 rounded-md text-sm hover:bg-gray-400 flex gap-3">Buy</button>
+            <div className="bg-gray-300 h-7  w-30 p-3 rounded-md text-sm hover:bg-gray-400 flex items-center">
+              <img src="./addToCart.png" alt="add to cart" className="h-4 w-4 items-center" />
+              <button className="h-5 w-full  p-5  font-bold text-cyan-800 items-center">Add Cart</button>
+            </div>
+
            
-            <button className="bg-gray-300 p-3 w-1 rounded-md text-sm hover:bg-gray-400 flex gap-3">Buy</button>
-            <button className="bg-gray-300 p-3 rounded-md text-sm hover:bg-gray-400 flex gap-3" onClick={()=>setCart(cart+1)}>Add To Cart</button>
           </div>
         
         </div>

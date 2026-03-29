@@ -11,6 +11,7 @@ import Product from "./pages/product";
 import BabyProduct from "./components/babyProduct.jsx";
 import DashBoard from "./pages/dashBoard.jsx";
 import Context from "./components/context.jsx";
+import VendorProduct from "./pages/vendorProduct.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "product",
     element: <Product />,
+  },
+  {
+    path: "vendorProduct",
+    element: <VendorProduct/>,
   },
   {
     path: "dashboard",
