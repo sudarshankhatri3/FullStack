@@ -13,6 +13,7 @@ import DashBoard from "./pages/dashBoard.jsx";
 import Context from "./components/context.jsx";
 import VendorProduct from "./pages/vendorProduct.jsx";
 import VendorDetails from "./pages/vendorDetails.jsx";
+import FullExmp from "./services/usecontext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "product",
     element: <Product />,
+  },
+  {
+    path: "full",
+    element: <FullExmp/>,
   },
   {
     path: "vendorProduct",
