@@ -12,6 +12,7 @@ import BabyProduct from "./components/babyProduct.jsx";
 import DashBoard from "./pages/dashBoard.jsx";
 import Context from "./components/context.jsx";
 import VendorProduct from "./pages/vendorProduct.jsx";
+import VendorDetails from "./pages/vendorDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/signUp",
     element: <SignPage />,
+  },
+  {
+    path: "/vendorDetails",
+    element: <VendorDetails/>,
   },
   {
     path: "/login",

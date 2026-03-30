@@ -113,7 +113,7 @@ export default function VendorProduct() {
             </div>
             <div className="flex flex-col  gap-10">
               <label htmlFor="stock">Image</label>
-              <FileUploader  handleChange={uploadFile} name="stock" types={fileTypes} hoverTitle="Drop Here" maxSize={200} minSize={10}/>
+              <FileUploader  handleChange={uploadFile} name="stock" types={fileTypes} hoverTitle="Drop Here"  maxSize={200} minSize={10}/>
               {/* <input
                 type="file"
                 value={product.image}
