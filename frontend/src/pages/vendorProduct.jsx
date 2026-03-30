@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import {FileUploader} from "react-drag-drop-files";
 import "../app.css";
 
 const productList = {
@@ -11,7 +12,19 @@ const productList = {
 };
 
 export default function VendorProduct() {
-  const [product, setProduct] = useState(productList);
+  const fileTypes = ["JPG", "PNG", "GIF"]
+
+  const [product, setProduct] = useState(productList)
+  const [file,setFile]=useState(null)
+
+
+  function uploadFile(fill){
+    console.log(fill)
+    setFile(fill)
+    setProduct({...product,image:fill})
+    console.log(product)
+
+  }
 
   return (
     <div className="bg-[#F4F2FC] w-full min-h-screen">
@@ -48,6 +61,7 @@ export default function VendorProduct() {
                   PRODUCT TITLE
                 </label>
                 <input
+                  id="title"
                   type="text"
                   value={product.title}
                   onChange={(e) =>
@@ -65,6 +79,7 @@ export default function VendorProduct() {
                   CATEGORY
                 </label>
                 <input
+                  id="category"
                   type="text"
                   className="p-4 h-11 w-full bg-[#FFFFFF]  rounded-xl   placeholder:text-gray-500 placeholder:text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none"
                   placeholder="Select a category"
@@ -78,8 +93,9 @@ export default function VendorProduct() {
                 <h3 className="text-[#1A1B22] text-xl font-bold">Product Narrative</h3>
             </div>
             <div className="flex flex-col  gap-2">
-              <label htmlFor="stock" className="text-[#454652] font-semibold text-[12px] ">DETAILED DESCRIPTION</label>
+              <label htmlFor="desc" className="text-[#454652] font-semibold text-[12px] ">DETAILED DESCRIPTION</label>
               <textarea
+                id="desc"
                 type="text"
                 value={product.description}
                 onChange={(e) =>
@@ -95,9 +111,10 @@ export default function VendorProduct() {
                 <img src="./mediaAccess.png" alt="media accesss"/>
                 <h3  className="text-[#1A1B22] text-xl font-bold">MEDIA ASSETS</h3>
             </div>
-            <div className="flex flex-col  gap-2">
+            <div className="flex flex-col  gap-10">
               <label htmlFor="stock">Image</label>
-              <input
+              <FileUploader  handleChange={uploadFile} name="stock" types={fileTypes} hoverTitle="Drop Here" maxSize={200} minSize={10}/>
+              {/* <input
                 type="file"
                 value={product.image}
                 onChange={(e) =>
@@ -105,7 +122,7 @@ export default function VendorProduct() {
                 }
                 placeholder="Upload at least 3 photos for better conversion.Recommended size 1200x1200px."
                 className="w-full min-h-80 p-2 bg-[#FFFFFF] rounded-xl  placeholder:text-gray-500 placeholder:text-sm focus:ring-2  focus:ring-purple-500 focus:outline-none"
-              />
+              /> */}
             </div>
           </div>
         </div>
@@ -131,6 +148,7 @@ export default function VendorProduct() {
                 STOCK QUANTITY
               </label>
               <input
+                id="stock"
                 type="number"
                 value={product.stock}
                 onChange={(e) =>
@@ -143,6 +161,7 @@ export default function VendorProduct() {
             <div>
               <label htmlFor="price" className="font-semibold text-[12px] text-[#454652] tracking-wide">PRICE</label>
               <input
+                id="price"
                 type="number"
                 value={product.price}
                 onChange={(e) =>
@@ -160,6 +179,7 @@ export default function VendorProduct() {
                   CURRENT STATUS
                 </h3>
                 <input
+                  id="drafting"
                   type="text"
                   placeholder=". Drafting Mode"
                   className="p-4 h-11 w-full bg-[#FFFFFF]  rounded-xl   placeholder:text-gray-500 placeholder:text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none"
