@@ -35,7 +35,7 @@ export default function VendorProduct() {
                 alt="product image"
                 className=" h-4 w-4 object-cover"
               />
-              <h3 className="text-[#1A1B22] text-2xl font-bold">
+              <h3 className="text-[#1A1B22] text-xl font-bold">
                 Product Identity
               </h3>
             </div>
@@ -75,10 +75,10 @@ export default function VendorProduct() {
           <div className="mt-10 p-8 sm:p-8 bg-[#b9bec9] h-125 w-full  flex flex-col gap-6 item border border-amber-300 rounded-2xl">
             <div className="flex items-center gap-3 ">
                 <img src="./productNarr.png" alt="product Narrative" />
-                <h3 className="text-[#1A1B22] text-2xl font-bold">Product Narrative</h3>
+                <h3 className="text-[#1A1B22] text-xl font-bold">Product Narrative</h3>
             </div>
             <div className="flex flex-col  gap-2">
-              <label htmlFor="stock">DETAILED DESCRIPTION</label>
+              <label htmlFor="stock" className="text-[#454652] font-semibold text-[12px] ">DETAILED DESCRIPTION</label>
               <textarea
                 type="text"
                 value={product.description}
@@ -86,15 +86,16 @@ export default function VendorProduct() {
                   setProduct({ ...product, description: e.target.value })
                 }
                 placeholder="Tell the story of your product. Mention materials, dimensions, and the artisan process..."
+                className="w-full min-h-80 p-2 bg-[#FFFFFF] rounded-xl  placeholder:text-gray-500 placeholder:text-sm focus:ring-2  focus:ring-purple-500 focus:outline-none"
               />
             </div>
           </div>
           <div className="mt-12 p-8 sm:p-8 bg-[#b9bec9] h-150 w-full  flex flex-col gap-5 item border border-amber-300 rounded-2xl">
-            <div>
+            <div className="flex items-center gap-3 ">
                 <img src="./mediaAccess.png" alt="media accesss"/>
-                <h3>Media Assets</h3>
+                <h3  className="text-[#1A1B22] text-xl font-bold">MEDIA ASSETS</h3>
             </div>
-            <div>
+            <div className="flex flex-col  gap-2">
               <label htmlFor="stock">Image</label>
               <input
                 type="file"
@@ -102,6 +103,8 @@ export default function VendorProduct() {
                 onChange={(e) =>
                   setProduct({ ...product, image: e.target.value })
                 }
+                placeholder="Upload at least 3 photos for better conversion.Recommended size 1200x1200px."
+                className="w-full min-h-80 p-2 bg-[#FFFFFF] rounded-xl  placeholder:text-gray-500 placeholder:text-sm focus:ring-2  focus:ring-purple-500 focus:outline-none"
               />
             </div>
           </div>
@@ -138,7 +141,7 @@ export default function VendorProduct() {
               />
             </div>
             <div>
-              <label htmlFor="price">Price</label>
+              <label htmlFor="price" className="font-semibold text-[12px] text-[#454652] tracking-wide">PRICE</label>
               <input
                 type="number"
                 value={product.price}
