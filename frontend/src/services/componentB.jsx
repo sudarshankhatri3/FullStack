@@ -3,7 +3,7 @@ import ComponentC from "./componentC"
 
 export default function ComponentB(props){
     return (
-         <div className="m-20 p-20 border">Hello sudarshan
+         <div className="m-5 p-5 border">Hello sudarshan
           <ComponentC user={props.user}/>
                     
          </div>

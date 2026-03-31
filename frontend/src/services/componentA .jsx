@@ -8,7 +8,7 @@ export default function ComponentA(){
 
     return (
         <>
-          <div className="m-20 p-20 border">Hello sudarshan
+          <div className="m-5 p-5 border">Hello sudarshan
             <ComponentB  user={name}/>
           </div>
          
