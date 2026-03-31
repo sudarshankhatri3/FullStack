@@ -5,17 +5,71 @@ import "../app.css";
 
 const productList = {
   title: "",
-  stock: undefined,
-  price: undefined,
+  stock: "",
+  price: "",
   image: "",
   description: "",
+  category: ""
 };
+// const categoryList={
+//     id:"",
+//     category_title:"",
+//     image:"",
+//     description:"",
+//     created_at:"",
+//     updated_at:""
+// }
 
 export default function VendorProduct() {
   const fileTypes = ["JPG", "PNG", "GIF"]
 
   const [product, setProduct] = useState(productList)
   const [file,setFile]=useState(null)
+  const [categories,setCategories]=useState([])
+  const vendorData=async ()=>{
+        try{
+            const response=await fetch("http://127.0.0.1:8000/ecommerceApi/vendorProduct/",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(product)
+        })
+        if(!response.ok){
+            console.log("Data not post")
+            const error=await response.text()
+            alert(error)
+            return 
+        }
+        console.log(product)
+        alert("Data posted successfully");
+        }
+        catch(error){
+            alert(error)
+        }
+      
+    }
+
+    useEffect(()=>{
+        const categoryData=async ()=>{
+            try {
+                const response=await fetch("http://127.0.0.1:8000/ecommerceApi/category/")
+                if(!response.ok){
+                    const error=await response.text()
+                    alert(error)
+                    return 
+                }
+                console.log("Data fetched !!!!")
+                const data=await response.json()
+                setCategories(data)
+                
+            } catch (error) {
+                alert(error)
+            }
+        } 
+        categoryData()
+    },[])
+
 
 
   function uploadFile(fill){
@@ -23,7 +77,6 @@ export default function VendorProduct() {
     setFile(fill)
     setProduct({...product,image:fill})
     console.log(product)
-
   }
 
   return (
@@ -37,7 +90,7 @@ export default function VendorProduct() {
         </p>
       </div>
       <form
-        action=""
+        onSubmit={vendorData}
         className="flex flex-col lg:grid lg:grid-cols-[60%_1fr] gap-6 lg:gap-10 px-6 sm:px-10 lg:pl-10 lg:pr-6 pb-16"
       >
         <div className="pl-10 w-full">
@@ -68,7 +121,7 @@ export default function VendorProduct() {
                     setProduct({ ...product, title: e.target.value })
                   }
                   placeholder="e.g. Handcrafted Mahogany Desk Organiser"
-                  className="p-4 h-11 w-full bg-[#FFFFFF]   rounded-xl  placeholder:text-gray-500 placeholder:text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                  className="p-4 h-11 w-60 bg-[#FFFFFF]   rounded-xl  placeholder:text-gray-500 placeholder:text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none"
                 />
               </div>
               <div className="flex flex-col justify-start items-center">
@@ -78,12 +131,21 @@ export default function VendorProduct() {
                 >
                   CATEGORY
                 </label>
-                <input
+                <select
                   id="category"
                   type="text"
-                  className="p-4 h-11 w-full bg-[#FFFFFF]  rounded-xl   placeholder:text-gray-500 placeholder:text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                  value={product.category}
+                  className="p-4 h-11 w-60 bg-[#FFFFFF]  rounded-xl   placeholder:text-gray-500 placeholder:text-sm focus:ring-2 focus:ring-purple-500 focus:outline-none"
                   placeholder="Select a category"
-                />
+                  onChange={(e)=>setCategories({...product,category:e.target.value})}
+                >
+                <option value="" disabled>Select Option</option>
+                {
+                    categories.map((cat)=>(
+                        <option value={cat.id} key={cat.id}>{cat.category_title}</option>
+                    ))
+                }
+                </select>
               </div>
             </div>
           </div>

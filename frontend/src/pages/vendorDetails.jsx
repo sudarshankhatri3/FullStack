@@ -13,12 +13,13 @@ export default function VendorDetails() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(`https://fakestoreapi.com/products`);
+        const res = await fetch("http://127.0.0.1:8000/ecommerceApi/vendorProduct/");
         if (!res.ok) {
           alert("Error ");
           return;
         }
         const data =await res.json();
+        console.log(data)
         setProduct(data);
       } catch (error) {
         alert(error)
@@ -57,23 +58,18 @@ export default function VendorDetails() {
       </aside>
       <div className="bg-[#94A3B8] w-full">
         <div>
-          <h2>Top Product Titles</h2>
-
-          <ol>
-            <li>Handcrafted Wooden Desk Organizer</li>
-            <li>Premium Leather Wallet for Men</li>
-            <li>Wireless Bluetooth Headphones</li>
-            <li>Eco-Friendly Bamboo Water Bottle</li>
-            <li>Smart LED Study Lamp with USB Port</li>
-            <li>Minimalist Wall Clock Modern Design</li>
-            <li>Portable Power Bank 10000mAh</li>
-            <li>Cotton Casual T-Shirt Unisex</li>
-            <li>Stainless Steel Kitchen Knife Set</li>
-            <li>Adjustable Laptop Stand Aluminum</li>
-          </ol>
+            {product.length>0 ? (product.map((prod)=>(
+                <div key={prod.id}>
+                    <h3>{prod.title}</h3>
+                    <p>{prod.price}</p>
+                    <p>{prod.image}</p>
+                    <p>{prod.description}</p>
+                </div>
+            ))):<p>Loading or Data not found</p>}
+          
           <div>
             <button>Edit</button>
-            <button onSubmit={vendorData}>Remove</button>
+            <button >Remove</button>
           </div>
         </div>
       </div>

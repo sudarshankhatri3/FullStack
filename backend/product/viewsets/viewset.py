@@ -10,7 +10,7 @@ from ..utilities.permission import ProductPermission
 class productViewset(viewsets.ModelViewSet):
     queryset=products.objects.all().order_by('-id')
     serializer_class=productListSerializer
-    permission_classes=[ProductPermission]
+    # permission_classes=[ProductPermission]
 
 
     def get_serializer_class(self):
@@ -26,7 +26,7 @@ class productViewset(viewsets.ModelViewSet):
 class categoryViewset(viewsets.ModelViewSet):
     queryset=category.objects.all().order_by('-id')
     serializer_class=categoryListSerializer
-    permission_classes=[ProductPermission]
+    # permission_classes=[ProductPermission]
 
 
     def get_serializer_class(self):

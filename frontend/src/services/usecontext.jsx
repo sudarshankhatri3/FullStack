@@ -4,6 +4,9 @@ import { CounterContext } from "./counter";
 import Counter from "./cnt";
 
 export default function FullExmp(){
+    const data=useContext(CounterContext)
+    console.log(data)
+
     return (
         <>
           <h1>count is 0</h1>
