@@ -29,12 +29,12 @@ function Product() {
   return (
     <>
     <h3>products list </h3>
-    <div className="bg-amber-200  mt-5 p-10 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-50">
+    <div className="bg-[#F3F3F6] min-h-screen mt-5 p-8 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-50">
         
       {product.map((prod) => (
         <div
           key={prod.id}
-          className="bg-blue-800 w-50  h-70  border-b-blue-600 rounded-xl shadow-sm flex flex-col items-center gap-4"
+          className="bg-[#F3F3F6] w-90  h-96  border-b-blue-600 rounded-xl shadow-sm flex flex-col items-center gap-4"
         >
           <img
             src={prod.image}
@@ -49,7 +49,7 @@ function Product() {
               <button className="h-5 w-full  p-5  font-bold text-cyan-800 items-center">Add Cart</button>
             </div>
 
-           
+
           </div>
         
         </div>
