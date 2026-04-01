@@ -2,8 +2,7 @@ import React from "react";
 import ReactDom from "react-dom/client";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import HeaderTemplate from "./components/header.jsx";
-import Header from "./components/navigation";
+import Headers from "./components/headers.jsx";
 import SignPage from "./pages/signup";
 import LoginPage from "./pages/login";
 import Login from "./components/loginButton";
@@ -18,7 +17,7 @@ import ComponentA from "./services/componentA .jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HeaderTemplate />,
+    element: <Headers/>,
   },
   {
     path: "/signUp",
