@@ -29,19 +29,19 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "product",
+    path: "/product",
     element: <Product />,
   },
   {
-    path: "full",
+    path: "/full",
     element: <ComponentA/>,
   },
   {
-    path: "vendorProduct",
+    path: "/vendorProduct",
     element: <VendorProduct/>,
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     element: <DashBoard />,
   },
   {
