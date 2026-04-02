@@ -1,4 +1,5 @@
 import React from "react";
+import Headers from "../components/headers";
 import { useState, useEffect } from "react";
 import {FileUploader} from "react-drag-drop-files";
 import "../app.css";
@@ -80,7 +81,9 @@ export default function VendorProduct() {
   }
 
   return (
-    <div className="bg-[#F4F2FC] w-full min-h-screen">
+    <>
+    <Headers/>
+    <div className="bg-[#F4F2FC]  w-full min-h-screen">
       <div className="mt-10 px-6 sm:px-10 lg:px-30 flex flex-col gap-3">
         <h3 className="text-[#1A1B22] text-xl sm:text-2xl font-extrabold">
           Welcome, Future Top Seller 🔥
@@ -268,5 +271,6 @@ export default function VendorProduct() {
         </div>
       </form>
     </div>
+    </>
   );
 }

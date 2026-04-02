@@ -2,14 +2,11 @@ import React from "react";
 import ReactDom from "react-dom/client";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import Headers from "./components/headers.jsx";
+import LandingPage from "./pages/landingPage.jsx";
 import SignPage from "./pages/signup";
 import LoginPage from "./pages/login";
-import Login from "./components/loginButton";
 import Product from "./pages/product";
-import BabyProduct from "./components/babyProduct.jsx";
 import DashBoard from "./pages/dashBoard.jsx";
-import Context from "./components/context.jsx";
 import VendorProduct from "./pages/vendorProduct.jsx";
 import VendorDetails from "./pages/vendorDetails.jsx";
 import ComponentA from "./services/componentA .jsx";
@@ -17,7 +14,7 @@ import ComponentA from "./services/componentA .jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Headers/>,
+    element: <LandingPage/>,
   },
   {
     path: "/signUp",
@@ -46,10 +43,6 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <DashBoard />,
-  },
-  {
-    path: "context",
-    element: <Context />,
   },
   {
     path: "*",
