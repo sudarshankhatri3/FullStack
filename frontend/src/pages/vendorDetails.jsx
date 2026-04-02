@@ -13,7 +13,7 @@ export default function VendorDetails() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/ecommerceApi/vendorProduct/");
+        const res = await fetch('http://127.0.0.1:8000/ecommerceApi/vendorProduct/');
         if (!res.ok) {
           alert("Error ");
           return;
@@ -56,21 +56,18 @@ export default function VendorDetails() {
           ))}
         </div>
       </aside>
-      <div className="bg-[#94A3B8] w-full">
-        <div>
+      <div className="bg-[#94A3B8] w-full ">
+        <div className="p-3 flex flex-col  gap-10">
             {product.length>0 ? (product.map((prod)=>(
-                <div key={prod.id}>
+                <div key={prod.id} className="flex items-center gap-3">
                     <h3>{prod.title}</h3>
                     <p>{prod.price}</p>
                     <p>{prod.image}</p>
                     <p>{prod.description}</p>
+                    <button>Edit</button>
+                    <button >Remove</button>
                 </div>
             ))):<p>Loading or Data not found</p>}
-          
-          <div>
-            <button>Edit</button>
-            <button >Remove</button>
-          </div>
         </div>
       </div>
     </div>

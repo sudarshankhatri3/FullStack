@@ -16,7 +16,7 @@ class signUpModel(AbstractUser):
 
 
     def __str__(self):
-        return f'accounts ${self.email}'
+        return f'{self.username}'
 
 
     

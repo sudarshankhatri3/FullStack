@@ -9,14 +9,14 @@ from rest_framework import serializers
 class productListSerializer(serializers.ModelSerializer):
     class Meta:
         model=products
-        fields=['title','price','category','image','description','created_at']
+        fields=['product_owner','title','stock','price','category','image','description','created_at']
 
 
 # serailizer for post the product
 class productPostSerializer(serializers.ModelSerializer):
     class Meta:
         model=products
-        fields=['title','price','category','image','description']
+        fields=['product_owner','title','stock','price','category','image','description']
 
 # serializer for get the category list
 class categoryListSerializer(serializers.ModelSerializer):
