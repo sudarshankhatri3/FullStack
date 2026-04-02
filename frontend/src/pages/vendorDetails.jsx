@@ -57,17 +57,43 @@ export default function VendorDetails() {
         </div>
       </aside>
       <div className="bg-[#94A3B8] w-full ">
-        <div className="p-3 flex flex-col  gap-10">
+        <div className="bg-[#E3E1ED] p-4 w-full flex justify-between items-center ">
+          <div className="w-full h-24">
+            <h2 className="text-[#31323B] font-extrabold text-[48px]">Product Catalog</h2>
+          </div>
+          <div className=" w-72 flex items-center gap-3">
+            <button className="bg-[#5E5E68] w-full h-10 text-center rounded-xl hover:bg-amber-100  hover:text-red-800">FILTER BY</button>
+            <button className="bg-[#5E5E68] w-full h-10 text-center rounded-xl hover:bg-amber-100  hover:text-red-800">SORT NEWSET</button>
+          </div>
+        </div>
+        <div className="bg-[#B2B1BC]  p-3 flex flex-col  gap-10">
+          <div>
             {product.length>0 ? (product.map((prod)=>(
-                <div key={prod.id} className="flex items-center gap-3">
+                <div key={prod.id} className="bg-[#FFFFFF] p-6 flex items-center gap-3">
+                  <div className="bg-[#F5F2FB] h-40 w-45 ">
+                     <p className="object-cover">{prod.image}</p>
+                  </div>
+                  <div className="h-40 w-96">
+                    <p>{p}</p>
                     <h3>{prod.title}</h3>
-                    <p>{prod.price}</p>
-                    <p>{prod.image}</p>
+                   
+                   
                     <p>{prod.description}</p>
-                    <button>Edit</button>
-                    <button >Remove</button>
+
+                  </div>
+                  <div>
+                     <p>{prod.price}</p>
+                     <div>
+                      <button>Edit</button>
+                      <button >Remove</button>
+                     </div>
+                  </div>
+                   
+                   
                 </div>
             ))):<p>Loading or Data not found</p>}
+          </div>
+            
         </div>
       </div>
     </div>
