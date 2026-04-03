@@ -7,7 +7,7 @@ from django.db import models
 class category(models.Model):
     category_title=models.CharField(max_length=450,unique=True)
     slug = models.SlugField(max_length=255, null=True, blank=True)
-    image=models.ImageField(upload_to='category/')
+    image=models.FileField(upload_to='category/')
     description=models.CharField(max_length=2000)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)

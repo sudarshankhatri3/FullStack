@@ -42,7 +42,6 @@ export default function VendorDetails() {
           return;
         }
         const data =await res.json();
-        console.log(data)
         setProduct(data);
       } catch (error) {
         alert(error)
@@ -66,8 +65,8 @@ export default function VendorDetails() {
           </div>
         </div>
         <div className="flex flex-col gap-3">
-          {vendorList.map((vendorList) => (
-            <div className="p-4 w-56 h-12 flex   items-center gap-3">
+          {vendorList.map((vendorList,index) => (
+            <div key={index} className="p-4 w-56 h-12 flex   items-center gap-3">
               <img src={vendorList.photo} alt={vendorList.title} />
               <a
                 href={vendorList.title}
