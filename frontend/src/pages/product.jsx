@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../app.css";
+import { Link } from "react-router-dom";
 
 function Product() {
   const [product, setProduct] = useState([]);
@@ -7,7 +8,7 @@ function Product() {
 
   async function products() {
     try {
-      const response = await fetch("https://fakestoreapi.com/products/");
+      const response = await fetch("http://127.0.0.1:8000/ecommerceApi/vendorProduct/");
       if (!response.ok) {
         const errorText = await response.text();
         console.log(errorText);
@@ -43,7 +44,7 @@ function Product() {
           />
           <h3 className="text-[10px] py-3 text-center font-medium">{prod.title}</h3>
           <div className=" flex justify-between items-center gap-5">
-            <button className="bg-gray-300 p-3 w-10 h-5 items-center  font-bold text-cyan-800 ml-2 rounded-md text-sm hover:bg-gray-400 flex gap-3">Buy</button>
+            <Link to={`/order/${prod.id}`} className="bg-gray-300 p-3 w-10 h-5 items-center  font-bold text-cyan-800 ml-2 rounded-md text-sm hover:bg-gray-400 flex gap-3">Buy</Link>
             <div className="bg-gray-300 h-7  w-30 p-3 rounded-md text-sm hover:bg-gray-400 flex items-center">
               <img src="./addToCart.png" alt="add to cart" className="h-4 w-4 items-center" />
               <button className="h-5 w-full  p-5  font-bold text-cyan-800 items-center">Add Cart</button>

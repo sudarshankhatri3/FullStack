@@ -10,6 +10,7 @@ import DashBoard from "./pages/dashBoard.jsx";
 import VendorProduct from "./pages/vendorProduct.jsx";
 import VendorDetails from "./pages/vendorDetails.jsx";
 import ComponentA from "./services/componentA .jsx";
+import Order from "./pages/order.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/vendorProduct",
     element: <VendorProduct/>,
+  },
+  {
+    path:"/order/:id",
+    element:<Order/>
   },
   {
     path: "/dashboard",
