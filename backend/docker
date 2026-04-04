@@ -1,0 +1,16 @@
+# Use the official python images
+FROM python:3.13-slim
+
+#set environment vairables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNbUFFERED=1
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Install dependencies 
+COPY requirement.txt /app/
+RUN pip install --upgrade pip && pip install -r requirement.txt
+
+# Copy the rest of code 
+COPY ./app/
