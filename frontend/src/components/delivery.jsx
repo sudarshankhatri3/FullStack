@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Swal from "sweetalert2"
 
 const deliveryDetails = [
   { image: "../delivery.png", title: "Shipping" },
@@ -36,8 +37,21 @@ export default function Delivery() {
         },
       );
       if (!deliveryPost.ok) {
-        const error = await deliveryPost.json();
-        alert(JSON.stringify(error));
+        Swal.fire({
+            title:'Erron handle',
+            text:"Do you want to Continue",
+            icon:'Warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33', 
+            confirmButtonText: 'Yes!'
+        }).then((result)=>{
+            if(result.value){
+                this.props.submitUser(this.state)
+            }
+        })
+        // const error = await deliveryPost.json();
+        // alert(JSON.stringify(error));
         return;
       }
       alert("Data added sucessfully !!!!!");
