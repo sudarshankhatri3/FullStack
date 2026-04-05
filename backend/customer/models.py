@@ -142,6 +142,7 @@ class DeliveryInformation(models.Model):
     city=models.CharField(max_length=255,null=False)
     area=models.CharField(max_length=255,null=False)
     address=models.CharField(max_length=255,null=False)
+    zip=models.CharField(max_length=10,null=True)
     label=models.CharField(max_length=20,choices=label_data,default="Home")
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
