@@ -33,10 +33,10 @@ export default function Order() {
 
   return (
     <>
-      <div>Viewing profile with Id:{id}</div>
-      <Delivery/>
-      {prod &&
-        <div className="bg-[#E8E8EB] min-w-2xl m-3 p-4 flex  items-center gap-4">
+      <div className="flex ">
+          <Delivery/>
+        {prod &&
+        <div className="bg-[#E8E8EB] min-w-2xl  p-4 flex  items-center gap-4">
           <div className="p-5 bg-[#E8E8EB] rounded-2xl  shadow-olive-200 hover:bg-amber-200">
             <img src={prod.image} alt={prod.title} className="h-30 w-full object-cover"/>
           </div>
@@ -49,6 +49,9 @@ export default function Order() {
           </div>
         </div>
       }
+
+      </div>
+    
     </>
   );
 }
