@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import "../app.css"
+import Delivery from "../components/delivery";
 
 export default function Order() {
   const { id } = useParams();
@@ -33,6 +34,7 @@ export default function Order() {
   return (
     <>
       <div>Viewing profile with Id:{id}</div>
+      <Delivery/>
       {prod &&
         <div className="bg-[#E8E8EB] min-w-2xl m-3 p-4 flex  items-center gap-4">
           <div className="p-5 bg-[#E8E8EB] rounded-2xl  shadow-olive-200 hover:bg-amber-200">
