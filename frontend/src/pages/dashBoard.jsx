@@ -108,12 +108,12 @@ export default function DashBoard() {
       </aside>
 
       {/* main menu */}
-      <div className="flex justify-end items-center">
+      {/* <div className="flex justify-end items-center">
         <img src="./notification.png" alt="notification" />
         <img src="./button.png" alt="support" />
         <button>Support </button>
-      </div>
-      <div className="h-full min-h-full mt-20 pl-10 flex  flex-col gap-20">
+      </div> */}
+      <div className="h-full min-h-full mt-1 pl-10 flex  flex-col gap-20">
         <div className="mt-20 ">
           <h2 className="text-4xl text-[#191C1D]">Welcome Back, Cuartor</h2>
           <p className="text-[#464555] sm:text-xl ">
@@ -122,9 +122,9 @@ export default function DashBoard() {
         </div>
 
         {/* for revenu conversion and customer */}
-        <div className="w-250 min-h-[200px]  bg-white-200 grid grid-cols-4 gap-10">
+        <div className="w-250 min-h-[125px]  bg-white-200 grid grid-cols-4 gap-10 shadow-2xl">
           {revenuDashboard.map((dash) => (
-            <div className="h-full border-l-3 border-[#58579B]  flex flex-col gap-5">
+            <div className="h-full border-l-4 rounded-2xl border-[#2725bb] p-3 flex flex-col gap-5 hover:bg-amber-200">
               <div className="border-l-amber-800 flex flex-row gap-5">
                 <h4 className="text-[#464555] text-[12px] font-bold">
                   {dash.title}
