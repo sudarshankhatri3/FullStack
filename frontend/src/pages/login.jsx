@@ -29,6 +29,12 @@ export default function LoginPage() {
       setLoginData(initialData)
       return;
     }
+    const data=await response.json()
+    console.log(data)
+    console.log(data.access_token)
+    console.log(data.refresh)
+    localStorage.setItem("access",data.access_token)
+    localStorage.setItem("refresh",data.refresh)
     console.log(JSON.stringify(response))
     localStorage.getItem('access')
     alert("login sucessfully");
