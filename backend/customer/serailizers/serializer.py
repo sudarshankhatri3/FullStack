@@ -19,14 +19,14 @@ class UserProfilePostSerializer(serializers.ModelSerializer):
 class ProductOrderListSerializer(serializers.ModelSerializer):
     class Meta:
         model=ProductOrder
-        fields=['id','product','quantity','total_price','shipping_address','payment_status', 'created_at']
+        fields=['id','user_data','product','quantity','total_price','shipping_address','payment_status', 'created_at']
 
 
 #serailizer for post productOrder
 class ProductOrderPostSerializer(serializers.ModelSerializer):
     class Meta:
         model=ProductOrder
-        fields=['product','quantity','total_price','shipping_address','payment_status','created_at']
+        fields=['user_data','product','quantity','total_price','shipping_address','payment_status','created_at']
 
 #serialzier for list of productReview
 class ProductReviewListSerializer(serializers.ModelSerializer):
@@ -71,14 +71,14 @@ class DeliveryInformationPostSerializer(serializers.ModelSerializer):
 class ListCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model=CommentProduct
-        fields=['id','user','product','comment','created_at','updated_at']
+        fields=['id','product','comment','created_at','updated_at']
 
 
 #serailizer for post comment 
 class PostCommentSerailizer(serializers.ModelSerializer):
     class Meta:
         model=CommentProduct
-        fields=['user','product','comment']
+        fields=['product','comment']
 
 
 #seralizer for list cart
