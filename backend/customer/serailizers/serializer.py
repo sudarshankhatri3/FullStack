@@ -58,13 +58,13 @@ class ProductReviewPostSerializer(serializers.ModelSerializer):
 class ListDeliveryInformationSerializer(serializers.ModelSerializer):
     class Meta:
         model=DeliveryInformation
-        fields=['id', 'slug','phone_number','building_no','colony','province','district','city','area','address','label','created_at','updated_at']
+        fields=['id', 'slug','phone_number','building_no','colony','province','district','city','area','address','label','zip','created_at','updated_at']
 
 #serializer for post of delivery information
 class DeliveryInformationPostSerializer(serializers.ModelSerializer):
     class Meta:
         model=DeliveryInformation
-        fields=['phone_number','building_no','colony','province','district','city','area','address','label']
+        fields=['phone_number','building_no','colony','province','district','city','area','address','label','zip']
 
 
 #serializer for list comment 
