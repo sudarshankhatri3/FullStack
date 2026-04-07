@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../app.css";
 import { Link } from "react-router-dom";
+import axisoInterceptor from "../services/axiosInstance";
 
 function Product() {
   const [product, setProduct] = useState([]);
@@ -8,7 +9,7 @@ function Product() {
 
   async function products() {
     try {
-      const response = await fetch("http://127.0.0.1:8000/ecommerceApi/vendorProduct/");
+      const response = axisoInterceptor.get("http://127.0.0.1:8000/ecommerceApi/vendorProduct/");
       if (!response.ok) {
         const errorText = await response.text();
         console.log(errorText);
