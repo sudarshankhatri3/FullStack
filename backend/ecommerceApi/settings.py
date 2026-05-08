@@ -168,6 +168,7 @@ TEMPLATES = [
 # WSGI_APPLICATION = 'ecommerceApi.wsgi.application'
 ASGI_APPLICATION='ecommerceApi.asgi.application'
 
+ALLOWED_HOSTS = ['192.168.1.69', '127.0.0.1', 'localhost']
 
 
 #for send email 
