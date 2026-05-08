@@ -25,6 +25,9 @@ from drf_spectacular.views import SpectacularAPIView,SpectacularSwaggerView
 from drf_spectacular import openapi
 from oauth2_provider import urls as oauth2_urls
 
+from product.views import userDetails
+
+
 
 
 
@@ -46,6 +49,7 @@ router.registry.extend(customer.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('userDetail/',userDetails),
     path('oauth2/',include(oauth2_urls)),
     path('ecommerceApi/',include(router.urls)),
     path('api/register/',registerViewset.as_view(),name='register'),

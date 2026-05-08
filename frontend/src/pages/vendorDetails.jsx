@@ -1,14 +1,8 @@
 import "../app.css";
 import { useState, useEffect } from "react";
 import VendorProduct from "./vendorProduct";
-import { Link } from "react-router";
-const vendorList = [
-  { photo: "./vendors.png", title: "Vendors" },
-  { photo: "./vAnaly.png", title: "Analytics" },
-  { photo: "./vList.png", title: "Orders" },
-  { photo: "./vSetting.png", title: "Settings" },
-];
-
+import { Link } from "react-router-dom";
+import AsideBar from "../components/vendorPortal";
 export default function VendorDetails() {
   const [product, setProduct] = useState([]);
 
@@ -52,38 +46,12 @@ export default function VendorDetails() {
 
   return (
     <div className="flex">
-      <aside className="min-h-screen w-50 p-3 bg-[#F3F4F5] flex flex-col gap-6">
-        <div className="w-52 h-9 ">
-          <div className="flex items-center gap-2">
-            <img src="./Background.png" alt="background png" />
-            <div>
-              <h3 className="text-[#001944] font-extrabold">Vendor Portal</h3>
-              <p className="text-[#64748B] font-medium text-3">
-                Management suite
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col gap-3">
-          {vendorList.map((vendorList,index) => (
-            <div key={index} className="p-4 w-56 h-12 flex   items-center gap-3">
-              <img src={vendorList.photo} alt={vendorList.title} />
-              <a
-                href={vendorList.title}
-                className="text-[#475569] text-[16px] font-semibold"
-              >
-                {vendorList.title}
-              </a>
-            </div>
-          ))}
-        </div>
-      </aside>
+      <AsideBar/>
       <div className="bg-[#94A3B8] min-h-screen w-full ">
         <div className="bg-[#E3E1ED] p-4  sm:px-6 lg:px-10  py-4 w-full flex flex-col sm:flex-row  justify-between items-start sm:items-center gap-4">
           <h2 className="bg-[#E3E1ED] px-4 sm:px-6 text-[48px] lg:px-10 py-4 w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">Product Catalog</h2>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-            <button className="bg-[#5E5E68] px-5 py-2.5 text-white text-sm font-semibold rounded-xl hover:bg-amber-100 hover:text-red-800 transition-colors duration-200 text-center">FILTER BY</button>
-            <Link to={{pathname:"/vendorProduct"}} className="bg-[#5E5E68] px-5 py-2.5 text-white text-sm font-semibold rounded-xl hover:bg-amber-100 hover:text-red-800 transition-colors duration-200 text-center">Add Product</Link>
+            <button className="bg-[#5E5E68] px-5 py-2.5 min-w-full text-white text-sm font-semibold rounded-xl hover:bg-amber-100 hover:text-red-800 transition-colors duration-200 text-center">FILTER BY</button>
           </div>
         </div>
         <div className="bg-[#B2B1BC] p-3 sm:p-5 lg:p-8 flex flex-col gap-4">

@@ -9,6 +9,8 @@ import DashBoard from "../pages/dashBoard.jsx";
 import VendorProduct from "../pages/vendorProduct.jsx";
 import VendorDetails from "../pages/vendorDetails.jsx";
 import Order from "../pages/order.jsx";
+import BarChartExample from "../pages/vendorAnalytic.jsx";
+import VendorDashboard from "../pages/vendorAnalytic.jsx";
 
 
 const router = createBrowserRouter([
@@ -21,7 +23,7 @@ const router = createBrowserRouter([
     element: <SignPage />,
   },
   {
-    path: "/vendorDetails",
+    path: "/vendorPortal",
     element: <VendorDetails/>,
   },
   {
@@ -43,6 +45,14 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashBoard />,
+  },
+  {
+    path:"/vendorAnalytic",
+    element:<BarChartExample/>,
+  },
+  {
+    path:"/vendorDash",
+    element:<VendorDashboard/>
   },
   {
     path: "*",
