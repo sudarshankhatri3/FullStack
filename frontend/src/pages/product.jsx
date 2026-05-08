@@ -7,52 +7,49 @@ function Product() {
   const [product, setProduct] = useState([]);
   const [cart,setCart]=useState(0)
 
-  async function products() {
+  
+
+  useEffect(() => {
+    const products=async ()=> {
     try {
-      const response = axisoInterceptor.get("http://127.0.0.1:8000/ecommerceApi/vendorProduct/");
+      const response = await fetch("http://127.0.0.1:8000/ecommerceApi/vendorProduct/");
       if (!response.ok) {
         const errorText = await response.text();
         console.log(errorText);
         return;
       }
       const data = await response.json();
+      console.log(data)
       setProduct(data);
     } catch (error) {
       alert("Error", error);
       console.log(error);
     }
   }
-
-  useEffect(() => {
-    products();
-    console.log("hello sir ji");
+  products();
   }, []);
 
   return (
     <>
     <h3>products list </h3>
-    <div className="bg-[#F3F3F6] min-h-screen mt-5 p-8 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-50">
+    <div className="bg-[#F3F3F6]  min-h-screen sm:flex-nowrap p-6 grid grid-cols-4 gap-3">
         
       {product.map((prod) => (
         <div
           key={prod.id}
-          className="bg-[#F3F3F6] w-90  h-96  border-b-blue-600 rounded-xl shadow-sm flex flex-col items-center gap-4"
+          className="bg-[#F3F3F6] w-full  p-6  border border-amber-500 rounded-xl shadow-sm flex flex-col  gap-4"
         >
           <img
-            src={prod.image}
+            src={prod.img} 
             alt={prod.title}
             className="w-30 h-30 mt-3 object-cover object-top drop-shadow-[0_80px_30px_#000]"
           />
-          <h3 className="text-[10px] py-3 text-center font-medium">{prod.title}</h3>
-          <div className=" flex justify-between items-center gap-5">
-            <Link to={`/order/${prod.id}`} className="bg-gray-300 p-3 w-10 h-5 items-center  font-bold text-cyan-800 ml-2 rounded-md text-sm hover:bg-gray-400 flex gap-3">Buy</Link>
-            <div className="bg-gray-300 h-7  w-30 p-3 rounded-md text-sm hover:bg-gray-400 flex items-center">
-              <img src="./addToCart.png" alt="add to cart" className="h-4 w-4 items-center" />
-              <button className="h-5 w-full  p-5  font-bold text-cyan-800 items-center">Add Cart</button>
-            </div>
-
-
+          <div className="flex items-center gap-20">
+            <h3 className=" text-[#191C1D] text-[14px] font-bold">{prod.title}</h3>
+            <p className="text-[#191C1D] text-[18px] font-bold">${prod.price}</p>
           </div>
+          
+          <p className="text-[#111111] font-light text-sm">{prod.description}</p>
         
         </div>
       ))}

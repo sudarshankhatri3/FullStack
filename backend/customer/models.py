@@ -51,7 +51,7 @@ class UserProfile(models.Model):
     first_name=models.CharField(max_length=299,null=False)
     last_name=models.CharField(max_length=299)
     email=models.EmailField(max_length=300,unique=True)
-    phone_number=PhoneNumberField(null=False,unique=True,max_length=12)
+    phone_number=PhoneNumberField(null=True,unique=True,max_length=12)
     profile_image=models.ImageField(upload_to='profileImage/',blank=True,null=True)
     address=models.CharField(max_length=200,null=True,blank=True)
     city=models.CharField(max_length=500,null=True,blank=True)
