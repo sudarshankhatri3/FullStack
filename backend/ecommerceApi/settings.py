@@ -103,8 +103,8 @@ REST_FRAMEWORK={
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '10000/day',
-        'user': '10000/day'
+        'anon': '50000/day',
+        'user': '50000/day'
     },
 }
 

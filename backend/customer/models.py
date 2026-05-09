@@ -187,9 +187,10 @@ class CartModel(models.Model):
 
 
     def save(self,*args, **kwargs):
+        print(self.product.image)
         if self.quantity>0:
             self.total_price=self.product.price*self.quantity
-        return super().save(self,*args, **kwargs)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'productCart {self.product}'

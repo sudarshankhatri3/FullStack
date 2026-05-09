@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from ..models import UserProfile,ProductOrder,ProductReview,CommentProduct,DeliveryInformation,CartModel,BillingOrder
+from product.models import products
 
 
 #serailizer for list of userProfile
@@ -90,6 +91,9 @@ class CartListSerializer(serializers.ModelSerializer):
 
 #serailzier for post cart
 class CartPostSerializer(serializers.ModelSerializer):
+    product = serializers.PrimaryKeyRelatedField(
+        queryset=products.objects.all()
+    )
     class Meta:
         model=CartModel
         fields=['product','quantity','total_price']
