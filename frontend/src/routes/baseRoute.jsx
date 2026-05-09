@@ -11,6 +11,7 @@ import VendorDetails from "../pages/vendorDetails.jsx";
 import Order from "../pages/order.jsx";
 import VendorDashboard from "../pages/vendorAnalytic.jsx";
 import VendorOrder from "../pages/vendorsOrder.jsx";
+import Cart from "../pages/cart.jsx";
 
 
 
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path:"vendorOrder",
     element:<VendorOrder/>
+  },
+  {
+    path:"carts",
+    element:<Cart/>
   },
   {
     path: "*",

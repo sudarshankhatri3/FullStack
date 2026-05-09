@@ -181,8 +181,15 @@ class CommentProduct(models.Model):
 class CartModel(models.Model):
     product=models.ForeignKey(products,on_delete=models.CASCADE)
     quantity=models.IntegerField(default=1)
+    total_price=models.IntegerField(null=True,blank=True)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
+
+
+    def save(self,*args, **kwargs):
+        if self.quantity>0:
+            self.total_price=self.product.price*self.quantity
+        return super().save(self,*args, **kwargs)
 
     def __str__(self):
         return f'productCart {self.product}'

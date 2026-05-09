@@ -1,10 +1,10 @@
 import "../app.css";
 import { useState ,useContext} from "react";
 import axios from 'axios'  
-import { useContext } from "react";
+// import { useContext } from "react";
 import { authContext } from "../context/authcontext";
 
-const {auth}=useContext(authContext)
+// const {auth}=useContext(authContext)
 
 const initialData={
   email: "",
