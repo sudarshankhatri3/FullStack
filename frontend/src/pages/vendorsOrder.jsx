@@ -1,11 +1,11 @@
+import React from "react";
 import { useState, useEffect } from "react";
-import "../app.css";
 import { Link } from "react-router-dom";
-import axisoInterceptor from "../services/axiosInstance";
-import Order from "./order";
+import Profile from "../components/profile";
 
-function vendorOrder() {
-  const [order, setOrder] = useState([]);
+
+function VendorOrder() {
+  const [orders, setOrder] = useState([]);
   const [cart,setCart]=useState(0)
 
   
@@ -13,7 +13,7 @@ function vendorOrder() {
   useEffect(() => {
     const products=async ()=> {
     try {
-      const response = await fetch("http://127.0.0.1:8000/ecommerceApi/vendorProduct/");
+      const response = await fetch("http://127.0.0.1:8000/ecommerceApi/productOrder/");
       if (!response.ok) {
         const errorText = await response.text();
         console.log(errorText);
@@ -21,7 +21,7 @@ function vendorOrder() {
       }
       const data = await response.json();
       console.log(data)
-      setOrder(data);
+      setOrder(data.data);
     } catch (error) {
       alert("Error", error);
       console.log(error);
@@ -32,26 +32,23 @@ function vendorOrder() {
 
   return (
     <>
-    <h3>products list </h3>
+    <Profile/>
     <div className="bg-[#F3F3F6]  min-h-screen sm:flex-nowrap p-6 grid grid-cols-4 gap-3">
         
-      {order.map((prod) => (
+      {orders.map((prod) => (
         <div
-          key={order.id}
+          key={prod.id}
           className="bg-[#F3F3F6] w-full  p-6  border border-amber-500 rounded-xl shadow-sm flex flex-col  gap-4"
         >
           <img
-            src={order.img} 
-            alt={order.title}
+            src={prod.img} 
+            alt={prod.title}
             className="w-30 h-30 mt-3 object-cover object-top drop-shadow-[0_80px_30px_#000]"
           />
           <div className="flex items-center gap-20">
-            <h3 className=" text-[#191C1D] text-[14px] font-bold">{order.title}</h3>
-            <p className="text-[#191C1D] text-[18px] font-bold">${order.price}</p>
+            <h3 className=" text-[#191C1D] text-[14px] font-bold">{prod.product.title}</h3>
+            <p className="text-[#191C1D] text-[18px] font-bold">${prod.total_price}</p>
           </div>
-          
-          <p className="text-[#111111] font-light text-sm">{order.description}</p>
-        
         </div>
       ))}
     </div>
@@ -60,4 +57,4 @@ function vendorOrder() {
 
 }
 
-export default vendorOrder;
+export default VendorOrder;

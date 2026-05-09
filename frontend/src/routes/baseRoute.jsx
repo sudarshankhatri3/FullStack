@@ -10,7 +10,7 @@ import VendorProduct from "../pages/vendorProduct.jsx";
 import VendorDetails from "../pages/vendorDetails.jsx";
 import Order from "../pages/order.jsx";
 import VendorDashboard from "../pages/vendorAnalytic.jsx";
-import vendorOrder from "../pages/vendorsOrder.jsx";
+import VendorOrder from "../pages/vendorsOrder.jsx";
 
 
 
@@ -53,12 +53,12 @@ const router = createBrowserRouter([
   },
   {
     path:"vendorOrder",
-    element:<vendorOrder/>
+    element:<VendorOrder/>
   },
   {
     path: "*",
     element: <>Page not found</>,
-  }
+  },
 ]);
 
 

@@ -1,8 +1,10 @@
 import "../app.css";
-import { useState } from "react";
+import { useState ,useContext} from "react";
 import axios from 'axios'  
+import { useContext } from "react";
+import { authContext } from "../context/authcontext";
 
-
+const {auth}=useContext(authContext)
 
 const initialData={
   email: "",
@@ -36,6 +38,7 @@ export default function LoginPage() {
     localStorage.getItem('access')
     alert("login sucessfully");
     setLoginData(initialData)
+    auth(data.access_token)
   }
 
   return (
