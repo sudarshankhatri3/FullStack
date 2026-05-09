@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import VendorProduct from "./vendorProduct";
 import { Link } from "react-router-dom";
 import AsideBar from "../components/vendorPortal";
+import Profile from "../components/profile";
 export default function VendorDetails() {
   const [product, setProduct] = useState([]);
 
@@ -49,7 +50,7 @@ export default function VendorDetails() {
       <AsideBar/>
       <div className="bg-[#94A3B8] min-h-screen w-full ">
         <div className="bg-[#E3E1ED] p-4  sm:px-6 lg:px-10  py-4 w-full flex flex-col sm:flex-row  justify-between items-start sm:items-center gap-4">
-          <h2 className="bg-[#E3E1ED] px-4 sm:px-6 text-[48px] lg:px-10 py-4 w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">Product Catalog</h2>
+          <h2 className="bg-[#E3E1ED] px-4 sm:px-6 text-[36px] lg:px-10 py-4 w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">Product Catalog</h2>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
             <button className="bg-[#5E5E68] px-5 py-2.5 min-w-full text-white text-sm font-semibold rounded-xl hover:bg-amber-100 hover:text-red-800 transition-colors duration-200 text-center">FILTER BY</button>
           </div>

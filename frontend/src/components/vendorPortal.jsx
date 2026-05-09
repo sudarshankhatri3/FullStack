@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 
 const vendorList = [
-  { photo: "./vendors.png", title: "Vendors" },
-  { photo: "./vAnaly.png", title: "Analytics" },
-  { photo: "./vList.png", title: "Orders" },
-  { photo: "./vSetting.png", title: "Settings" },
+  { photo: "./vendors.png", title: "Vendors", path:"" },
+  { photo: "./vAnaly.png", title: "Analytics",  path:"/vendorAnalytic", },
+  { photo: "./vList.png", title: "Orders", path: "/orders" },
+  { photo: "./vSetting.png", title: "Settings", path: "/settings" },
 ];
-
 export default function AsideBar() {
   return (
     <aside className="min-h-screen w-50 p-3 bg-[#F3F4F5] flex flex-col gap-24">
@@ -24,7 +23,7 @@ export default function AsideBar() {
         </div>
         <div className="flex flex-col gap-3">
           {vendorList.map((vendorList, index) => (
-            <Link
+            <Link to={vendorList.path}
               key={index}
               className="p-4 w-56 h-12 flex   items-center gap-3"
             >

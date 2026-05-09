@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Pie, PieChart, Tooltip } from "recharts";
+import Profile from "../components/profile";
 import {
   BarChart,
   Bar,
@@ -107,6 +108,7 @@ export default function VendorDashboard() {
 
   return (
     <div>
+      <Profile/>
       <div className="bg-[#FCF8FF] p-6 flex flex-wrap sm:flex-nowrap items-center gap-6">
         <div className="border-b-blue-300 p-6 h-50 w-full sm:w-1/2 lg:w-1/4 rounded-xl bg-[#FFFFFF] flex flex-col gap-4 border border-[#3182ce] hover:bg-red-50 hover:border-amber-500">
           <img src="..//revenu.png" alt="money" className="w-9 h-8" />
