@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const vendorList = [
   { photo: "./vendors.png", title: "Vendors", path:"" },
-  { photo: "./vAnaly.png", title: "Analytics",  path:"/vendorAnalytic", },
+  { photo: "./vAnaly.png", title: "Analytics",  path:"/vendorAnalysis"},
   { photo: "./vList.png", title: "Orders", path: "/orders" },
   { photo: "./vSetting.png", title: "Settings", path: "/settings" },
 ];
