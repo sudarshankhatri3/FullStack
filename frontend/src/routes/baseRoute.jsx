@@ -11,6 +11,7 @@ import VendorDetails from "../pages/vendorDetails.jsx";
 import Order from "../pages/order.jsx";
 import BarChartExample from "../pages/vendorAnalytic.jsx";
 import VendorDashboard from "../pages/vendorAnalytic.jsx";
+import Profile from "../components/profile.jsx";
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
   {
     path:"/vendorAnalytic",
     element:<BarChartExample/>,
+  },
+  {
+    path:"profile",
+    element:<Profile/>
   },
   {
     path:"/vendorDash",
