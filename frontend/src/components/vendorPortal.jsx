@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const vendorList = [
   { photo: "./vendors.png", title: "Vendors", path:"" },
   { photo: "./vAnaly.png", title: "Analytics",  path:"/vendorAnalysis"},
-  { photo: "./vList.png", title: "Orders", path: "/orders" },
+  { photo: "./vList.png", title: "Orders", path: "/vendorOrder" },
   { photo: "./vSetting.png", title: "Settings", path: "/settings" },
 ];
 export default function AsideBar() {

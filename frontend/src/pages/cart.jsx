@@ -15,6 +15,7 @@ export default function Cart() {
             return
         }
         console.log(response.ok)
+        setCarts((prev)=>prev.filter((item)=>item.id!=userId))
         
     } catch (error) {
         console.log(error)

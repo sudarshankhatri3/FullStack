@@ -12,6 +12,7 @@ import Order from "../pages/order.jsx";
 import VendorDashboard from "../pages/vendorAnalytic.jsx";
 import VendorOrder from "../pages/vendorsOrder.jsx";
 import Cart from "../pages/cart.jsx";
+import ProductView from "../pages/viewProduct.jsx";
 
 
 
@@ -53,12 +54,16 @@ const router = createBrowserRouter([
     element:<VendorDashboard/>
   },
   {
-    path:"vendorOrder",
+    path:"/vendorOrder",
     element:<VendorOrder/>
   },
   {
     path:"carts",
     element:<Cart/>
+  },
+  {
+    path:"/viewProduct/:userId",
+    element:<ProductView/>
   },
   {
     path: "*",

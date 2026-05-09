@@ -35,7 +35,7 @@ function Product() {
     <div className="bg-[#F3F3F6]  min-h-screen sm:flex-nowrap p-6 grid grid-cols-4 gap-3">
         
       {product.map((prod) => (
-        <div
+        <Link to={`viewProduct/${prod.id}`}
           key={prod.id}
           className="bg-[#F3F3F6] w-full  p-6  border border-amber-500 rounded-xl shadow-sm flex flex-col  gap-4"
         >
@@ -51,7 +51,7 @@ function Product() {
           
           <p className="text-[#111111] font-light text-sm">{prod.description}</p>
         
-        </div>
+        </Link>
       ))}
     </div>
     </>

@@ -22,7 +22,7 @@ export default function VendorDetails() {
         alert(error)
         return
       }
-      alert(response.ok)
+      setProduct((prev)=>prev.filter((item)=>item.id!=userId))
     } catch (error) {
       alert (error)
     }
