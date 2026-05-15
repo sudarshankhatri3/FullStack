@@ -2,7 +2,7 @@ import "../app.css";
 import { useState, useEffect } from "react";
 import VendorProduct from "./vendorProduct";
 import { Link } from "react-router-dom";
-import AsideBar from "../components/vendorPortal";
+import AsideBar from "../components/vendor/vendorPortal";
 import Profile from "../components/profile";
 export default function VendorDetails() {
   const [product, setProduct] = useState([]);

@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import "../app.css"
-import Delivery from "../components/delivery";
+import Delivery from "../components/customer/delivery";
 
 export default function Order() {
   const { id } = useParams();
