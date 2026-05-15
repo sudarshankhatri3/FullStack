@@ -1,25 +1,23 @@
 import React from "react";
 import { Route } from "react-router";
 import { createBrowserRouter } from "react-router";
-import LandingPage from "../pages/landingPage.jsx";
-import SignPage from "../pages/signup";
-import LoginPage from "../pages/login";
-import Product from "../pages/product";
+import LandingPage from "../pages/commonPage/landingPage.jsx";
+import SignPage from "../pages/commonPage/signup.jsx";
+import LoginPage from "../pages/commonPage/login";
+import Product from "../pages/vendorPage/product.jsx";
 import DashBoard from "../pages/dashBoard.jsx";
-import VendorProduct from "../pages/vendorProduct.jsx";
-import VendorDetails from "../pages/vendorDetails.jsx";
-import Order from "../pages/order.jsx";
-import VendorDashboard from "../pages/vendorAnalytic.jsx";
-import VendorOrder from "../pages/vendorsOrder.jsx";
-import Cart from "../pages/cart.jsx";
-import ProductView from "../pages/viewProduct.jsx";
-
-
+import VendorProduct from "../pages/vendorPage/product.jsx";
+import VendorDetails from "../pages/vendorPage/vendorDetails.jsx";
+import Order from "../pages/customerPage/order.jsx";
+import VendorDashboard from "../pages/vendorPage/vendorAnalytic.jsx";
+import VendorOrder from "../pages/vendorPage/vendorsOrder.jsx";
+import Cart from "../pages/customerPage/cart.jsx";
+import ProductView from "../pages/vendorPage/viewProduct.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage/>,
+    element: <LandingPage />,
   },
   {
     path: "/signUp",
@@ -35,35 +33,35 @@ const router = createBrowserRouter([
   },
   {
     path: "/vendorProduct",
-    element: <VendorProduct/>,
+    element: <VendorProduct />,
   },
   {
-    path:"/order/:id",
-    element:<Order/>
+    path: "/order/:id",
+    element: <Order />,
   },
   {
     path: "/customerDashboard",
     element: <DashBoard />,
   },
   {
-    path:"/vendorPortal",
-    element:<VendorDetails/>,
+    path: "/vendorPortal",
+    element: <VendorDetails />,
   },
   {
-    path:"/vendorAnalysis",
-    element:<VendorDashboard/>
+    path: "/vendorAnalysis",
+    element: <VendorDashboard />,
   },
   {
-    path:"/vendorOrder",
-    element:<VendorOrder/>
+    path: "/vendorOrder",
+    element: <VendorOrder />,
   },
   {
-    path:"carts",
-    element:<Cart/>
+    path: "carts",
+    element: <Cart />,
   },
   {
-    path:"/viewProduct/:userId",
-    element:<ProductView/>
+    path: "/viewProduct/:userId",
+    element: <ProductView />,
   },
   {
     path: "*",
@@ -71,5 +69,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-
-export default router
+export default router;

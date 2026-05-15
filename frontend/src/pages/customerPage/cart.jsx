@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Profile from "../components/profile";
 
 export default function Cart() {
   const [cart, setCarts] = useState([]);

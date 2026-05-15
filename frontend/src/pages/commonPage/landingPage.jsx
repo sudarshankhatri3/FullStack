@@ -1,44 +1,43 @@
-import Footer from "../components/common/footer";
+import Footer from "../../components/common/footer";
 import { Link } from "react-router";
 
 export default function SovereignMarketplaceUI() {
   const flashSaleProducts = [
     {
-      name: 'Wireless Headphones',
-      price: '$249.00',
+      name: "Wireless Headphones",
+      price: "$249.00",
       image:
-        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop',
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop",
     },
     {
-      name: 'Smart Watch Series',
-      price: '$159.00',
+      name: "Smart Watch Series",
+      price: "$159.00",
       image:
-        'https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1200&auto=format&fit=crop',
+        "https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1200&auto=format&fit=crop",
     },
     {
-      name: 'Running Shoes',
-      price: '$129.00',
+      name: "Running Shoes",
+      price: "$129.00",
       image:
-        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop',
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop",
     },
     {
-      name: 'Minimal Lamp',
-      price: '$89.00',
+      name: "Minimal Lamp",
+      price: "$89.00",
       image:
-        'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop',
+        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop",
     },
     {
-      name: 'Gaming Keyboard',
-      price: '$110.00',
+      name: "Gaming Keyboard",
+      price: "$110.00",
       image:
-        'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=1200&auto=format&fit=crop',
+        "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=1200&auto=format&fit=crop",
     },
   ];
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f5f5f7] p-2 sm:p-4 font-sans text-gray-900">
       <div className="mx-auto flex max-w-7xl flex-col gap-5 rounded-3xl bg-white p-2 sm:p-4 shadow-xl lg:flex-row">
-
         {/* Sidebar */}
         <aside className="hidden w-64 rounded-3xl bg-[#f8f8fb] p-5 lg:block">
           <div className="mb-8 flex items-center gap-2">
@@ -57,12 +56,12 @@ export default function SovereignMarketplaceUI() {
 
             <nav className="space-y-3">
               {[
-                'Electronics',
-                'Home',
-                'Fashion',
-                'Gaming',
-                'Sports',
-                'Books',
+                "Electronics",
+                "Home",
+                "Fashion",
+                "Gaming",
+                "Sports",
+                "Books",
               ].map((item) => (
                 <button
                   key={item}
@@ -90,10 +89,8 @@ export default function SovereignMarketplaceUI() {
 
         {/* Main Content */}
         <main className="flex-1 overflow-hidden rounded-3xl bg-[#fcfcfd] p-1 sm:p-2">
-
           {/* Navbar */}
           <div className="mb-6 flex flex-col gap-4 rounded-3xl bg-white p-3 sm:p-4 shadow-sm lg:flex-row lg:items-center lg:justify-between">
-
             {/* Menu */}
             <div className="flex items-center gap-4 overflow-x-auto whitespace-nowrap text-xs font-medium text-gray-600 sm:gap-6 sm:text-sm">
               <button className="text-indigo-600">Best Sellers</button>
@@ -104,14 +101,19 @@ export default function SovereignMarketplaceUI() {
 
             {/* Right Side */}
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-
               {/* Login Signup Buttons */}
               <div className="flex gap-3">
-                <Link to="/login" className="rounded-2xl border border-gray-200 bg-white px-5 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-100">
+                <Link
+                  to="/login"
+                  className="rounded-2xl border border-gray-200 bg-white px-5 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-100"
+                >
                   Login
                 </Link>
 
-                <Link to="/signUp" className="rounded-2xl bg-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-indigo-700">
+                <Link
+                  to="/signUp"
+                  className="rounded-2xl bg-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-indigo-700"
+                >
                   Sign Up
                 </Link>
               </div>
@@ -132,7 +134,6 @@ export default function SovereignMarketplaceUI() {
 
           {/* Hero Section */}
           <section className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#041622] via-[#072738] to-[#0f473c] p-5 text-white shadow-lg sm:p-8 lg:h-[420px]">
-
             <div className="relative z-10 max-w-xl pt-4 sm:pt-6">
               <span className="rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold uppercase tracking-wide">
                 Limited Offer
@@ -143,8 +144,8 @@ export default function SovereignMarketplaceUI() {
               </h1>
 
               <p className="mt-5 text-sm text-gray-300 sm:text-base lg:text-lg">
-                Precision-engineered tech for the modern creator.
-                Exceptional quality, handcrafted for simplicity.
+                Precision-engineered tech for the modern creator. Exceptional
+                quality, handcrafted for simplicity.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -167,7 +168,6 @@ export default function SovereignMarketplaceUI() {
 
           {/* Flash Sale */}
           <section className="mt-8">
-
             <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 className="text-2xl font-bold">Flash Sale</h2>
@@ -216,7 +216,6 @@ export default function SovereignMarketplaceUI() {
 
           {/* Portfolio Section */}
           <section className="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-3">
-
             {/* Large Card */}
             <div className="relative overflow-hidden rounded-[32px] lg:col-span-2">
               <img
@@ -233,8 +232,8 @@ export default function SovereignMarketplaceUI() {
                 </h3>
 
                 <p className="mt-2 max-w-md text-sm text-gray-200">
-                  Discover premium setups designed for creators, developers,
-                  and professionals.
+                  Discover premium setups designed for creators, developers, and
+                  professionals.
                 </p>
 
                 <button className="mt-5 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-gray-200">
@@ -245,7 +244,6 @@ export default function SovereignMarketplaceUI() {
 
             {/* Right Cards */}
             <div className="grid gap-5">
-
               <div className="relative overflow-hidden rounded-[28px] bg-gray-900 text-white">
                 <img
                   src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop"
@@ -281,7 +279,7 @@ export default function SovereignMarketplaceUI() {
           </section>
         </main>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

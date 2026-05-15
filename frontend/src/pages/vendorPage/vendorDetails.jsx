@@ -1,4 +1,3 @@
-import "../app.css";
 import { useState, useEffect } from "react";
 import VendorProduct from "./vendorProduct";
 import { Link } from "react-router-dom";

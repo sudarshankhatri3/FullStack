@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Pie, PieChart, Tooltip } from "recharts";
-import Profile from "../components/profile";
+// import Profile from "../components/profile";
 import {
   BarChart,
   Bar,
