@@ -1,7 +1,6 @@
-import "../app.css";
 import React from "react";
 import { useContext } from "react";
-import Charts from "../components/chart";
+// import Charts from "../components/chart";
 
 const asideBar = [
   {

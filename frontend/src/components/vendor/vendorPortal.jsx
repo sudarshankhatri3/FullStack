@@ -39,7 +39,7 @@ export default function AsideBar() {
         </div>
       </div>
 
-      <Link to={{pathname:"/vendorProduct"}}  className="mt-auto w-full h-14 bg-[#1A146B] text-white flex items-center justify-center rounded-lg">
+      <Link to={{pathname:"/addProduct"}}  className="mt-auto w-full h-14 bg-[#1A146B] text-white flex items-center justify-center rounded-lg">
         <button className="text-[#FFFFFF] items-center font-semibold text-xl">Add Product</button>
       </Link>
     </aside>

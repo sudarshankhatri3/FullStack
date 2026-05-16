@@ -1,5 +1,6 @@
 import Footer from "../../components/common/footer";
 import { Link } from "react-router";
+import "../../app.css";
 
 export default function SovereignMarketplaceUI() {
   const flashSaleProducts = [
@@ -63,13 +64,13 @@ export default function SovereignMarketplaceUI() {
                 "Sports",
                 "Books",
               ].map((item) => (
-                <button
+                <a
                   key={item}
                   className="flex w-full items-center rounded-2xl px-4 py-3 text-sm font-medium text-gray-700 transition hover:bg-white hover:shadow"
                 >
                   <span className="mr-3 h-2 w-2 rounded-full bg-indigo-500"></span>
                   {item}
-                </button>
+                </a>
               ))}
             </nav>
           </div>
@@ -93,10 +94,10 @@ export default function SovereignMarketplaceUI() {
           <div className="mb-6 flex flex-col gap-4 rounded-3xl bg-white p-3 sm:p-4 shadow-sm lg:flex-row lg:items-center lg:justify-between">
             {/* Menu */}
             <div className="flex items-center gap-4 overflow-x-auto whitespace-nowrap text-xs font-medium text-gray-600 sm:gap-6 sm:text-sm">
-              <button className="text-indigo-600">Best Sellers</button>
-              <button>Deals</button>
-              <button>New Releases</button>
-              <button>Gift Cards</button>
+              <a href="" className="text-indigo-600">Best Sellers</a>
+              <a href="#">Deals</a>
+              <a href="">New Releases</a>
+              <a href="">Gift Cards</a>
             </div>
 
             {/* Right Side */}
