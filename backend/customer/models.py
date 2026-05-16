@@ -3,6 +3,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 from product.models import products
 from accounts.models import signUpModel
 from django.core.validators import MinValueValidator,MaxValueValidator
+from django.core.exceptions import ValidationError
 import random
 
 
@@ -23,7 +24,7 @@ PAYMENT_STATUS_CHOICES = [
     ("SUCCESS", "Success"),
     ("FAILED", "Failed"),
     ("CANCELLED", "Cancelled"),
-    ("REFUNDED", "Refunded"),
+    ("REFUNDED", "Refunded")
 ]
 
 
@@ -67,6 +68,35 @@ class UserProfile(models.Model):
         return f'{self.first_name}+{self.last_name}'
     
 
+#class delivery information model 
+class DeliveryInformation(models.Model):
+    slug=models.SlugField(max_length=255,null=False,blank=True)
+    building_no=models.CharField(max_length=200,null=False)
+    colony=models.CharField(max_length=200,null=False)
+    province=models.CharField(max_length=244,choices=stateChoice)
+    district=models.CharField(max_length=255,null=True)
+    city=models.CharField(max_length=255,null=False)
+    area=models.CharField(max_length=255,null=False)
+    address=models.CharField(max_length=255,null=False)
+    zip=models.CharField(max_length=10,null=True)
+    label=models.CharField(max_length=20,choices=label_data,default="Home")
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+
+
+    def save(self,*args,**kwargs):
+        # return the slug field
+        if self.slug is None:
+            return f"Delivery_info-{self.colony}-{slugId()}"
+        
+        
+
+        super().save(*args,**kwargs)
+
+    def __str__(self):
+        return f"Delivery Information" +self.province
+    
+
 
 # model  for order products 
 class ProductOrder(models.Model):
@@ -75,10 +105,22 @@ class ProductOrder(models.Model):
     slug = models.SlugField(max_length=255, null=True, blank=True)
     quantity=models.PositiveIntegerField(default=1,validators=[MinValueValidator(1),MaxValueValidator(100)])
     total_price=models.PositiveIntegerField()
-    shipping_address=models.CharField(max_length=300)
+    shipping_address=models.ForeignKey(DeliveryInformation,on_delete=models.CASCADE)
     payment_status=models.CharField(max_length=50,choices=PAYMENT_STATUS_CHOICES)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
+
+
+    def save(self,*args, **kwargs):
+        if self.quantity>0:
+            self.total_price=self.product.price*self.quantity
+            self.total_price-=(self.total_price*self.product.discount_per)/100 
+
+        if self.product.stock>0 and self.product.stock>=self.quantity:
+            self.product.stock-=self.quantity
+        else:
+            raise ValidationError(f'{self.product.stock} product in stock')
+        super().save(*args, **kwargs)
 
 
     def __str__(self):
@@ -131,38 +173,7 @@ class ProductReview(models.Model):
     def __str__(self):
         return self.comment
     
-#class delivery information model 
-class DeliveryInformation(models.Model):
-    slug=models.SlugField(max_length=255,null=False,blank=True)
-    phone_number=PhoneNumberField(max_length=15,null=False,blank=False)
-    building_no=models.CharField(max_length=200,null=False)
-    colony=models.CharField(max_length=200,null=False)
-    province=models.CharField(max_length=244,choices=stateChoice)
-    district=models.CharField(max_length=255,null=True)
-    city=models.CharField(max_length=255,null=False)
-    area=models.CharField(max_length=255,null=False)
-    address=models.CharField(max_length=255,null=False)
-    zip=models.CharField(max_length=10,null=True)
-    label=models.CharField(max_length=20,choices=label_data,default="Home")
-    created_at=models.DateTimeField(auto_now_add=True)
-    updated_at=models.DateTimeField(auto_now=True)
 
-
-    def save(self):
-        # return the slug field
-        if self.slug is None:
-            return f"Delivery_info-{self.colony}-{slugId()}"
-        
-        
-
-        return super().save()
-
-
-
-
-
-    def __str__(self):
-        return f"Delivery Information" +self.province
     
 
 #commont for user 
@@ -186,10 +197,12 @@ class CartModel(models.Model):
     updated_at=models.DateTimeField(auto_now=True)
 
 
-    def save(self,*args, **kwargs):
-        print(self.product.image)
+    def save(self,*args,**kwargs):
         if self.quantity>0:
             self.total_price=self.product.price*self.quantity
+
+        if self.product.stock<self.quantity:
+            raise ValidationError(f'quantity is more than stock')
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -199,8 +212,6 @@ class CartModel(models.Model):
 # payment models for customer
 class paymentModel(models.Model):
     pass
-
-
 
 
     

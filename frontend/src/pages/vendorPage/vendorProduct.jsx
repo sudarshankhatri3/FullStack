@@ -1,8 +1,7 @@
 import React from "react";
-import Headers from "../components/headers";
 import { useState, useEffect } from "react";
 import { FileUploader } from "react-drag-drop-files";
-import "../app.css";
+import "../../app.css";
 
 const productList = {
   product_owner: 1,
